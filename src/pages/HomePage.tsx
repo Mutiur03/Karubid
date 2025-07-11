@@ -1,6 +1,29 @@
-// The exported code uses Tailwind CSS. Install Tailwind CSS in your dev environment to ensure all styles work.
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Building2, Palette, Sparkles, Settings, Award, Clock, Handshake, ArrowRight, MapPin, Mail, Phone, Clock as ClockIcon, Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
+
+const quickLinks = [
+    {
+        name: 'Home',
+        action: () => window.scrollTo({ top: 0, behavior: 'smooth' }),
+    },
+    {
+        name: 'Services',
+        action: () => { const el = document.getElementById('services'); if (el) el.scrollIntoView({ behavior: 'smooth' }); },
+    },
+    {
+        name: 'Projects',
+        action: () => { const el = document.getElementById('projects'); if (el) el.scrollIntoView({ behavior: 'smooth' }); },
+    },
+    {
+        name: 'About',
+        action: () => { const el = document.getElementById('about'); if (el) el.scrollIntoView({ behavior: 'smooth' }); },
+    },
+    {
+        name: 'Contact',
+        action: () => { const el = document.getElementById('contact'); if (el) el.scrollIntoView({ behavior: 'smooth' }); },
+    }
+];
 
 const HomePage = () => {
     const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -120,255 +143,309 @@ const HomePage = () => {
     }, [location.hash]);
     return (
         <div className="min-h-screen bg-white">
-            {/* Navigation */}
-
             {/* Hero Section */}
-            <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
-                <div
-                    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                    style={{
-                        backgroundImage: `url('https://readdy.ai/api/search-image?query=modern%20luxury%20corporate%20office%20interior%20with%20elegant%20navy%20blue%20and%20gold%20accents%20professional%20business%20environment%20sophisticated%20design%20elements%20clean%20minimalist%20aesthetic&width=1440&height=1024&seq=hero1&orientation=landscape')`
-                    }}
-                >
-                    <div className="absolute inset-0 bg-[#2C3E50]/80"></div>
-                </div>
-                <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-                    <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-                        We Make a Dream
-                    </h1>
-                    <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
-                        Premium technical services, interior design, and cleaning solutions for discerning clients in Dubai and beyond
-                    </p>
-                    <button
-                        onClick={() => {
-                            const element = document.getElementById('contact');
-                            if (element) {
-                                element.scrollIntoView({ behavior: 'smooth' });
-                            }
-                        }}
-                        className="bg-[#FF6B47] text-white px-8 py-4 text-lg rounded-lg hover:bg-[#FF5A36] transition-all duration-300 transform hover:scale-105 cursor-pointer whitespace-nowrap"
-                    >
-                        Start Your Project
-                    </button>
+            <section id="home" className="pt-20 sm:pt-24 pb-12 sm:pb-20 bg-gradient-to-br from-gray-100 to-gray-50">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                    <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-[70vh] sm:min-h-[80vh]">
+                        <div className="text-center lg:text-left order-2 lg:order-1">
+                            <div className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-[#FF7A6B]/10 text-[#FF7A6B] rounded-full text-xs sm:text-sm font-medium mb-4 sm:mb-6">
+                                <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 inline mr-1 sm:mr-2" />
+                                Premium Services in Dubai
+                            </div>
+                            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#1E3A5F] mb-4 sm:mb-6 leading-tight">
+                                We Make Your
+                                <span className="text-[#FF7A6B] block">Dream Reality</span>
+                            </h1>
+                            <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed px-4 lg:px-0">
+                                Transform your spaces with our premium interior design, technical services, and professional cleaning solutions.
+                            </p>
+                            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 px-4 lg:px-0">
+                                <button
+                                    onClick={() => {
+                                        const element = document.getElementById('contact');
+                                        if (element) {
+                                            element.scrollIntoView({ behavior: 'smooth' });
+                                        }
+                                    }}
+                                    className="bg-[#FF7A6B] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl hover:bg-[#FF6B58] transition-all duration-300 transform hover:scale-105 font-semibold text-sm sm:text-base"
+                                >
+                                    Start Your Project
+                                </button>
+                                <button
+                                    onClick={() => {
+                                        const element = document.getElementById('projects');
+                                        if (element) {
+                                            element.scrollIntoView({ behavior: 'smooth' });
+                                        }
+                                    }}
+                                    className="border-2 border-[#1E3A5F] text-[#1E3A5F] px-6 sm:px-8 py-3 sm:py-4 rounded-xl hover:bg-[#1E3A5F] hover:text-white transition-all duration-300 font-semibold text-sm sm:text-base"
+                                >
+                                    View Portfolio
+                                </button>
+                            </div>
+                        </div>
+                        <div className="relative order-1 lg:order-2 px-4 lg:px-0">
+                            <div className="bg-white rounded-3xl shadow-2xl overflow-hidden transform rotate-1 lg:rotate-2 hover:rotate-0 transition-transform duration-500">
+                                <img
+                                    src="https://readdy.ai/api/search-image?query=modern%20luxury%20corporate%20office%20interior%20with%20elegant%20navy%20blue%20and%20gold%20accents%20professional%20business%20environment%20sophisticated%20design%20elements%20clean%20minimalist%20aesthetic&width=1440&height=1024&seq=hero1&orientation=landscape')"
+                                    alt="Modern Interior Design"
+                                    className="w-full h-64 sm:h-80 lg:h-96 object-cover"
+                                />
+                            </div>
+                            <div className="absolute -bottom-4 -left-2 sm:-bottom-6 sm:-left-6 bg-[#FF7A6B] text-white p-4 sm:p-6 rounded-2xl shadow-xl">
+                                <div className="text-2xl sm:text-3xl font-bold">100+</div>
+                                <div className="text-xs sm:text-sm opacity-90">Projects Completed</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
+
             {/* Services Section */}
-            <section id="services" className="py-20 bg-[#2C3E50] scroll-mt-16">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="text-center mb-16">
-                        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Our Premium Services</h2>
-                        <p className="text-xl text-white/80 max-w-3xl mx-auto">
-                            Delivering excellence across interior design, technical services, and professional cleaning solutions
+            <section id="services" className="py-12 sm:py-16 lg:py-20 bg-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                    <div className="text-center mb-12 sm:mb-16">
+                        <div className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-[#FF7A6B]/10 text-[#FF7A6B] rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">
+                            Our Services
+                        </div>
+                        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E3A5F] mb-4 sm:mb-6 px-4">
+                            What We Offer
+                        </h2>
+                        <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
+                            Comprehensive solutions for all your interior design, technical, and cleaning needs
                         </p>
                     </div>
-                    <div className="grid md:grid-cols-3 gap-8">
-                        <Link to="/interior" className="bg-white p-8 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer">
-                            <div className="text-[#FF6B47] text-5xl mb-6 text-center">
-                                <i className="fas fa-palette"></i>
+
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 px-4">
+                        <Link to="/interior" className="group bg-white border border-gray-100 p-6 sm:p-8 rounded-2xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                            <div className="bg-[#FF7A6B]/10 w-12 sm:w-16 h-12 sm:h-16 rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-[#FF7A6B] transition-colors duration-300">
+                                <Palette className="w-6 sm:w-8 h-6 sm:h-8 text-[#FF7A6B] group-hover:text-white transition-colors duration-300" />
                             </div>
-                            <h3 className="text-2xl font-bold text-[#2C3E50] mb-4 text-center hover:text-[#FF6B47] transition-colors cursor-pointer">Interior Design</h3>
-                            <p className="text-gray-600 mb-6 text-center leading-relaxed">
-                                Transform your spaces with our sophisticated interior design solutions, blending luxury with functionality for residential and commercial projects.
+                            <h3 className="text-xl sm:text-2xl font-bold text-[#1E3A5F] mb-3 sm:mb-4 group-hover:text-[#FF7A6B] transition-colors">
+                                Interior Design
+                            </h3>
+                            <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
+                                Transform your spaces with sophisticated design solutions that blend luxury with functionality.
                             </p>
-                            <div className="text-center">
-                                <span className="text-[#FF6B47] hover:text-[#FF5A36] font-semibold cursor-pointer">
-                                    Learn More <i className="fas fa-arrow-right ml-2"></i>
-                                </span>
+                            <div className="flex items-center text-[#FF7A6B] font-semibold group-hover:text-[#1E3A5F] transition-colors text-sm sm:text-base">
+                                Learn More
+                                <ArrowRight className="w-3 sm:w-4 h-3 sm:h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
                             </div>
                         </Link>
-                        <div className="bg-white p-8 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer">
-                            <div className="text-[#FF6B47] text-5xl mb-6 text-center">
-                                <i className="fas fa-broom"></i>
+
+                        <div className="group bg-white border border-gray-100 p-6 sm:p-8 rounded-2xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                            <div className="bg-[#FF7A6B]/10 w-12 sm:w-16 h-12 sm:h-16 rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-[#FF7A6B] transition-colors duration-300">
+                                <Sparkles className="w-6 sm:w-8 h-6 sm:h-8 text-[#FF7A6B] group-hover:text-white transition-colors duration-300" />
                             </div>
-                            <h3 className="text-2xl font-bold text-[#2C3E50] mb-4 text-center hover:text-[#FF6B47] transition-colors cursor-pointer">Cleaning Services</h3>
-                            <p className="text-gray-600 mb-6 text-center leading-relaxed">
-                                Professional cleaning services for offices, hotels, and residential properties using eco-friendly products and advanced cleaning techniques.
+                            <h3 className="text-xl sm:text-2xl font-bold text-[#1E3A5F] mb-3 sm:mb-4 group-hover:text-[#FF7A6B] transition-colors">
+                                Cleaning Services
+                            </h3>
+                            <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
+                                Professional cleaning using eco-friendly products and advanced techniques for pristine results.
                             </p>
-                            <div className="text-center">
-                                <button
-                                    onClick={() => {
-                                        const element = document.getElementById('contact');
-                                        if (element) {
-                                            element.scrollIntoView({ behavior: 'smooth' });
-                                        }
-                                    }}
-                                    className="text-[#FF6B47] hover:text-[#FF5A36] font-semibold cursor-pointer"
-                                >
-                                    Learn More <i className="fas fa-arrow-right ml-2"></i>
-                                </button>
+                            <button
+                                onClick={() => {
+                                    const element = document.getElementById('contact');
+                                    if (element) {
+                                        element.scrollIntoView({ behavior: 'smooth' });
+                                    }
+                                }}
+                                className="flex items-center text-[#FF7A6B] font-semibold group-hover:text-[#1E3A5F] transition-colors text-sm sm:text-base"
+                            >
+                                Learn More
+                                <ArrowRight className="w-3 sm:w-4 h-3 sm:h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
+                            </button>
+                        </div>
+
+                        <div className="group bg-white border border-gray-100 p-6 sm:p-8 rounded-2xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 sm:col-span-2 lg:col-span-1">
+                            <div className="bg-[#FF7A6B]/10 w-12 sm:w-16 h-12 sm:h-16 rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-[#FF7A6B] transition-colors duration-300">
+                                <Settings className="w-6 sm:w-8 h-6 sm:h-8 text-[#FF7A6B] group-hover:text-white transition-colors duration-300" />
+                            </div>
+                            <h3 className="text-xl sm:text-2xl font-bold text-[#1E3A5F] mb-3 sm:mb-4 group-hover:text-[#FF7A6B] transition-colors">
+                                Technical Services
+                            </h3>
+                            <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
+                                Complete technical solutions including HVAC, electrical, plumbing, and smart building systems.
+                            </p>
+                            <button
+                                onClick={() => {
+                                    const element = document.getElementById('contact');
+                                    if (element) {
+                                        element.scrollIntoView({ behavior: 'smooth' });
+                                    }
+                                }}
+                                className="flex items-center text-[#FF7A6B] font-semibold group-hover:text-[#1E3A5F] transition-colors text-sm sm:text-base"
+                            >
+                                Learn More
+                                <ArrowRight className="w-3 sm:w-4 h-3 sm:h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Stats Section */}
+            <section id="about" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-100 to-gray-50">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                    <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                        <div className="text-center lg:text-left">
+                            <div className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-[#FF7A6B]/10 text-[#FF7A6B] rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">
+                                Why Choose Us
+                            </div>
+                            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E3A5F] mb-6 sm:mb-8 px-4 lg:px-0">
+                                Excellence in Every Detail
+                            </h2>
+                            <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 px-4 lg:px-0">
+                                We combine expertise, innovation, and dedication to deliver exceptional results that exceed expectations.
+                            </p>
+
+                            <div className="grid grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8 px-4 lg:px-0" id="stats-section">
+                                <div className="text-center">
+                                    <div className="text-3xl sm:text-4xl font-bold text-[#FF7A6B] mb-1 sm:mb-2">{projectsCount}+</div>
+                                    <div className="text-gray-600 text-sm sm:text-base">Projects</div>
+                                </div>
+                                <div className="text-center">
+                                    <div className="text-3xl sm:text-4xl font-bold text-[#FF7A6B] mb-1 sm:mb-2">{clientsCount}+</div>
+                                    <div className="text-gray-600 text-sm sm:text-base">Happy Clients</div>
+                                </div>
+                                <div className="text-center">
+                                    <div className="text-3xl sm:text-4xl font-bold text-[#FF7A6B] mb-1 sm:mb-2">{experienceCount}+</div>
+                                    <div className="text-gray-600 text-sm sm:text-base">Years Experience</div>
+                                </div>
+                                <div className="text-center">
+                                    <div className="text-3xl sm:text-4xl font-bold text-[#FF7A6B] mb-1 sm:mb-2">24/7</div>
+                                    <div className="text-gray-600 text-sm sm:text-base">Support</div>
+                                </div>
                             </div>
                         </div>
-                        <div className="bg-white p-8 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer">
-                            <div className="text-[#FF6B47] text-5xl mb-6 text-center">
-                                <i className="fas fa-cogs"></i>
+
+                        <div className="space-y-4 sm:space-y-6 px-4 lg:px-0">
+                            <div className="flex items-start space-x-3 sm:space-x-4 p-4 sm:p-6 bg-white rounded-2xl shadow-sm">
+                                <div className="bg-[#FF7A6B]/10 w-10 sm:w-12 h-10 sm:h-12 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <Award className="w-5 sm:w-6 h-5 sm:h-6 text-[#FF7A6B]" />
+                                </div>
+                                <div>
+                                    <h3 className="text-lg sm:text-xl font-semibold text-[#1E3A5F] mb-1 sm:mb-2">Premium Quality</h3>
+                                    <p className="text-gray-600 text-sm sm:text-base">Highest standards in every project with attention to detail.</p>
+                                </div>
                             </div>
-                            <h3 className="text-2xl font-bold text-[#2C3E50] mb-4 text-center">Technical Services</h3>
-                            <p className="text-gray-600 mb-6 text-center leading-relaxed">
-                                Comprehensive technical solutions including HVAC systems, electrical work, plumbing, and smart building automation for modern facilities.
-                            </p>
-                            <div className="text-center">
-                                <button
-                                    onClick={() => {
-                                        const element = document.getElementById('contact');
-                                        if (element) {
-                                            element.scrollIntoView({ behavior: 'smooth' });
-                                        }
-                                    }}
-                                    className="text-[#FF6B47] hover:text-[#FF5A36] font-semibold cursor-pointer"
-                                >
-                                    Learn More <i className="fas fa-arrow-right ml-2"></i>
-                                </button>
+
+                            <div className="flex items-start space-x-3 sm:space-x-4 p-4 sm:p-6 bg-white rounded-2xl shadow-sm">
+                                <div className="bg-[#FF7A6B]/10 w-10 sm:w-12 h-10 sm:h-12 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <Clock className="w-5 sm:w-6 h-5 sm:h-6 text-[#FF7A6B]" />
+                                </div>
+                                <div>
+                                    <h3 className="text-lg sm:text-xl font-semibold text-[#1E3A5F] mb-1 sm:mb-2">Timely Delivery</h3>
+                                    <p className="text-gray-600 text-sm sm:text-base">Professional team ensures on-schedule completion.</p>
+                                </div>
+                            </div>
+
+                            <div className="flex items-start space-x-3 sm:space-x-4 p-4 sm:p-6 bg-white rounded-2xl shadow-sm">
+                                <div className="bg-[#FF7A6B]/10 w-10 sm:w-12 h-10 sm:h-12 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <Handshake className="w-5 sm:w-6 h-5 sm:h-6 text-[#FF7A6B]" />
+                                </div>
+                                <div>
+                                    <h3 className="text-lg sm:text-xl font-semibold text-[#1E3A5F] mb-1 sm:mb-2">Trusted Partnership</h3>
+                                    <p className="text-gray-600 text-sm sm:text-base">Building long-term relationships through transparency.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-            {/* Why Choose Us Section */}
-            <section id="about" className="py-20 bg-[#F5F5F5] scroll-mt-16">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="grid md:grid-cols-2 gap-16 items-center">
-                        <div id="stats-section">
-                            <h2 className="text-4xl md:text-5xl font-bold text-[#2C3E50] mb-8">Why Choose KARUBID?</h2>
-                            <div className="space-y-8">
-                                <div className="flex items-center">
-                                    <div className="text-4xl font-bold text-[#FF6B47] mr-4">{projectsCount}+</div>
-                                    <div>
-                                        <div className="text-xl font-semibold text-[#2C3E50]">Projects Completed</div>
-                                        <div className="text-gray-600">Successfully delivered across Dubai</div>
-                                    </div>
-                                </div>
-                                <div className="flex items-center">
-                                    <div className="text-4xl font-bold text-[#FF6B47] mr-4">{clientsCount}+</div>
-                                    <div>
-                                        <div className="text-xl font-semibold text-[#2C3E50]">Happy Clients</div>
-                                        <div className="text-gray-600">Satisfied customers and repeat business</div>
-                                    </div>
-                                </div>
-                                <div className="flex items-center">
-                                    <div className="text-4xl font-bold text-[#FF6B47] mr-4">{experienceCount}+</div>
-                                    <div>
-                                        <div className="text-xl font-semibold text-[#2C3E50]">Years Experience</div>
-                                        <div className="text-gray-600">Expertise in premium services</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div className="space-y-6">
-                                <div className="flex items-start">
-                                    <div className="text-[#FF6B47] text-2xl mr-4 mt-1">
-                                        <i className="fas fa-award"></i>
-                                    </div>
-                                    <div>
-                                        <h3 className="text-xl font-semibold text-[#2C3E50] mb-2">Premium Quality Standards</h3>
-                                        <p className="text-gray-600">We maintain the highest quality standards in every project, ensuring exceptional results that exceed expectations.</p>
-                                    </div>
-                                </div>
-                                <div className="flex items-start">
-                                    <div className="text-[#FF6B47] text-2xl mr-4 mt-1">
-                                        <i className="fas fa-clock"></i>
-                                    </div>
-                                    <div>
-                                        <h3 className="text-xl font-semibold text-[#2C3E50] mb-2">Timely Delivery</h3>
-                                        <p className="text-gray-600">Our professional team ensures all projects are completed on schedule without compromising quality.</p>
-                                    </div>
-                                </div>
-                                <div className="flex items-start">
-                                    <div className="text-[#FF6B47] text-2xl mr-4 mt-1">
-                                        <i className="fas fa-handshake"></i>
-                                    </div>
-                                    <div>
-                                        <h3 className="text-xl font-semibold text-[#2C3E50] mb-2">Trusted Partnership</h3>
-                                        <p className="text-gray-600">Building long-term relationships with clients through transparency, reliability, and exceptional service.</p>
-                                    </div>
-                                </div>
-                                <div className="flex items-start">
-                                    <div className="text-[#FF6B47] text-2xl mr-4 mt-1">
-                                        <i className="fas fa-leaf"></i>
-                                    </div>
-                                    <div>
-                                        <h3 className="text-xl font-semibold text-[#2C3E50] mb-2">Eco-Friendly Approach</h3>
-                                        <p className="text-gray-600">Committed to sustainable practices and environmentally responsible solutions in all our services.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+
             {/* Projects Gallery */}
-            <section id="projects" className="py-20 bg-white scroll-mt-16">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="text-center mb-16">
-                        <h2 className="text-4xl md:text-5xl font-bold text-[#2C3E50] mb-6">Featured Projects</h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Discover our portfolio of exceptional projects showcasing our expertise across all service areas
+            <section id="projects" className="py-12 sm:py-16 lg:py-20 bg-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                    <div className="text-center mb-12 sm:mb-16">
+                        <div className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-[#FF7A6B]/10 text-[#FF7A6B] rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">
+                            Our Work
+                        </div>
+                        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E3A5F] mb-4 sm:mb-6 px-4">
+                            Featured Projects
+                        </h2>
+                        <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
+                            Explore our portfolio of exceptional projects across interior design, technical services, and maintenance
                         </p>
                     </div>
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 px-4">
                         {projects.map((project, index) => (
-                            <div key={index} className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer">
-                                <img
-                                    src={project.image}
-                                    alt={project.title}
-                                    className="w-full h-64 object-cover object-top group-hover:scale-110 transition-transform duration-300"
-                                />
-                                <div className="absolute inset-0 bg-[#2C3E50]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                    <div className="text-center text-white p-6">
-                                        <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                                        <p className="text-[#FF6B47] font-semibold">{project.category}</p>
-                                        <button className="mt-4 bg-[#FF6B47] text-white px-4 py-2 rounded-lg hover:bg-[#FF5A36] transition-colors whitespace-nowrap">
-                                            View Details
-                                        </button>
+                            <div key={index} className="group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300">
+                                <div className="aspect-w-16 aspect-h-12 overflow-hidden">
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                                    />
+                                </div>
+                                <div className="p-4 sm:p-6">
+                                    <div className="inline-block px-2 sm:px-3 py-1 bg-[#FF7A6B]/10 text-[#FF7A6B] text-xs sm:text-sm font-medium rounded-full mb-2 sm:mb-3">
+                                        {project.category}
                                     </div>
+                                    <h3 className="text-lg sm:text-xl font-bold text-[#1E3A5F] mb-2 sm:mb-3 group-hover:text-[#FF7A6B] transition-colors">
+                                        {project.title}
+                                    </h3>
+                                    <button className="flex items-center text-[#1E3A5F] font-semibold group-hover:text-[#FF7A6B] transition-colors text-sm sm:text-base">
+                                        View Details
+                                        <ArrowRight className="w-3 sm:w-4 h-3 sm:h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
+                                    </button>
                                 </div>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
+
             {/* Testimonials */}
-            <section className="py-20 bg-[#2C3E50] scroll-mt-16">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="text-center mb-16">
-                        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Client Testimonials</h2>
-                        <p className="text-xl text-white/80 max-w-3xl mx-auto">
-                            Hear what our valued clients say about their experience with KARUBID Technical Services
-                        </p>
+            <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-100 to-gray-50">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                    <div className="text-center mb-12 sm:mb-16">
+                        <div className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-[#FF7A6B]/10 text-[#FF7A6B] rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">
+                            Testimonials
+                        </div>
+                        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E3A5F] mb-4 sm:mb-6 px-4">
+                            What Our Clients Say
+                        </h2>
                     </div>
-                    <div className="relative max-w-4xl mx-auto">
-                        <div className="bg-white p-8 md:p-12 rounded-lg shadow-xl">
-                            <div className="text-[#FF6B47] text-6xl mb-6 text-center">
-                                <i className="fas fa-quote-left"></i>
-                            </div>
+
+                    <div className="max-w-4xl mx-auto px-4">
+                        <div className="bg-white p-6 sm:p-8 lg:p-12 rounded-3xl shadow-xl">
                             <div className="text-center">
-                                <p className="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed italic">
+                                <div className="flex justify-center mb-4 sm:mb-6">
+                                    {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
+                                        <i key={i} className="fas fa-star text-[#FF7A6B] text-lg sm:text-xl mx-1"></i>
+                                    ))}
+                                </div>
+                                <p className="text-lg sm:text-xl lg:text-2xl text-gray-700 mb-6 sm:mb-8 leading-relaxed italic font-light">
                                     "{testimonials[currentTestimonial].text}"
                                 </p>
-                                <div className="flex items-center justify-center mb-4">
+                                <div className="flex items-center justify-center flex-col sm:flex-row">
                                     <img
                                         src={testimonials[currentTestimonial].image}
                                         alt={testimonials[currentTestimonial].name}
-                                        className="w-16 h-16 rounded-full object-cover object-top mr-4"
+                                        className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover mb-3 sm:mb-0 sm:mr-4"
                                     />
-                                    <div className="text-left">
-                                        <div className="font-bold text-[#2C3E50] text-lg">{testimonials[currentTestimonial].name}</div>
-                                        <div className="text-gray-600">{testimonials[currentTestimonial].company}</div>
+                                    <div className="text-center sm:text-left">
+                                        <div className="font-bold text-[#1E3A5F] text-base sm:text-lg">
+                                            {testimonials[currentTestimonial].name}
+                                        </div>
+                                        <div className="text-gray-600 text-sm sm:text-base">
+                                            {testimonials[currentTestimonial].company}
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="flex justify-center mb-6">
-                                    {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
-                                        <i key={i} className="fas fa-star text-[#FF6B47] text-xl mx-1"></i>
-                                    ))}
                                 </div>
                             </div>
                         </div>
-                        <div className="flex justify-center mt-8 space-x-2">
+
+                        <div className="flex justify-center mt-6 sm:mt-8 space-x-2">
                             {testimonials.map((_, index) => (
                                 <button
                                     key={index}
                                     onClick={() => setCurrentTestimonial(index)}
-                                    className={`w-3 h-3 rounded-full transition-colors cursor-pointer ${index === currentTestimonial ? 'bg-[#FF6B47]' : 'bg-white/30'
+                                    className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${index === currentTestimonial
+                                        ? 'bg-[#FF7A6B] w-6 sm:w-8'
+                                        : 'bg-gray-300 hover:bg-gray-400'
                                         }`}
                                 />
                             ))}
@@ -376,112 +453,138 @@ const HomePage = () => {
                     </div>
                 </div>
             </section>
+
             {/* Contact Section */}
-            <section id="contact" className="py-20 bg-[#F5F5F5] scroll-mt-16">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="text-center mb-16">
-                        <h2 className="text-4xl md:text-5xl font-bold text-[#2C3E50] mb-6">Get In Touch</h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Ready to start your project? Contact us today for a free consultation and discover how we can bring your vision to life
+            <section id="contact" className="py-12 sm:py-16 lg:py-20 bg-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                    <div className="text-center mb-12 sm:mb-16">
+                        <div className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-[#FF7A6B]/10 text-[#FF7A6B] rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">
+                            Get In Touch
+                        </div>
+                        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E3A5F] mb-4 sm:mb-6 px-4">
+                            Start Your Project Today
+                        </h2>
+                        <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
+                            Ready to transform your space? Contact us for a free consultation
                         </p>
                     </div>
-                    <div className="grid md:grid-cols-2 gap-16">
-                        <div>
-                            <form className="space-y-6">
-                                <div>
-                                    <label className="block text-[#2C3E50] font-semibold mb-2">Full Name</label>
-                                    <input
-                                        type="text"
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#FF6B47] text-sm"
-                                        placeholder="Enter your full name"
-                                    />
+
+                    <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+                        <div className="bg-gradient-to-br from-gray-100 to-gray-50 p-6 sm:p-8 rounded-3xl">
+                            <form className="space-y-4 sm:space-y-6">
+                                <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
+                                    <div>
+                                        <label className="block text-[#1E3A5F] font-semibold mb-2 text-sm sm:text-base">Full Name</label>
+                                        <input
+                                            type="text"
+                                            className="w-full px-3 sm:px-4 py-3 sm:py-4 border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF7A6B] focus:ring-2 focus:ring-[#FF7A6B]/20 transition-all text-sm sm:text-base"
+                                            placeholder="Enter your name"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label className="block text-[#1E3A5F] font-semibold mb-2 text-sm sm:text-base">Email</label>
+                                        <input
+                                            type="email"
+                                            className="w-full px-3 sm:px-4 py-3 sm:py-4 border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF7A6B] focus:ring-2 focus:ring-[#FF7A6B]/20 transition-all text-sm sm:text-base"
+                                            placeholder="Enter your email"
+                                        />
+                                    </div>
                                 </div>
                                 <div>
-                                    <label className="block text-[#2C3E50] font-semibold mb-2">Email Address</label>
-                                    <input
-                                        type="email"
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#FF6B47] text-sm"
-                                        placeholder="Enter your email address"
-                                    />
-                                </div>
-                                <div>
-                                    <label className="block text-[#2C3E50] font-semibold mb-2">Phone Number</label>
+                                    <label className="block text-[#1E3A5F] font-semibold mb-2 text-sm sm:text-base">Phone Number</label>
                                     <input
                                         type="tel"
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#FF6B47] text-sm"
-                                        placeholder="Enter your phone number"
+                                        className="w-full px-3 sm:px-4 py-3 sm:py-4 border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF7A6B] focus:ring-2 focus:ring-[#FF7A6B]/20 transition-all text-sm sm:text-base"
+                                        placeholder="Enter your phone"
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-[#2C3E50] font-semibold mb-2">Message</label>
+                                    <label className="block text-[#1E3A5F] font-semibold mb-2 text-sm sm:text-base">Message</label>
                                     <textarea
-                                        rows={5}
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#FF6B47] text-sm resize-none"
-                                        placeholder="Tell us about your project requirements"
+                                        rows={4}
+                                        className="w-full px-3 sm:px-4 py-3 sm:py-4 border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF7A6B] focus:ring-2 focus:ring-[#FF7A6B]/20 transition-all resize-none text-sm sm:text-base"
+                                        placeholder="Tell us about your project"
                                     ></textarea>
                                 </div>
-                                <button className="w-full bg-[#FF6B47] text-white py-3 rounded-lg hover:bg-[#FF5A36] transition-colors font-semibold cursor-pointer whitespace-nowrap">
+                                <button className="w-full bg-[#FF7A6B] text-white py-3 sm:py-4 rounded-xl hover:bg-[#FF6B58] transition-all duration-300 transform hover:scale-105 font-semibold text-base sm:text-lg">
                                     Send Message
                                 </button>
                             </form>
                         </div>
-                        <div className="space-y-8">
+
+                        <div className="space-y-6 sm:space-y-8">
                             <div>
-                                <h3 className="text-2xl font-bold text-[#2C3E50] mb-6">Contact Information</h3>
-                                <div className="space-y-6">
-                                    <div className="flex items-start">
-                                        <div className="text-[#FF6B47] text-2xl mr-4 mt-1">
-                                            <i className="fas fa-map-marker-alt"></i>
+                                <h3 className="text-xl sm:text-2xl font-bold text-[#1E3A5F] mb-6 sm:mb-8">Contact Information</h3>
+                                <div className="space-y-4 sm:space-y-6">
+                                    <div className="flex items-start space-x-3 sm:space-x-4">
+                                        <div className="bg-[#FF7A6B]/10 w-10 sm:w-12 h-10 sm:h-12 rounded-xl flex items-center justify-center flex-shrink-0">
+                                            <MapPin className="w-5 sm:w-6 h-5 sm:h-6 text-[#FF7A6B]" />
                                         </div>
                                         <div>
-                                            <h4 className="font-semibold text-[#2C3E50] mb-1">Office Location</h4>
-                                            <p className="text-gray-600">Dubai, United Arab Emirates</p>
+                                            <h4 className="font-semibold text-[#1E3A5F] mb-1 text-sm sm:text-base">Office Location</h4>
+                                            <p className="text-gray-600 text-sm sm:text-base">Dubai, United Arab Emirates</p>
                                         </div>
                                     </div>
-                                    <div className="flex items-start">
-                                        <div className="text-[#FF6B47] text-2xl mr-4 mt-1">
-                                            <i className="fas fa-envelope"></i>
+
+                                    <div className="flex items-start space-x-3 sm:space-x-4">
+                                        <div className="bg-[#FF7A6B]/10 w-10 sm:w-12 h-10 sm:h-12 rounded-xl flex items-center justify-center flex-shrink-0">
+                                            <Mail className="w-5 sm:w-6 h-5 sm:h-6 text-[#FF7A6B]" />
                                         </div>
                                         <div>
-                                            <h4 className="font-semibold text-[#2C3E50] mb-1">Email Address</h4>
-                                            <p className="text-gray-600">info@karubidtechnical.com</p>
+                                            <h4 className="font-semibold text-[#1E3A5F] mb-1 text-sm sm:text-base">Email Address</h4>
+                                            <p className="text-gray-600 text-sm sm:text-base">info@karubidtechnical.com</p>
                                         </div>
                                     </div>
-                                    <div className="flex items-start">
-                                        <div className="text-[#FF6B47] text-2xl mr-4 mt-1">
-                                            <i className="fas fa-phone"></i>
+
+                                    <div className="flex items-start space-x-3 sm:space-x-4">
+                                        <div className="bg-[#FF7A6B]/10 w-10 sm:w-12 h-10 sm:h-12 rounded-xl flex items-center justify-center flex-shrink-0">
+                                            <Phone className="w-5 sm:w-6 h-5 sm:h-6 text-[#FF7A6B]" />
                                         </div>
                                         <div>
-                                            <h4 className="font-semibold text-[#2C3E50] mb-1">Phone Number</h4>
-                                            <p className="text-gray-600">+971 XX XXX XXXX</p>
+                                            <h4 className="font-semibold text-[#1E3A5F] mb-1 text-sm sm:text-base">Phone Number</h4>
+                                            <p className="text-gray-600 text-sm sm:text-base">+971 XX XXX XXXX</p>
                                         </div>
                                     </div>
-                                    <div className="flex items-start">
-                                        <div className="text-[#FF6B47] text-2xl mr-4 mt-1">
-                                            <i className="fas fa-clock"></i>
+
+                                    <div className="flex items-start space-x-3 sm:space-x-4">
+                                        <div className="bg-[#FF7A6B]/10 w-10 sm:w-12 h-10 sm:h-12 rounded-xl flex items-center justify-center flex-shrink-0">
+                                            <ClockIcon className="w-5 sm:w-6 h-5 sm:h-6 text-[#FF7A6B]" />
                                         </div>
                                         <div>
-                                            <h4 className="font-semibold text-[#2C3E50] mb-1">Business Hours</h4>
-                                            <p className="text-gray-600">Sunday - Thursday: 8:00 AM - 6:00 PM</p>
-                                            <p className="text-gray-600">Friday - Saturday: 9:00 AM - 4:00 PM</p>
+                                            <h4 className="font-semibold text-[#1E3A5F] mb-1 text-sm sm:text-base">Business Hours</h4>
+                                            <p className="text-gray-600 text-sm sm:text-base">Sunday - Thursday: 8AM - 6PM</p>
+                                            <p className="text-gray-600 text-sm sm:text-base">Friday - Saturday: 9AM - 4PM</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
                             <div>
-                                <h4 className="font-semibold text-[#2C3E50] mb-4">Follow Us</h4>
-                                <div className="flex space-x-4">
-                                    <a href="#" className="text-[#FF6B47] hover:text-[#FF5A36] text-2xl cursor-pointer">
-                                        <i className="fab fa-facebook"></i>
+                                <h4 className="font-semibold text-[#1E3A5F] mb-3 sm:mb-4 text-sm sm:text-base">Follow Us</h4>
+                                <div className="flex space-x-3 sm:space-x-4">
+                                    <a
+                                        href="#"
+                                        className="w-10 sm:w-12 h-10 sm:h-12 bg-[#FF7A6B]/10 rounded-xl flex items-center justify-center text-[#FF7A6B] hover:bg-[#FF7A6B] hover:text-white transition-all duration-300"
+                                    >
+                                        <Facebook className="w-4 sm:w-5 h-4 sm:h-5" />
                                     </a>
-                                    <a href="#" className="text-[#FF6B47] hover:text-[#FF5A36] text-2xl cursor-pointer">
-                                        <i className="fab fa-instagram"></i>
+                                    <a
+                                        href="#"
+                                        className="w-10 sm:w-12 h-10 sm:h-12 bg-[#FF7A6B]/10 rounded-xl flex items-center justify-center text-[#FF7A6B] hover:bg-[#FF7A6B] hover:text-white transition-all duration-300"
+                                    >
+                                        <Instagram className="w-4 sm:w-5 h-4 sm:h-5" />
                                     </a>
-                                    <a href="#" className="text-[#FF6B47] hover:text-[#FF5A36] text-2xl cursor-pointer">
-                                        <i className="fab fa-linkedin"></i>
+                                    <a
+                                        href="#"
+                                        className="w-10 sm:w-12 h-10 sm:h-12 bg-[#FF7A6B]/10 rounded-xl flex items-center justify-center text-[#FF7A6B] hover:bg-[#FF7A6B] hover:text-white transition-all duration-300"
+                                    >
+                                        <Linkedin className="w-4 sm:w-5 h-4 sm:h-5" />
                                     </a>
-                                    <a href="#" className="text-[#FF6B47] hover:text-[#FF5A36] text-2xl cursor-pointer">
-                                        <i className="fab fa-twitter"></i>
+                                    <a
+                                        href="#"
+                                        className="w-10 sm:w-12 h-10 sm:h-12 bg-[#FF7A6B]/10 rounded-xl flex items-center justify-center text-[#FF7A6B] hover:bg-[#FF7A6B] hover:text-white transition-all duration-300"
+                                    >
+                                        <Twitter className="w-4 sm:w-5 h-4 sm:h-5" />
                                     </a>
                                 </div>
                             </div>
@@ -489,69 +592,7 @@ const HomePage = () => {
                     </div>
                 </div>
             </section>
-            {/* Footer */}
-            <footer className="bg-[#2C3E50] text-white py-12">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="grid md:grid-cols-4 gap-8">
-                        <div>
-                            <div className="text-2xl font-bold mb-4">KARUBID</div>
-                            <p className="text-white/80 mb-4">
-                                Premium technical services, interior design, and cleaning solutions for discerning clients.
-                            </p>
-                            <div className="flex space-x-4">
-                                <a href="#" className="text-[#FF6B47] hover:text-white cursor-pointer">
-                                    <i className="fab fa-facebook text-xl"></i>
-                                </a>
-                                <a href="#" className="text-[#FF6B47] hover:text-white cursor-pointer">
-                                    <i className="fab fa-instagram text-xl"></i>
-                                </a>
-                                <a href="#" className="text-[#FF6B47] hover:text-white cursor-pointer">
-                                    <i className="fab fa-linkedin text-xl"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div>
-                            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-                            <ul className="space-y-2">
-                                <li><button onClick={() => { window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="text-white/80 hover:text-[#FF6B47] cursor-pointer">Home</button></li>
-                                <li><button onClick={() => { const element = document.getElementById('services'); if (element) { element.scrollIntoView({ behavior: 'smooth' }); } }} className="text-white/80 hover:text-[#FF6B47] cursor-pointer">Services</button></li>
-                                <li><button onClick={() => { const element = document.getElementById('projects'); if (element) { element.scrollIntoView({ behavior: 'smooth' }); } }} className="text-white/80 hover:text-[#FF6B47] cursor-pointer">Projects</button></li>
-                                <li><button onClick={() => { const element = document.getElementById('about'); if (element) { element.scrollIntoView({ behavior: 'smooth' }); } }} className="text-white/80 hover:text-[#FF6B47] cursor-pointer">About</button></li>
-                                <li><button onClick={() => { const element = document.getElementById('contact'); if (element) { element.scrollIntoView({ behavior: 'smooth' }); } }} className="text-white/80 hover:text-[#FF6B47] cursor-pointer">Contact</button></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 className="text-lg font-semibold mb-4">Services</h3>
-                            <ul className="space-y-2">
-                                <li><span className="text-white/80">Interior Design</span></li>
-                                <li><span className="text-white/80">Cleaning Services</span></li>
-                                <li><span className="text-white/80">Technical Services</span></li>
-                                <li><span className="text-white/80">HVAC Systems</span></li>
-                                <li><span className="text-white/80">Maintenance</span></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 className="text-lg font-semibold mb-4">Newsletter</h3>
-                            <p className="text-white/80 mb-4">Subscribe to get updates on our latest projects and services.</p>
-                            <div className="flex">
-                                <input
-                                    type="email"
-                                    placeholder="Your email"
-                                    className="flex-1 px-3 py-2 border-none rounded-lg bg-white/10 text-white placeholder-white/60 focus:outline-none text-sm"
-                                />
-                                <button className="bg-[#FF6B47] text-white px-4 py-2 rounded-lg ml-2 hover:bg-[#FF5A36] cursor-pointer whitespace-nowrap">
-                                    Subscribe
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="border-t border-white/20 mt-8 pt-8 text-center">
-                        <p className="text-white/60">
-                            © 2024 KARUBID Technical Services L.L.C. All rights reserved.
-                        </p>
-                    </div>
-                </div>
-            </footer>
+
         </div>
     );
 };

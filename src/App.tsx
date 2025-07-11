@@ -3,6 +3,7 @@ import { useEffect } from "react"
 import HomePage from "./pages/HomePage"
 import InteriorPage from "./pages/InteriorPage"
 import Navbar from "./components/Navbar"
+import Footer from "./components/Footer"
 
 function App() {
   const location = useLocation();
@@ -24,6 +25,7 @@ function App() {
       <Route path="/settings" element={<Settings />} />
       <Route path="*" element={<NotFound />} /> */}
       </Routes>
+      <Footer />
     </>
   )
 }
