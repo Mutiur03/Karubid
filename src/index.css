@@ -1,1 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 @import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: #F4F4F6;
+  --foreground: #2C2C2E;
+  --card: #FFFFFF;
+  --card-foreground: #2C2C2E;
+  --popover: #FFFFFF;
+  --popover-foreground: #2C2C2E;
+  --primary: #2C2C2E;
+  --primary-foreground: #FFFFFF;
+  --secondary: #E9EAEC;
+  --secondary-foreground: #2C2C2E;
+  --muted: #F4F4F6;
+  --muted-foreground: #A8A8AA;
+  --accent: #FF8866;
+  --accent-foreground: #FFFFFF;
+  --destructive: #FF725E;
+  --border: #E9EAEC;
+  --input: #FFFFFF;
+  --ring: #FF8866;
+  --chart-1: #FF8866;
+  --chart-2: #FF725E;
+  --chart-3: #C0C0C2;
+  --chart-4: #A8A8AA;
+  --chart-5: #E9EAEC;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #2C2C2E;
+  --sidebar-primary: #FF8866;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F4F4F6;
+  --sidebar-accent-foreground: #2C2C2E;
+  --sidebar-border: #E9EAEC;
+  --sidebar-ring: #FF8866;
+}
+
+.dark {
+  --background: #2C2C2E;
+  --foreground: #FFFFFF;
+  --card: #343439;
+  --card-foreground: #FFFFFF;
+  --popover: #343439;
+  --popover-foreground: #FFFFFF;
+  --primary: #FFFFFF;
+  --primary-foreground: #2C2C2E;
+  --secondary: #343439;
+  --secondary-foreground: #FFFFFF;
+  --muted: #343439;
+  --muted-foreground: #C0C0C2;
+  --accent: #FF8866;
+  --accent-foreground: #FFFFFF;
+  --destructive: #FF725E;
+  --border: rgba(200, 200, 194, 0.2);
+  --input: #343439;
+  --ring: #FF8866;
+  --chart-1: #FF8866;
+  --chart-2: #FF725E;
+  --chart-3: #C0C0C2;
+  --chart-4: #A8A8AA;
+  --chart-5: #343439;
+  --sidebar: #2C2C2E;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #FF8866;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #343439;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: rgba(200, 200, 194, 0.2);
+  --sidebar-ring: #FF8866;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* .hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+
+.backdrop-blur-soft {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+
+.focus-ring:focus {
+  outline: none;
+  ring: 2px;
+  ring-color: hsl(var(--accent));
+  ring-opacity: 0.5;
+}
+
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--secondary));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--accent));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--accent) / 0.8);
+}  */

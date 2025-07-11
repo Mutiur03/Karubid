@@ -1,7 +1,7 @@
 import { Instagram, Facebook, Linkedin } from 'lucide-react';
 const Footer = () => {
     return (
-        <footer className="bg-[#2C3E50] text-white py-16">
+        <footer className="bg-[#2e2f34] text-white py-16">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="grid md:grid-cols-4 gap-8 mb-8">
                     <div>
@@ -15,19 +15,19 @@ const Footer = () => {
                                 href="#"
                                 className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center transition-all duration-300"
                             >
-                                <Instagram className="w-5 h-5 text-[#FF6B47] transition-colors duration-300" />
+                                <Instagram className="w-5 h-5 text-[#f47c48] transition-colors duration-300" />
                             </a>
                             <a
                                 href="#"
                                 className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center transition-all duration-300"
                             >
-                                <Facebook className="w-5 h-5 text-[#FF6B47] transition-colors duration-300" />
+                                <Facebook className="w-5 h-5 text-[#f47c48] transition-colors duration-300" />
                             </a>
                             <a
                                 href="#"
                                 className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center transition-all duration-300"
                             >
-                                <Linkedin className="w-5 h-5 text-[#FF6B47] transition-colors duration-300" />
+                                <Linkedin className="w-5 h-5 text-[#f47c48] transition-colors duration-300" />
                             </a>
                         </div>
                     </div>
@@ -57,7 +57,7 @@ const Footer = () => {
                             <li>
                                 <button
                                     onClick={() => { const element = document.getElementById('services'); if (element) { element.scrollIntoView({ behavior: 'smooth' }); } }}
-                                    className="text-white/80 hover:text-[#FF6B47] cursor-pointer"
+                                    className="text-white/80 hover:text-[#f47c48] cursor-pointer"
                                 >
                                     Services
                                 </button>
@@ -65,7 +65,7 @@ const Footer = () => {
                             <li>
                                 <button
                                     onClick={() => { const element = document.getElementById('portfolio'); if (element) { element.scrollIntoView({ behavior: 'smooth' }); } }}
-                                    className="text-white/80 hover:text-[#FF6B47] cursor-pointer"
+                                    className="text-white/80 hover:text-[#f47c48] cursor-pointer"
                                 >
                                     Portfolio
                                 </button>
@@ -73,7 +73,7 @@ const Footer = () => {
                             <li>
                                 <button
                                     onClick={() => { const element = document.getElementById('process'); if (element) { element.scrollIntoView({ behavior: 'smooth' }); } }}
-                                    className="text-white/80 hover:text-[#FF6B47] cursor-pointer"
+                                    className="text-white/80 hover:text-[#f47c48] cursor-pointer"
                                 >
                                     Process
                                 </button>
@@ -81,7 +81,7 @@ const Footer = () => {
                             <li>
                                 <button
                                     onClick={() => { const element = document.getElementById('team'); if (element) { element.scrollIntoView({ behavior: 'smooth' }); } }}
-                                    className="text-white/80 hover:text-[#FF6B47] cursor-pointer"
+                                    className="text-white/80 hover:text-[#f47c48] cursor-pointer"
                                 >
                                     Team
                                 </button>
@@ -89,7 +89,7 @@ const Footer = () => {
                             <li>
                                 <button
                                     onClick={() => { const element = document.getElementById('contact'); if (element) { element.scrollIntoView({ behavior: 'smooth' }); } }}
-                                    className="text-white/80 hover:text-[#FF6B47] cursor-pointer"
+                                    className="text-white/80 hover:text-[#f47c48] cursor-pointer"
                                 >
                                     Contact
                                 </button>
@@ -105,9 +105,9 @@ const Footer = () => {
                             <input
                                 type="email"
                                 placeholder="Your email"
-                                className="w-full px-4 py-3 rounded-lg bg-white/10 text-white placeholder-white/60 border border-white/20 focus:outline-none focus:border-[#FF6B47]"
+                                className="w-full px-4 py-3 rounded-lg bg-white/10 text-white placeholder-white/60 border border-white/20 focus:outline-none focus:border-[#f47c48]"
                             />
-                            <button className="w-full bg-[#FF6B47] text-white py-3 rounded-lg hover:bg-[#FF5A36] transition-colors font-semibold">
+                            <button className="w-full bg-[#f47c48] text-white py-3 rounded-lg hover:bg-[#e6947c] transition-colors font-semibold">
                                 Subscribe
                             </button>
                         </div>

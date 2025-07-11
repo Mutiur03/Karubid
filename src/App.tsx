@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage"
 import InteriorPage from "./pages/InteriorPage"
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function App() {
   const location = useLocation();
