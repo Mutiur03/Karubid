@@ -77,7 +77,7 @@ function Hero() {
                                 >
                                     <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
                                 </motion.div>
-                                Premium Services in Dubai
+                                Premium Services in Dhaka
                             </motion.div>
 
                             {/* Main Heading - Better mobile typography */}
