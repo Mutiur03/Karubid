@@ -10,24 +10,24 @@ import {
 
 export const testimonials = [
   {
-    name: "Ahmed Al-Mansouri",
-    company: "Emirates Real Estate",
+    name: "Rahman Ahmed",
+    company: "Dhaka Properties Ltd",
     rating: 5,
     text: "KARUBID delivered exceptional interior design services for our luxury properties. Their attention to detail and professional approach exceeded our expectations.",
     image:
       "https://readdy.ai/api/search-image?query=professional%20middle%20eastern%20businessman%20in%20elegant%20suit%20smiling%20confidently%20against%20clean%20white%20background%20modern%20corporate%20portrait&width=80&height=80&seq=testimonial1&orientation=squarish",
   },
   {
-    name: "Sarah Johnson",
-    company: "Dubai Marina Hotel",
+    name: "Fatima Khan",
+    company: "Chittagong Business Hotel",
     rating: 5,
     text: "Outstanding technical services and maintenance support. KARUBID team is reliable, efficient, and always delivers on time with highest quality standards.",
     image:
       "https://readdy.ai/api/search-image?query=professional%20businesswoman%20with%20blonde%20hair%20wearing%20navy%20blue%20blazer%20smiling%20warmly%20against%20clean%20white%20background%20corporate%20headshot&width=80&height=80&seq=testimonial2&orientation=squarish",
   },
   {
-    name: "Mohammed Hassan",
-    company: "Gulf Construction Group",
+    name: "Shakil Hassan",
+    company: "Bangladesh Construction Group",
     rating: 5,
     text: "Their cleaning services transformed our commercial spaces. Professional team, eco-friendly approach, and consistent quality make them our preferred partner.",
     image:
@@ -141,7 +141,7 @@ export const contactInfo = [
   {
     icon: MapPin,
     title: "Office Location",
-    content: "Dubai, United Arab Emirates",
+    content: "Dhaka, Bangladesh",
     color: "accent",
   },
   {
@@ -153,14 +153,58 @@ export const contactInfo = [
   {
     icon: Phone,
     title: "Phone Number",
-    content: "+971 XX XXX XXXX",
+    content: "+880 1712 XXX XXX",
     color: "accent",
   },
   {
     icon: ClockIcon,
     title: "Business Hours",
-    content: "Sunday - Thursday: 8AM - 6PM\nFriday - Saturday: 9AM - 4PM",
+    content: "Saturday - Thursday: 9AM - 6PM\nFriday: Closed",
     color: "accent",
+  },
+];
+
+export const cleaningServices = [
+  {
+    title: "Residential Cleaning",
+    description:
+      "Deep cleaning, post-construction cleaning, and routine maintenance",
+    features: [
+      "Deep cleaning services",
+      "Post-construction cleanup",
+      "Routine maintenance cleaning",
+      "Kitchen & bathroom sanitization",
+    ],
+    keyFacts: {
+      experience: "1 year in business",
+      projects: "Over 50 completed projects",
+      satisfaction: "150+ satisfied clients",
+      team: "25 experienced professionals",
+      commitment: "Eco-friendly products",
+      duration: "4-6 hours for residential",
+      rate: "95% satisfaction rate",
+    },
+  },
+  {
+    title: "Commercial Cleaning",
+    description:
+      "Office cleaning, retail store maintenance, and industrial space cleaning",
+    features: [
+      "Office cleaning services",
+      "Retail store maintenance",
+      "Industrial space cleaning",
+      "Professional workspace sanitization",
+    ],
+  },
+  {
+    title: "Specialized Services",
+    description: "Window cleaning, carpet cleaning, and sanitation",
+    features: [
+      "Window cleaning services",
+      "Carpet cleaning solutions",
+      "Specialized sanitation",
+      "Custom cleaning packages",
+    ],
   },
 ];
 

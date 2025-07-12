@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import CleaningPage from "./pages/CleaningPage"
+import TechnicalPage from "./pages/TechnicalPage"
 
 function App() {
   const location = useLocation();
@@ -17,19 +18,22 @@ function App() {
   }, [location.pathname]);
 
   return (
-    <>
+    <div className="min-h-screen w-full overflow-x-hidden">
       <Navbar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/interior" element={<InteriorPage />} />
-        <Route path="/cleaning" element={<CleaningPage />} />
+      <main className="w-full">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/interior" element={<InteriorPage />} />
+          <Route path="/cleaning" element={<CleaningPage />} />
+          <Route path="/technical" element={<TechnicalPage />} />
 
-        {/* <Route path="/chat/:sessionId" element={<Chat />} />
-      <Route path="/settings" element={<Settings />} />
-      <Route path="*" element={<NotFound />} /> */}
-      </Routes>
+          {/* <Route path="/chat/:sessionId" element={<Chat />} />
+        <Route path="/settings" element={<Settings />} />
+        <Route path="*" element={<NotFound />} /> */}
+        </Routes>
+      </main>
       <Footer />
-    </>
+    </div>
   )
 }
 

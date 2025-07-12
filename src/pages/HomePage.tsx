@@ -6,6 +6,8 @@ import Projects from '@/components/HomePage/Projects';
 import Testimonials from '@/components/HomePage/Testimonials';
 import Contact from '@/components/HomePage/Contact';
 import About from '@/components/HomePage/About';
+import WhyChooseUs from '@/components/HomePage/WhyChooseUs';
+import Consultation from '@/components/Consultation';
 
 const HomePage = () => {
     const location = useLocation();
@@ -33,12 +35,17 @@ const HomePage = () => {
             {/* About & Stats Section with counter animations */}
             <About />
 
+            {/* Why Choose Us Section */}
+            <WhyChooseUs />
+
             {/* Enhanced Testimonials Section */}
             <Testimonials />
 
             {/* Enhanced Contact Section */}
             <Contact />
 
+            {/* Consultation Modal */}
+            <Consultation />
         </div>
     );
 };

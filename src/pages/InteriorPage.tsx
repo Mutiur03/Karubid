@@ -1,10 +1,8 @@
-
 import { useState } from "react";
 import {
     Home,
     Building,
     Square,
-    Sofa,
     Palette,
     Gem,
     MessageCircle,
@@ -26,17 +24,17 @@ import {
     Grid3X3,
     X,
 } from "lucide-react";
+import Consultation from "@/components/Consultation";
 
 const InteriorPage = () => {
     const [currentBeforeAfter, setCurrentBeforeAfter] = useState(0);
     const [selectedFilter, setSelectedFilter] = useState("all");
-
-
+    const [selectedPackage, setSelectedPackage] = useState<string | null>(null);
 
     const beforeAfterProjects = [
         {
             title: "Modern Living Room Transformation",
-            location: "Dubai Marina",
+            location: "Dhanmondi, Dhaka",
             before:
                 "https://readdy.ai/api/search-image?query=outdated%20living%20room%20with%20old%20furniture%20beige%20walls%20traditional%20decor%20before%20renovation%20simple%20interior%20space%20needing%20modern%20update&width=600&height=400&seq=before1&orientation=landscape",
             after:
@@ -44,7 +42,7 @@ const InteriorPage = () => {
         },
         {
             title: "Executive Office Redesign",
-            location: "Business Bay",
+            location: "Gulshan, Dhaka",
             before:
                 "https://readdy.ai/api/search-image?query=traditional%20office%20space%20with%20basic%20furniture%20plain%20walls%20outdated%20corporate%20interior%20before%20professional%20renovation%20simple%20workspace&width=600&height=400&seq=before2&orientation=landscape",
             after:
@@ -52,7 +50,7 @@ const InteriorPage = () => {
         },
         {
             title: "Master Bedroom Suite",
-            location: "Palm Jumeirah",
+            location: "Banani, Dhaka",
             before:
                 "https://readdy.ai/api/search-image?query=basic%20bedroom%20with%20simple%20furniture%20plain%20white%20walls%20minimal%20decor%20before%20luxury%20renovation%20standard%20residential%20interior&width=600&height=400&seq=before3&orientation=landscape",
             after:
@@ -62,44 +60,44 @@ const InteriorPage = () => {
 
     const portfolioProjects = [
         {
-            title: "Luxury Penthouse",
+            title: "Luxury Apartment",
             category: "residential",
-            location: "Downtown Dubai",
+            location: "Uttara, Dhaka",
             image:
-                "https://readdy.ai/api/search-image?query=stunning%20luxury%20penthouse%20interior%20with%20floor%20to%20ceiling%20windows%20modern%20furniture%20navy%20blue%20and%20gold%20accents%20sophisticated%20living%20space&width=400&height=300&seq=portfolio1&orientation=landscape",
+                "https://readdy.ai/api/search-image?query=stunning%20luxury%20apartment%20interior%20with%20floor%20to%20ceiling%20windows%20modern%20furniture%20navy%20blue%20and%20gold%20accents%20sophisticated%20living%20space&width=400&height=300&seq=portfolio1&orientation=landscape",
         },
         {
             title: "Corporate Headquarters",
             category: "commercial",
-            location: "Business Bay",
+            location: "Motijheel, Dhaka",
             image:
                 "https://readdy.ai/api/search-image?query=modern%20corporate%20office%20interior%20with%20open%20plan%20design%20professional%20furniture%20navy%20blue%20and%20gold%20color%20scheme%20contemporary%20workspace&width=400&height=300&seq=portfolio2&orientation=landscape",
         },
         {
             title: "Boutique Hotel Lobby",
             category: "commercial",
-            location: "Jumeirah",
+            location: "Chittagong",
             image:
                 "https://readdy.ai/api/search-image?query=elegant%20hotel%20lobby%20with%20luxury%20seating%20marble%20floors%20sophisticated%20lighting%20navy%20blue%20and%20gold%20interior%20design%20hospitality%20space&width=400&height=300&seq=portfolio3&orientation=landscape",
         },
         {
             title: "Family Villa",
             category: "residential",
-            location: "Emirates Hills",
+            location: "Bashundhara, Dhaka",
             image:
                 "https://readdy.ai/api/search-image?query=beautiful%20family%20villa%20interior%20with%20comfortable%20seating%20warm%20lighting%20navy%20blue%20and%20gold%20accents%20elegant%20residential%20design&width=400&height=300&seq=portfolio4&orientation=landscape",
         },
         {
             title: "Restaurant Interior",
             category: "commercial",
-            location: "Dubai Mall",
+            location: "Sylhet",
             image:
                 "https://readdy.ai/api/search-image?query=upscale%20restaurant%20interior%20with%20elegant%20dining%20tables%20sophisticated%20lighting%20navy%20blue%20and%20gold%20color%20scheme%20luxury%20dining%20space&width=400&height=300&seq=portfolio5&orientation=landscape",
         },
         {
             title: "Modern Apartment",
             category: "residential",
-            location: "Dubai Marina",
+            location: "Mirpur, Dhaka",
             image:
                 "https://readdy.ai/api/search-image?query=contemporary%20apartment%20interior%20with%20modern%20furniture%20clean%20lines%20navy%20blue%20and%20gold%20accents%20sophisticated%20residential%20design&width=400&height=300&seq=portfolio6&orientation=landscape",
         },
@@ -107,34 +105,34 @@ const InteriorPage = () => {
 
     const teamMembers = [
         {
-            name: "Sarah Al-Mansouri",
+            name: "Fatima Rahman",
             title: "Lead Interior Designer",
             specialization: "Luxury Residential Design",
-            bio: "With over 12 years of experience in high-end residential projects, Sarah brings a unique blend of traditional Middle Eastern aesthetics and contemporary design principles.",
+            bio: "With over 12 years of experience in high-end residential projects, Fatima brings a unique blend of traditional Bangladeshi aesthetics and contemporary design principles.",
             image:
                 "https://readdy.ai/api/search-image?query=professional%20female%20interior%20designer%20in%20elegant%20business%20attire%20smiling%20confidently%20against%20clean%20white%20background%20creative%20professional%20portrait&width=300&height=400&seq=team1&orientation=portrait",
-            email: "sarah@karubiddesign.com",
-            phone: "+971 50 123 4567",
+            email: "fatima@karubiddesign.com",
+            phone: "+880 1712 345 678",
         },
         {
-            name: "Marcus Thompson",
+            name: "Ahmed Hassan",
             title: "Commercial Design Director",
             specialization: "Corporate & Hospitality",
-            bio: "Marcus specializes in creating functional yet luxurious commercial spaces. His portfolio includes prestigious hotels, offices, and retail environments across the UAE.",
+            bio: "Ahmed specializes in creating functional yet luxurious commercial spaces. His portfolio includes prestigious hotels, offices, and retail environments across Bangladesh.",
             image:
                 "https://readdy.ai/api/search-image?query=professional%20male%20interior%20designer%20in%20navy%20blazer%20smiling%20warmly%20against%20clean%20white%20background%20creative%20director%20portrait&width=300&height=400&seq=team2&orientation=portrait",
-            email: "marcus@karubiddesign.com",
-            phone: "+971 50 234 5678",
+            email: "ahmed@karubiddesign.com",
+            phone: "+880 1812 234 567",
         },
         {
-            name: "Layla Hassan",
+            name: "Nusrat Jahan",
             title: "Senior Design Consultant",
             specialization: "Space Planning & Color Theory",
-            bio: "Layla's expertise in space optimization and color psychology helps create harmonious environments that enhance both functionality and aesthetic appeal.",
+            bio: "Nusrat's expertise in space optimization and color psychology helps create harmonious environments that enhance both functionality and aesthetic appeal.",
             image:
                 "https://readdy.ai/api/search-image?query=elegant%20female%20design%20consultant%20wearing%20professional%20attire%20smiling%20professionally%20against%20clean%20white%20background%20interior%20design%20expert&width=300&height=400&seq=team3&orientation=portrait",
-            email: "layla@karubiddesign.com",
-            phone: "+971 50 345 6789",
+            email: "nusrat@karubiddesign.com",
+            phone: "+880 1912 345 678",
         },
     ];
 
@@ -183,85 +181,10 @@ const InteriorPage = () => {
         },
     ];
 
-    const services = [
-        {
-            title: "Residential Design",
-            description:
-                "Transform your home into a personalized sanctuary with our comprehensive residential design services.",
-            icon: Home,
-            features: [
-                "Space Planning",
-                "Custom Furniture",
-                "Lighting Design",
-                "Color Consultation",
-            ],
-        },
-        {
-            title: "Commercial Design",
-            description:
-                "Create inspiring work environments that enhance productivity and reflect your brand identity.",
-            icon: Building,
-            features: [
-                "Office Planning",
-                "Brand Integration",
-                "Ergonomic Solutions",
-                "Acoustic Design",
-            ],
-        },
-        {
-            title: "Space Planning",
-            description:
-                "Optimize your space layout for maximum functionality and aesthetic appeal.",
-            icon: Square,
-            features: [
-                "Flow Analysis",
-                "Furniture Layout",
-                "Traffic Patterns",
-                "Zoning Solutions",
-            ],
-        },
-        {
-            title: "Custom Furniture",
-            description:
-                "Bespoke furniture pieces designed and crafted specifically for your unique space.",
-            icon: Sofa,
-            features: [
-                "Design Consultation",
-                "Material Selection",
-                "Handcrafted Quality",
-                "Perfect Fit",
-            ],
-        },
-        {
-            title: "Color Consultation",
-            description:
-                "Expert color guidance to create the perfect palette for your interior spaces.",
-            icon: Palette,
-            features: [
-                "Color Psychology",
-                "Trend Analysis",
-                "Lighting Consideration",
-                "Sample Testing",
-            ],
-        },
-        {
-            title: "Material Selection",
-            description:
-                "Curated selection of premium materials and finishes for your design project.",
-            icon: Gem,
-            features: [
-                "Quality Assessment",
-                "Sustainability Focus",
-                "Budget Optimization",
-                "Trend Integration",
-            ],
-        },
-    ];
-
     const pricingPackages = [
         {
             name: "Essential",
-            price: "AED 15,000",
+            price: "৳ 1,50,000",
             description: "Perfect for small spaces and budget-conscious projects",
             features: [
                 "Initial consultation",
@@ -275,7 +198,7 @@ const InteriorPage = () => {
         },
         {
             name: "Premium",
-            price: "AED 35,000",
+            price: "৳ 3,50,000",
             description:
                 "Comprehensive design solution for most residential projects",
             features: [
@@ -292,7 +215,7 @@ const InteriorPage = () => {
         },
         {
             name: "Luxury",
-            price: "AED 75,000",
+            price: "৳ 7,50,000",
             description:
                 "Full-service luxury design with premium materials and finishes",
             features: [
@@ -317,105 +240,161 @@ const InteriorPage = () => {
                 (project) => project.category === selectedFilter,
             );
 
-
+    const handlePackageSelection = (packageName: string) => {
+        setSelectedPackage(packageName);
+        // You can add additional logic here like:
+        // - Opening a contact form
+        // - Redirecting to a checkout page
+        // - Showing a confirmation modal
+        console.log(`Selected package: ${packageName}`);
+    };
 
     return (
         <div className="min-h-screen bg-background">
-
-
-            {/* Hero Section */}
-            {/* <section className="relative h-screen flex items-center justify-center overflow-hidden">
-                <div
-                    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                    style={{
-                        backgroundImage: `url('https://readdy.ai/api/search-image?query=luxurious%20interior%20design%20showcase%20with%20elegant%20living%20room%20navy%20blue%20and%20gold%20accents%20sophisticated%20furniture%20perfect%20lighting%20premium%20residential%20space%20modern%20luxury%20home&width=1440&height=1024&seq=hero1&orientation=landscape')`,
-                    }}
-                >
-                    <div className="absolute inset-0 bg-[#2C3E50]/70"></div>
-                </div>
-                <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-                    <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-                        Interior Design Excellence
-                    </h1>
-                    <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
-                        Transform your spaces with our award-winning interior design
-                        services. From concept to completion, we create environments that
-                        inspire and delight.
-                    </p>
-                    <button
-                        onClick={() => {
-                            const element = document.getElementById('contact');
-                            if (element) {
-                                element.scrollIntoView({ behavior: 'smooth' });
-                            }
-                        }}
-                        className="bg-[#FF6B47] text-white px-8 py-4 text-lg rounded-xl hover:bg-[#FF5A36] transition-all duration-300 transform hover:scale-105 font-semibold"
-                    >
-                        Schedule Consultation
-                    </button>
-                </div>
-            </section> */}
-
             {/* Services Section */}
-            <section id="services" className="py-20 bg-gradient-to-br from-muted to-background mt-16">
+            <section id="services" className="py-20 bg-background">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center mb-16">
                         <div className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4 border border-accent/20">
                             Our Services
                         </div>
                         <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                            Our Design Services
+                            Interior Design and Fit-Out Solutions
                         </h2>
                         <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                            Comprehensive interior design solutions tailored to your unique
-                            style and functional requirements
+                            We transform spaces into aesthetically pleasing and functional environments tailored to your preferences and needs. Our offerings include:
                         </p>
                     </div>
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {services.map((service, index) => (
-                            <div
-                                key={index}
-                                className="group relative bg-card border border-border p-8 rounded-3xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden"
-                            >
-                                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                                <div className="relative bg-gradient-to-br from-accent/10 to-accent/20 w-20 h-20 rounded-3xl flex items-center justify-center mb-6 transition-transform duration-500 transform group-hover:scale-110 group-hover:rotate-3 border border-accent/20">
-                                    <service.icon className="w-8 h-8 text-accent transition-colors duration-500" />
-
-                                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-accent/30 rounded-full transition-colors duration-500"></div>
-                                    <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-accent/20 rounded-full transition-colors duration-500"></div>
-                                </div>
-
-                                <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-accent transition-colors duration-300">
-                                    {service.title}
-                                </h3>
-                                <p className="text-muted-foreground mb-6 leading-relaxed">
-                                    {service.description}
-                                </p>
-                                <ul className="space-y-3 mb-8">
-                                    {service.features.map((feature, idx) => (
-                                        <li key={idx} className="flex items-center text-muted-foreground group-hover:text-foreground transition-colors">
-                                            <div className="w-5 h-5 bg-accent/10 rounded-full flex items-center justify-center mr-3 group-hover:bg-accent/20 transition-colors border border-accent/20">
-                                                <Check className="w-3 h-3 text-accent" />
-                                            </div>
-                                            {feature}
-                                        </li>
-                                    ))}
-                                </ul>
-                                <div className="flex items-center text-accent font-semibold group-hover:text-foreground transition-colors cursor-pointer">
-                                    <span>Learn More</span>
-                                    <div className="ml-2 w-6 h-6 bg-accent/10 rounded-full flex items-center justify-center group-hover:bg-foreground/10 transition-all duration-300 border border-accent/20">
-                                        <ArrowRight className="w-3 h-3 transform group-hover:translate-x-1 transition-transform" />
-                                    </div>
-                                </div>
+                        <div className="group relative bg-card border border-border p-8 rounded-3xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden">
+                            <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div className="relative bg-gradient-to-br from-accent/10 to-accent/20 w-20 h-20 rounded-3xl flex items-center justify-center mb-6 transition-transform duration-500 transform group-hover:scale-110 group-hover:rotate-3 border border-accent/20">
+                                <Lightbulb className="w-8 h-8 text-accent transition-colors duration-500" />
+                                <div className="absolute -top-1 -right-1 w-3 h-3 bg-accent/30 rounded-full transition-colors duration-500"></div>
+                                <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-accent/20 rounded-full transition-colors duration-500"></div>
                             </div>
-                        ))}
+                            <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-accent transition-colors duration-300">
+                                Customized Interior Design
+                            </h3>
+                            <p className="text-muted-foreground mb-6 leading-relaxed">
+                                Conceptualization, 3D rendering, and design consultations tailored to your vision and space requirements.
+                            </p>
+                            <ul className="space-y-3 mb-8">
+                                {["Design Conceptualization", "3D Rendering", "Design Consultations", "Space Planning"].map((feature, idx) => (
+                                    <li key={idx} className="flex items-center text-muted-foreground group-hover:text-foreground transition-colors">
+                                        <div className="w-5 h-5 bg-accent/10 rounded-full flex items-center justify-center mr-3 group-hover:bg-accent/20 transition-colors border border-accent/20">
+                                            <Check className="w-3 h-3 text-accent" />
+                                        </div>
+                                        {feature}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        <div className="group relative bg-card border border-border p-8 rounded-3xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden">
+                            <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div className="relative bg-gradient-to-br from-accent/10 to-accent/20 w-20 h-20 rounded-3xl flex items-center justify-center mb-6 transition-transform duration-500 transform group-hover:scale-110 group-hover:rotate-3 border border-accent/20">
+                                <Hammer className="w-8 h-8 text-accent transition-colors duration-500" />
+                                <div className="absolute -top-1 -right-1 w-3 h-3 bg-accent/30 rounded-full transition-colors duration-500"></div>
+                                <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-accent/20 rounded-full transition-colors duration-500"></div>
+                            </div>
+                            <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-accent transition-colors duration-300">
+                                Fit-Out Services
+                            </h3>
+                            <p className="text-muted-foreground mb-6 leading-relaxed">
+                                Complete fit-out solutions including partitioning, flooring, painting, and cabinet installation.
+                            </p>
+                            <ul className="space-y-3 mb-8">
+                                {["Gypsum Partitioning", "Professional Painting", "Flooring Installation", "Cabinet Installation"].map((feature, idx) => (
+                                    <li key={idx} className="flex items-center text-muted-foreground group-hover:text-foreground transition-colors">
+                                        <div className="w-5 h-5 bg-accent/10 rounded-full flex items-center justify-center mr-3 group-hover:bg-accent/20 transition-colors border border-accent/20">
+                                            <Check className="w-3 h-3 text-accent" />
+                                        </div>
+                                        {feature}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        <div className="group relative bg-card border border-border p-8 rounded-3xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden">
+                            <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div className="relative bg-gradient-to-br from-accent/10 to-accent/20 w-20 h-20 rounded-3xl flex items-center justify-center mb-6 transition-transform duration-500 transform group-hover:scale-110 group-hover:rotate-3 border border-accent/20">
+                                <Square className="w-8 h-8 text-accent transition-colors duration-500" />
+                                <div className="absolute -top-1 -right-1 w-3 h-3 bg-accent/30 rounded-full transition-colors duration-500"></div>
+                                <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-accent/20 rounded-full transition-colors duration-500"></div>
+                            </div>
+                            <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-accent transition-colors duration-300">
+                                Space Optimization
+                            </h3>
+                            <p className="text-muted-foreground mb-6 leading-relaxed">
+                                Maximizing functionality and visual appeal for homes, offices, and retail spaces.
+                            </p>
+                            <ul className="space-y-3 mb-8">
+                                {["Home Optimization", "Office Spaces", "Retail Environments", "Visual Appeal Enhancement"].map((feature, idx) => (
+                                    <li key={idx} className="flex items-center text-muted-foreground group-hover:text-foreground transition-colors">
+                                        <div className="w-5 h-5 bg-accent/10 rounded-full flex items-center justify-center mr-3 group-hover:bg-accent/20 transition-colors border border-accent/20">
+                                            <Check className="w-3 h-3 text-accent" />
+                                        </div>
+                                        {feature}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Key Facts and Figures Section */}
+            <section className="py-20 bg-gray-800 mt-16">
+                <div className="max-w-7xl mx-auto px-6">
+                    <div className="text-center mb-16">
+                        <div className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4 border border-accent/20">
+                            About Us
+                        </div>
+                        <h2 className="text-4xl md:text-5xl font-bold text-background mb-6">
+                            Key Facts and Figures
+                        </h2>
+                        <p className="text-xl text-background/70 max-w-3xl mx-auto mb-8">
+                            Transforming spaces into aesthetically pleasing and functional environments with our expertise and experience
+                        </p>
+                    </div>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div className="text-center bg-background/10 backdrop-blur-sm rounded-3xl p-8 border border-background/20 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                            <div className="text-4xl font-bold text-accent mb-2">10+</div>
+                            <div className="text-background/80">Years in Business across Bangladesh</div>
+                        </div>
+                        <div className="text-center bg-background/10 backdrop-blur-sm rounded-3xl p-8 border border-background/20 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                            <div className="text-4xl font-bold text-accent mb-2">500+</div>
+                            <div className="text-background/80">Projects completed nationwide</div>
+                        </div>
+                        <div className="text-center bg-background/10 backdrop-blur-sm rounded-3xl p-8 border border-background/20 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                            <div className="text-4xl font-bold text-accent mb-2">100+</div>
+                            <div className="text-background/80">Satisfied Clients in Bangladesh</div>
+                        </div>
+                        <div className="text-center bg-background/10 backdrop-blur-sm rounded-3xl p-8 border border-background/20 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                            <div className="text-4xl font-bold text-accent mb-2">25+</div>
+                            <div className="text-background/80">Team of experienced professionals</div>
+                        </div>
+                    </div>
+                    <div className="grid md:grid-cols-3 gap-8 mt-8">
+                        <div className="text-center bg-background/10 backdrop-blur-sm rounded-3xl p-8 border border-background/20 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                            <div className="text-3xl font-bold text-accent mb-2">Sustainability</div>
+                            <div className="text-background/80">Committed to using eco-friendly materials and practices in all projects</div>
+                        </div>
+                        <div className="text-center bg-background/10 backdrop-blur-sm rounded-3xl p-8 border border-background/20 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                            <div className="text-3xl font-bold text-accent mb-2">Quality</div>
+                            <div className="text-background/80">Rigorous quality control measures ensure excellence in every project</div>
+                        </div>
+                        <div className="text-center bg-background/10 backdrop-blur-sm rounded-3xl p-8 border border-background/20 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                            <div className="text-3xl font-bold text-accent mb-2">98%</div>
+                            <div className="text-background/80">Client Satisfaction Rate</div>
+                        </div>
                     </div>
                 </div>
             </section>
 
             {/* Design Process */}
-            <section id="process" className="py-20 bg-background">
+            <section id="process" className="py-20 bg-gradient-to-br from-muted/50 to-background">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center mb-16">
                         <div className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4 border border-accent/20">
@@ -473,7 +452,7 @@ const InteriorPage = () => {
             </section>
 
             {/* Portfolio Showcase */}
-            <section id="portfolio" className="py-20 bg-gradient-to-br from-muted to-background">
+            <section id="portfolio" className="py-20 bg-background">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center mb-16">
                         <div className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4 border border-accent/20">
@@ -578,16 +557,16 @@ const InteriorPage = () => {
             </section>
 
             {/* Before/After Gallery */}
-            <section className="py-20 bg-primary">
+            <section className="py-20 bg-foreground">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center mb-16">
-                        <div className="inline-block px-4 py-2 bg-accent/20 text-accent rounded-full text-sm font-medium mb-4 border border-accent/20">
+                        <div className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4 border border-accent/20">
                             Transformations
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-6">
+                        <h2 className="text-4xl md:text-5xl font-bold text-background mb-6">
                             Transformation Gallery
                         </h2>
-                        <p className="text-xl text-primary-foreground/80 max-w-3xl mx-auto">
+                        <p className="text-xl text-background/70 max-w-3xl mx-auto">
                             Witness the dramatic transformations we create through thoughtful
                             design and expert execution
                         </p>
@@ -671,10 +650,10 @@ const InteriorPage = () => {
                         {teamMembers.map((member, index) => (
                             <div
                                 key={index}
-                                className="group relative bg-card p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden"
+                                className="group relative bg-card p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden border border-border"
                             >
                                 {/* Background pattern */}
-                                <div className="absolute inset-0 bg-gradient-to-br from-[#FF6B47]/5 via-transparent to-[#2C3E50]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                                 <div className="relative text-center mb-6">
                                     <div className="relative inline-block">
@@ -684,11 +663,11 @@ const InteriorPage = () => {
                                             className="w-32 h-40 object-cover rounded-2xl mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-500 transform group-hover:scale-105"
                                         />
                                         {/* Image overlay */}
-                                        <div className="absolute inset-0 bg-gradient-to-t from-[#2C3E50]/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                        <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                                         {/* Decorative elements */}
-                                        <div className="absolute -top-2 -right-2 w-6 h-6 bg-[#FF6B47] rounded-full flex items-center justify-center">
-                                            <Star className="w-3 h-3 text-white" />
+                                        <div className="absolute -top-2 -right-2 w-6 h-6 bg-accent rounded-full flex items-center justify-center">
+                                            <Star className="w-3 h-3 text-accent-foreground" />
                                         </div>
                                     </div>
 
@@ -698,33 +677,33 @@ const InteriorPage = () => {
                                     <p className="text-accent font-semibold mb-1">
                                         {member.title}
                                     </p>
-                                    <div className="inline-flex items-center px-3 py-1 bg-[#FF6B47]/10 text-[#FF6B47] text-sm font-medium rounded-full">
+                                    <div className="inline-flex items-center px-3 py-1 bg-accent/10 text-accent text-sm font-medium rounded-full border border-accent/20">
                                         <Medal className="w-4 h-4 mr-2" />
                                         {member.specialization}
                                     </div>
                                 </div>
 
-                                <p className="relative text-gray-600 text-center mb-6 leading-relaxed group-hover:text-gray-700 transition-colors">
+                                <p className="relative text-muted-foreground text-center mb-6 leading-relaxed group-hover:text-foreground transition-colors">
                                     {member.bio}
                                 </p>
 
                                 <div className="relative space-y-3">
-                                    <div className="flex items-center justify-center text-gray-600 p-2 rounded-lg hover:bg-[#FF6B47]/5 transition-colors">
-                                        <div className="w-8 h-8 bg-[#FF6B47]/10 rounded-full flex items-center justify-center mr-3">
-                                            <Mail className="w-4 h-4 text-[#FF6B47]" />
+                                    <div className="flex items-center justify-center text-muted-foreground p-2 rounded-lg hover:bg-accent/5 transition-colors">
+                                        <div className="w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center mr-3 border border-accent/20">
+                                            <Mail className="w-4 h-4 text-accent" />
                                         </div>
                                         <span className="text-sm">{member.email}</span>
                                     </div>
-                                    <div className="flex items-center justify-center text-gray-600 p-2 rounded-lg hover:bg-[#FF6B47]/5 transition-colors">
-                                        <div className="w-8 h-8 bg-[#FF6B47]/10 rounded-full flex items-center justify-center mr-3">
-                                            <Phone className="w-4 h-4 text-[#FF6B47]" />
+                                    <div className="flex items-center justify-center text-muted-foreground p-2 rounded-lg hover:bg-accent/5 transition-colors">
+                                        <div className="w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center mr-3 border border-accent/20">
+                                            <Phone className="w-4 h-4 text-accent" />
                                         </div>
                                         <span className="text-sm">{member.phone}</span>
                                     </div>
                                 </div>
 
                                 {/* Decorative corner element */}
-                                <div className="absolute top-4 right-4 w-8 h-8 bg-[#FF6B47]/5 rounded-full group-hover:bg-[#FF6B47]/10 transition-colors duration-500"></div>
+                                <div className="absolute top-4 right-4 w-8 h-8 bg-accent/5 rounded-full group-hover:bg-accent/10 transition-colors duration-500 border border-accent/20"></div>
                             </div>
                         ))}
                     </div>
@@ -732,16 +711,16 @@ const InteriorPage = () => {
             </section>
 
             {/* Pricing Packages */}
-            <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+            <section className="py-20 bg-gradient-to-br from-muted/50 to-background">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center mb-16">
-                        <div className="inline-block px-4 py-2 bg-[#FF6B47]/10 text-[#FF6B47] rounded-full text-sm font-medium mb-4">
+                        <div className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4 border border-accent/20">
                             Pricing
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-bold text-[#2C3E50] mb-6">
+                        <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
                             Design Packages
                         </h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
                             Choose the perfect design package that fits your project scope and
                             budget requirements
                         </p>
@@ -750,14 +729,14 @@ const InteriorPage = () => {
                         {pricingPackages.map((pkg, index) => (
                             <div
                                 key={index}
-                                className={`group relative bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden ${pkg.popular ? "ring-2 ring-[#FF6B47] scale-105" : ""}`}
+                                className={`group relative bg-card p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden border border-border ${pkg.popular ? "ring-2 ring-accent scale-105" : ""} ${selectedPackage === pkg.name ? "ring-2 ring-green-500 bg-green-50/50" : ""}`}
                             >
                                 {/* Background gradient */}
-                                <div className="absolute inset-0 bg-gradient-to-br from-[#FF6B47]/3 via-transparent to-[#2C3E50]/3 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <div className="absolute inset-0 bg-gradient-to-br from-accent/3 via-transparent to-primary/3 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                                 {pkg.popular && (
-                                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                                        <div className="bg-gradient-to-r from-[#FF6B47] to-[#FF5A36] text-white px-6 py-2 rounded-xl text-sm font-semibold shadow-lg flex items-center">
+                                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2">
+                                        <div className="bg-gradient-to-r from-accent to-accent/80 text-accent-foreground px-6 py-2 rounded-xl text-sm font-semibold shadow-lg flex items-center">
                                             <Crown className="w-4 h-4 mr-2" />
                                             Most Popular
                                         </div>
@@ -765,31 +744,31 @@ const InteriorPage = () => {
                                 )}
 
                                 <div className="relative text-center mb-8">
-                                    <div className="w-20 h-20 bg-gradient-to-br from-[#FF6B47]/10 to-[#FF6B47]/20 rounded-3xl flex items-center justify-center mx-auto mb-6 transition-all duration-500">
+                                    <div className="w-20 h-20 bg-gradient-to-br from-accent/10 to-accent/20 rounded-3xl flex items-center justify-center mx-auto mb-6 transition-all duration-500">
                                         {index === 0 ? (
-                                            <Gem className="w-8 h-8 text-[#FF6B47] transition-colors duration-500" />
+                                            <Gem className="w-8 h-8 text-accent transition-colors duration-500" />
                                         ) : index === 1 ? (
-                                            <Crown className="w-8 h-8 text-[#FF6B47] transition-colors duration-500" />
+                                            <Crown className="w-8 h-8 text-accent transition-colors duration-500" />
                                         ) : (
-                                            <Star className="w-8 h-8 text-[#FF6B47] transition-colors duration-500" />
+                                            <Star className="w-8 h-8 text-accent transition-colors duration-500" />
                                         )}
                                     </div>
 
-                                    <h3 className="text-2xl font-bold text-[#2C3E50] mb-2 group-hover:text-[#FF6B47] transition-colors">
+                                    <h3 className="text-2xl font-bold text-foreground mb-2 group-hover:text-accent transition-colors">
                                         {pkg.name}
                                     </h3>
-                                    <div className="text-4xl font-bold text-[#FF6B47] mb-4 flex items-center justify-center">
+                                    <div className="text-4xl font-bold text-accent mb-4 flex items-center justify-center">
                                         <span>{pkg.price}</span>
-                                        <span className="text-lg text-gray-500 ml-2">/project</span>
+                                        <span className="text-lg text-muted-foreground ml-2">/project</span>
                                     </div>
-                                    <p className="text-gray-600">{pkg.description}</p>
+                                    <p className="text-muted-foreground">{pkg.description}</p>
                                 </div>
 
                                 <ul className="relative space-y-4 mb-8">
                                     {pkg.features.map((feature, idx) => (
-                                        <li key={idx} className="flex items-center text-gray-600 group-hover:text-gray-700 transition-colors">
-                                            <div className="w-6 h-6 bg-[#FF6B47]/10 rounded-full flex items-center justify-center mr-3 flex-shrink-0 group-hover:bg-[#FF6B47]/20 transition-colors">
-                                                <Check className="w-4 h-4 text-[#FF6B47]" />
+                                        <li key={idx} className="flex items-center text-muted-foreground group-hover:text-foreground transition-colors">
+                                            <div className="w-6 h-6 bg-accent/10 rounded-full flex items-center justify-center mr-3 flex-shrink-0 group-hover:bg-accent/20 transition-colors border border-accent/20">
+                                                <Check className="w-4 h-4 text-accent" />
                                             </div>
                                             <span>{feature}</span>
                                         </li>
@@ -797,25 +776,67 @@ const InteriorPage = () => {
                                 </ul>
 
                                 <button
-                                    // onClick={() => setSelectedPackage(pkg.name.toLowerCase())}
-                                    className={`relative w-full py-4 rounded-3xl font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 ${pkg.popular
-                                        ? "bg-gradient-to-r from-[#FF6B47] to-[#FF5A36] text-white hover:shadow-lg"
-                                        : "bg-white text-[#FF6B47] border-2 border-[#FF6B47] hover:bg-[#FF6B47] hover:text-white"
+                                    onClick={() => handlePackageSelection(pkg.name)}
+                                    className={`relative w-full py-4 rounded-3xl font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 ${selectedPackage === pkg.name
+                                        ? "bg-green-500 text-white hover:bg-green-600"
+                                        : pkg.popular
+                                            ? "bg-gradient-to-r from-accent to-accent/80 text-accent-foreground hover:shadow-lg"
+                                            : "bg-background text-accent border-2 border-accent hover:bg-accent hover:text-accent-foreground"
                                         }`}
                                 >
-                                    <ArrowRight className="w-4 h-4" />
-                                    <span>Select Package</span>
+                                    {selectedPackage === pkg.name ? (
+                                        <>
+                                            <Check className="w-4 h-4" />
+                                            <span>Selected</span>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <ArrowRight className="w-4 h-4" />
+                                            <span>Select Package</span>
+                                        </>
+                                    )}
                                 </button>
 
                                 {/* Decorative elements */}
-                                <div className="absolute top-4 right-4 w-8 h-8 bg-[#FF6B47]/5 rounded-full group-hover:bg-[#FF6B47]/10 transition-colors duration-500"></div>
-                                <div className="absolute bottom-4 left-4 w-6 h-6 bg-[#FF6B47]/5 rounded-full group-hover:bg-[#FF6B47]/10 transition-colors duration-500"></div>
+                                <div className="absolute top-4 right-4 w-8 h-8 bg-accent/5 rounded-full group-hover:bg-accent/10 transition-colors duration-500 border border-accent/20"></div>
+                                <div className="absolute bottom-4 left-4 w-6 h-6 bg-accent/5 rounded-full group-hover:bg-accent/10 transition-colors duration-500 border border-accent/20"></div>
                             </div>
                         ))}
                     </div>
+
+                    {selectedPackage && (
+                        <div className="mt-12 text-center">
+                            <div className="bg-green-50 border border-green-200 rounded-3xl p-6 max-w-md mx-auto">
+                                <div className="flex items-center justify-center mb-4">
+                                    <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                                        <Check className="w-6 h-6 text-white" />
+                                    </div>
+                                </div>
+                                <h3 className="text-xl font-bold text-green-800 mb-2">
+                                    Package Selected!
+                                </h3>
+                                <p className="text-green-700 mb-4">
+                                    You've selected the <strong>{selectedPackage}</strong> package.
+                                </p>
+                                <div className="space-y-3">
+                                    <button className="w-full bg-green-500 text-white py-3 rounded-3xl font-semibold hover:bg-green-600 transition-colors">
+                                        Get Started Now
+                                    </button>
+                                    <button
+                                        onClick={() => setSelectedPackage(null)}
+                                        className="w-full bg-gray-100 text-gray-700 py-3 rounded-3xl font-semibold hover:bg-gray-200 transition-colors"
+                                    >
+                                        Change Selection
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    )}
                 </div>
             </section>
 
+            {/* Consultation Modal */}
+            <Consultation />
         </div>
     );
 };

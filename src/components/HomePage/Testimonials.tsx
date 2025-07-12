@@ -12,7 +12,7 @@ function Testimonials() {
     }, []);
     return (
         <motion.section
-            className="py-16 sm:py-20 bg-gradient-to-br from-secondary/20 via-background to-accent/5"
+            className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-secondary/20 via-background to-accent/5"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -20,14 +20,14 @@ function Testimonials() {
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
                 <motion.div
-                    className="text-center mb-16"
+                    className="text-center mb-12 sm:mb-16"
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, ease: [0.25, 0.25, 0.25, 0.75] }}
                 >
                     <motion.div
-                        className="inline-flex items-center px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4 border border-accent/20"
+                        className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-accent/10 text-accent rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4 border border-accent/20"
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         whileHover={{ scale: 1.05 }}
@@ -35,17 +35,17 @@ function Testimonials() {
                     >
                         Client Reviews
                     </motion.div>
-                    <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6 px-4">
                         What Our Clients Say
                     </h2>
-                    <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                    <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
                         Hear from our satisfied clients about their experience working with KARUBID
                     </p>
                 </motion.div>
 
-                <div className="max-w-4xl mx-auto">
+                <div className="max-w-5xl mx-auto">
                     <motion.div
-                        className="bg-card/90 backdrop-blur-md border border-border p-12 rounded-3xl shadow-2xl relative overflow-hidden"
+                        className="bg-card/90 backdrop-blur-md border border-border p-6 sm:p-8 md:p-10 lg:p-12 rounded-2xl sm:rounded-3xl shadow-2xl relative overflow-hidden"
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{
                             opacity: 1,
@@ -76,7 +76,7 @@ function Testimonials() {
                                     transition={{ duration: 0.5 }}
                                 >
                                     {/* Star Rating with individual animations */}
-                                    <div className="flex justify-center mb-6">
+                                    <div className="flex justify-center mb-4 sm:mb-6">
                                         {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
                                             <motion.div
                                                 key={i}
@@ -85,17 +85,17 @@ function Testimonials() {
                                                 transition={{ delay: i * 0.1, duration: 0.3 }}
                                                 whileHover={{ scale: 1.2 }}
                                             >
-                                                <Star className="w-6 h-6 text-accent fill-current mx-1" />
+                                                <Star className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-accent fill-current mx-0.5 sm:mx-1" />
                                             </motion.div>
                                         ))}
                                     </div>
 
-                                    <blockquote className="text-2xl text-foreground mb-8 leading-relaxed font-light italic">
+                                    <blockquote className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground mb-6 sm:mb-8 leading-relaxed font-light italic px-4 sm:px-0">
                                         "{testimonials[currentTestimonial].text}"
                                     </blockquote>
 
                                     <motion.div
-                                        className="flex items-center justify-center"
+                                        className="flex flex-col sm:flex-row items-center justify-center"
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
                                         transition={{ delay: 0.3 }}
@@ -103,13 +103,13 @@ function Testimonials() {
                                         <img
                                             src={testimonials[currentTestimonial].image}
                                             alt={testimonials[currentTestimonial].name}
-                                            className="w-16 h-16 rounded-full object-cover mr-4 border-2 border-accent/20 shadow-lg"
+                                            className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full object-cover mb-3 sm:mb-0 sm:mr-4 border-2 border-accent/20 shadow-lg"
                                         />
-                                        <div className="text-left">
-                                            <div className="font-bold text-foreground text-lg">
+                                        <div className="text-center sm:text-left">
+                                            <div className="font-bold text-foreground text-sm sm:text-base md:text-lg">
                                                 {testimonials[currentTestimonial].name}
                                             </div>
-                                            <div className="text-muted-foreground">
+                                            <div className="text-muted-foreground text-xs sm:text-sm md:text-base">
                                                 {testimonials[currentTestimonial].company}
                                             </div>
                                         </div>
@@ -120,14 +120,14 @@ function Testimonials() {
                     </motion.div>
 
                     {/* Enhanced Navigation */}
-                    <div className="flex justify-center mt-8 space-x-2">
+                    <div className="flex justify-center mt-6 sm:mt-8 space-x-1.5 sm:space-x-2">
                         {testimonials.map((_, index) => (
                             <motion.button
                                 key={index}
                                 onClick={() => setCurrentTestimonial(index)}
-                                className={`h-3 rounded-full transition-all duration-300 ${index === currentTestimonial
-                                    ? 'bg-accent w-8 shadow-md'
-                                    : 'bg-muted hover:bg-muted-foreground/50 w-3'
+                                className={`h-2.5 sm:h-3 rounded-full transition-all duration-300 touch-manipulation ${index === currentTestimonial
+                                    ? 'bg-accent w-6 sm:w-8 shadow-md'
+                                    : 'bg-muted hover:bg-muted-foreground/50 w-2.5 sm:w-3'
                                     }`}
                                 whileHover={{ scale: 1.2 }}
                                 whileTap={{ scale: 0.9 }}
