@@ -11,7 +11,6 @@ import {
     MessageCircle,
     Lightbulb,
     Compass,
-    // Swatches,
     Hammer,
     Wand2,
     Check,
@@ -37,34 +36,16 @@ import {
     Eye,
     Medal,
     Briefcase,
-    // Filter,
     Grid3X3,
-    // Users,
-    // Award,
-    // Target,
-    // Sparkles,
-    // PlayCircle,
-    // Download,
-    // Share2,
-    // Heart,
-    // BookOpen,
-    // Camera,
-    // Settings,
-    // TrendingUp,
-    // Layers,
-    // Zap,
-    // Globe,
-    // Shield,
-    // CheckCircle,
     X,
-    // Times
+    Menu,
 } from "lucide-react";
 
 const InteriorPage = () => {
     const [currentTestimonial, setCurrentTestimonial] = useState(0);
     const [currentBeforeAfter, setCurrentBeforeAfter] = useState(0);
     const [selectedFilter, setSelectedFilter] = useState("all");
-    // const [selectedPackage, setSelectedPackage] = useState("premium");
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const testimonials = [
         {
@@ -385,7 +366,48 @@ const InteriorPage = () => {
     }, [testimonials.length]);
 
     return (
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen bg-background">
+            {/* Navigation */}
+            <nav className="fixed top-0 w-full bg-card/95 backdrop-blur-sm shadow-sm z-50 border-b border-border">
+                <div className="max-w-7xl mx-auto px-6">
+                    <div className="flex justify-between items-center h-16">
+                        <div className="flex items-center">
+                            <div className="text-2xl font-bold text-foreground">
+                                KARUBID
+                            </div>
+                        </div>
+                        <div className="hidden md:flex items-center space-x-8">
+                            <a href="/" className="text-foreground hover:text-accent transition-colors cursor-pointer">Back to Services</a>
+                            <a href="#services" className="text-foreground hover:text-accent transition-colors cursor-pointer">Our Services</a>
+                            <a href="#process" className="text-foreground hover:text-accent transition-colors cursor-pointer">Process</a>
+                            <a href="#portfolio" className="text-foreground hover:text-accent transition-colors cursor-pointer">Portfolio</a>
+                            <a href="#contact" className="text-foreground hover:text-accent transition-colors cursor-pointer">Contact</a>
+                            <button className="bg-accent text-accent-foreground px-6 py-2 rounded-3xl hover:bg-accent/90 transition-colors cursor-pointer whitespace-nowrap">
+                                Get Quote
+                            </button>
+                        </div>
+                        <button
+                            className="md:hidden cursor-pointer"
+                            onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        >
+                            <Menu className="w-6 h-6 text-foreground" />
+                        </button>
+                    </div>
+                    {/* Mobile Menu */}
+                    {isMenuOpen && (
+                        <div className="md:hidden bg-card border-t border-border">
+                            <div className="px-2 pt-2 pb-3 space-y-1">
+                                <a href="/" className="block px-3 py-2 text-foreground hover:text-accent cursor-pointer">Back to Services</a>
+                                <a href="#services" className="block px-3 py-2 text-foreground hover:text-accent cursor-pointer">Our Services</a>
+                                <a href="#process" className="block px-3 py-2 text-foreground hover:text-accent cursor-pointer">Process</a>
+                                <a href="#portfolio" className="block px-3 py-2 text-foreground hover:text-accent cursor-pointer">Portfolio</a>
+                                <a href="#contact" className="block px-3 py-2 text-foreground hover:text-accent cursor-pointer">Contact</a>
+                            </div>
+                        </div>
+                    )}
+                </div>
+            </nav>
+
             {/* Hero Section */}
             {/* <section className="relative h-screen flex items-center justify-center overflow-hidden">
                 <div
@@ -420,16 +442,16 @@ const InteriorPage = () => {
             </section> */}
 
             {/* Services Section */}
-            <section id="services" className="py-20 bg-gradient-to-br from-gray-50 to-white">
+            <section id="services" className="py-20 bg-gradient-to-br from-muted to-background mt-16">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center mb-16">
-                        <div className="inline-block px-4 py-2 bg-[#FF6B47]/10 text-[#FF6B47] rounded-full text-sm font-medium mb-4">
+                        <div className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4 border border-accent/20">
                             Our Services
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-bold text-[#2C3E50] mb-6">
+                        <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
                             Our Design Services
                         </h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
                             Comprehensive interior design solutions tailored to your unique
                             style and functional requirements
                         </p>
@@ -438,36 +460,36 @@ const InteriorPage = () => {
                         {services.map((service, index) => (
                             <div
                                 key={index}
-                                className="group relative bg-white border border-gray-100 p-8 rounded-3xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden"
+                                className="group relative bg-card border border-border p-8 rounded-3xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden"
                             >
-                                <div className="absolute inset-0 bg-gradient-to-br from-[#FF6B47]/5 via-transparent to-[#2C3E50]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                                <div className="relative bg-gradient-to-br from-[#FF6B47]/10 to-[#FF6B47]/20 w-20 h-20 rounded-3xl flex items-center justify-center mb-6 transition-transform duration-500 transform group-hover:scale-110 group-hover:rotate-3">
-                                    <service.icon className="w-8 h-8 text-[#FF6B47] transition-colors duration-500" />
+                                <div className="relative bg-gradient-to-br from-accent/10 to-accent/20 w-20 h-20 rounded-3xl flex items-center justify-center mb-6 transition-transform duration-500 transform group-hover:scale-110 group-hover:rotate-3 border border-accent/20">
+                                    <service.icon className="w-8 h-8 text-accent transition-colors duration-500" />
 
-                                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-[#FF6B47]/30 rounded-full transition-colors duration-500"></div>
-                                    <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-[#FF6B47]/20 rounded-full transition-colors duration-500"></div>
+                                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-accent/30 rounded-full transition-colors duration-500"></div>
+                                    <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-accent/20 rounded-full transition-colors duration-500"></div>
                                 </div>
 
-                                <h3 className="text-2xl font-bold text-[#2C3E50] mb-4 group-hover:text-[#FF6B47] transition-colors duration-300">
+                                <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-accent transition-colors duration-300">
                                     {service.title}
                                 </h3>
-                                <p className="text-gray-600 mb-6 leading-relaxed">
+                                <p className="text-muted-foreground mb-6 leading-relaxed">
                                     {service.description}
                                 </p>
                                 <ul className="space-y-3 mb-8">
                                     {service.features.map((feature, idx) => (
-                                        <li key={idx} className="flex items-center text-gray-600 group-hover:text-gray-700 transition-colors">
-                                            <div className="w-5 h-5 bg-[#FF6B47]/10 rounded-full flex items-center justify-center mr-3 group-hover:bg-[#FF6B47]/20 transition-colors">
-                                                <Check className="w-3 h-3 text-[#FF6B47]" />
+                                        <li key={idx} className="flex items-center text-muted-foreground group-hover:text-foreground transition-colors">
+                                            <div className="w-5 h-5 bg-accent/10 rounded-full flex items-center justify-center mr-3 group-hover:bg-accent/20 transition-colors border border-accent/20">
+                                                <Check className="w-3 h-3 text-accent" />
                                             </div>
                                             {feature}
                                         </li>
                                     ))}
                                 </ul>
-                                <div className="flex items-center text-[#FF6B47] font-semibold group-hover:text-[#2C3E50] transition-colors cursor-pointer">
+                                <div className="flex items-center text-accent font-semibold group-hover:text-foreground transition-colors cursor-pointer">
                                     <span>Learn More</span>
-                                    <div className="ml-2 w-6 h-6 bg-[#FF6B47]/10 rounded-full flex items-center justify-center group-hover:bg-[#2C3E50]/10 transition-all duration-300">
+                                    <div className="ml-2 w-6 h-6 bg-accent/10 rounded-full flex items-center justify-center group-hover:bg-foreground/10 transition-all duration-300 border border-accent/20">
                                         <ArrowRight className="w-3 h-3 transform group-hover:translate-x-1 transition-transform" />
                                     </div>
                                 </div>
@@ -478,22 +500,22 @@ const InteriorPage = () => {
             </section>
 
             {/* Design Process */}
-            <section id="process" className="py-20 bg-white">
+            <section id="process" className="py-20 bg-background">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center mb-16">
-                        <div className="inline-block px-4 py-2 bg-[#FF6B47]/10 text-[#FF6B47] rounded-full text-sm font-medium mb-4">
+                        <div className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4 border border-accent/20">
                             Our Process
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-bold text-[#2C3E50] mb-6">
+                        <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
                             Our Design Process
                         </h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
                             A systematic approach to creating exceptional interiors from
                             initial concept to final installation
                         </p>
                     </div>
                     <div className="relative">
-                        <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-[#FF6B47] via-[#FF6B47]/50 to-[#FF6B47] hidden lg:block"></div>
+                        <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-accent via-accent/50 to-accent hidden lg:block"></div>
                         <div className="space-y-12">
                             {designProcess.map((step, index) => (
                                 <div
@@ -502,30 +524,30 @@ const InteriorPage = () => {
                                 >
                                     <div className="flex-1 lg:pr-8">
                                         <div
-                                            className={`relative bg-white border border-gray-100 p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${index % 2 === 0 ? "lg:text-right" : "lg:text-left"} group overflow-hidden`}
+                                            className={`relative bg-card border border-border p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${index % 2 === 0 ? "lg:text-right" : "lg:text-left"} group overflow-hidden`}
                                         >
-                                            <div className="absolute inset-0 bg-gradient-to-br from-[#FF6B47]/3 via-transparent to-[#2C3E50]/3 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                            <div className="absolute inset-0 bg-gradient-to-br from-accent/3 via-transparent to-primary/3 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                                             <div className="relative flex items-center mb-6">
                                                 <div
-                                                    className={`bg-gradient-to-br from-[#FF6B47]/10 to-[#FF6B47]/20 w-16 h-16 rounded-2xl flex items-center justify-center mr-4 transition-all duration-500 ${index % 2 === 0 ? "lg:order-2 lg:ml-4 lg:mr-0" : ""}`}
+                                                    className={`bg-gradient-to-br from-accent/10 to-accent/20 w-16 h-16 rounded-2xl flex items-center justify-center mr-4 transition-all duration-500 border border-accent/20 ${index % 2 === 0 ? "lg:order-2 lg:ml-4 lg:mr-0" : ""}`}
                                                 >
-                                                    <step.icon className="w-6 h-6 text-[#FF6B47] transition-colors duration-500" />
+                                                    <step.icon className="w-6 h-6 text-accent transition-colors duration-500" />
                                                 </div>
-                                                <h3 className="text-2xl font-bold text-[#2C3E50] group-hover:text-[#FF6B47] transition-colors duration-300">
+                                                <h3 className="text-2xl font-bold text-foreground group-hover:text-accent transition-colors duration-300">
                                                     {step.title}
                                                 </h3>
                                             </div>
-                                            <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors">
+                                            <p className="text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors">
                                                 {step.description}
                                             </p>
 
-                                            <div className="absolute top-4 right-4 w-8 h-8 bg-[#FF6B47] rounded-full group-hover:bg-[#FF6B47]/10 transition-colors duration-500"></div>
+                                            <div className="absolute top-4 right-4 w-8 h-8 bg-accent/10 rounded-full group-hover:bg-accent/20 transition-colors duration-500 border border-accent/20"></div>
                                         </div>
                                     </div>
-                                    <div className="hidden lg:flex w-16 h-16 bg-gradient-to-br from-[#FF6B47] to-[#FF5A36] rounded-full items-center justify-center text-white font-bold text-xl relative z-10 shadow-lg">
+                                    <div className="hidden lg:flex w-16 h-16 bg-gradient-to-br from-accent to-accent/80 rounded-full items-center justify-center text-accent-foreground font-bold text-xl relative z-10 shadow-lg">
                                         <span>{step.step}</span>
-                                        <div className="absolute inset-0 bg-[#FF6B47] rounded-full animate-ping opacity-20"></div>
+                                        <div className="absolute inset-0 bg-accent rounded-full animate-ping opacity-20"></div>
                                     </div>
                                     <div className="flex-1 lg:pl-8"></div>
                                 </div>
@@ -536,25 +558,25 @@ const InteriorPage = () => {
             </section>
 
             {/* Portfolio Showcase */}
-            <section id="portfolio" className="py-20 bg-gradient-to-br from-gray-50 to-white">
+            <section id="portfolio" className="py-20 bg-gradient-to-br from-muted to-background">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center mb-16">
-                        <div className="inline-block px-4 py-2 bg-[#FF6B47]/10 text-[#FF6B47] rounded-full text-sm font-medium mb-4">
+                        <div className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4 border border-accent/20">
                             Our Work
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-bold text-[#2C3E50] mb-6">
+                        <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
                             Design Portfolio
                         </h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+                        <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
                             Explore our collection of stunning interior design projects across
                             residential and commercial spaces
                         </p>
                         <div className="flex justify-center space-x-4">
                             <button
                                 onClick={() => setSelectedFilter("all")}
-                                className={`group px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center space-x-2 ${selectedFilter === "all"
-                                    ? "bg-[#FF6B47] text-white shadow-lg"
-                                    : "bg-white text-[#2C3E50] border-2 border-[#FF6B47] hover:bg-[#FF6B47] hover:text-white"
+                                className={`group px-6 py-3 rounded-3xl font-semibold transition-all duration-300 flex items-center space-x-2 border ${selectedFilter === "all"
+                                    ? "bg-accent text-accent-foreground shadow-lg border-accent"
+                                    : "bg-card text-foreground border-accent hover:bg-accent hover:text-accent-foreground"
                                     }`}
                             >
                                 <Grid3X3 className="w-4 h-4" />
@@ -562,9 +584,9 @@ const InteriorPage = () => {
                             </button>
                             <button
                                 onClick={() => setSelectedFilter("residential")}
-                                className={`group px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center space-x-2 ${selectedFilter === "residential"
-                                    ? "bg-[#FF6B47] text-white shadow-lg"
-                                    : "bg-white text-[#2C3E50] border-2 border-[#FF6B47] hover:bg-[#FF6B47] hover:text-white"
+                                className={`group px-6 py-3 rounded-3xl font-semibold transition-all duration-300 flex items-center space-x-2 border ${selectedFilter === "residential"
+                                    ? "bg-accent text-accent-foreground shadow-lg border-accent"
+                                    : "bg-card text-foreground border-accent hover:bg-accent hover:text-accent-foreground"
                                     }`}
                             >
                                 <Home className="w-4 h-4" />
@@ -572,9 +594,9 @@ const InteriorPage = () => {
                             </button>
                             <button
                                 onClick={() => setSelectedFilter("commercial")}
-                                className={`group px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center space-x-2 ${selectedFilter === "commercial"
-                                    ? "bg-[#FF6B47] text-white shadow-lg"
-                                    : "bg-white text-[#2C3E50] border-2 border-[#FF6B47] hover:bg-[#FF6B47] hover:text-white"
+                                className={`group px-6 py-3 rounded-3xl font-semibold transition-all duration-300 flex items-center space-x-2 border ${selectedFilter === "commercial"
+                                    ? "bg-accent text-accent-foreground shadow-lg border-accent"
+                                    : "bg-card text-foreground border-accent hover:bg-accent hover:text-accent-foreground"
                                     }`}
                             >
                                 <Building className="w-4 h-4" />
@@ -586,7 +608,7 @@ const InteriorPage = () => {
                         {filteredProjects.map((project, index) => (
                             <div
                                 key={index}
-                                className="group relative overflow-hidden rounded-3xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+                                className="group relative overflow-hidden rounded-3xl bg-card shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-border"
                             >
                                 <div className="aspect-w-16 aspect-h-12 overflow-hidden relative">
                                     <img
@@ -594,43 +616,42 @@ const InteriorPage = () => {
                                         alt={project.title}
                                         className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
                                     />
-                                    {/* Gradient overlay */}
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                                 </div>
-                                <div className="absolute inset-0 bg-[#2C3E50]/90 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                                    <div className="text-center text-white p-6 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+                                <div className="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                                    <div className="text-center text-primary-foreground p-6 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
                                         <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur-sm">
-                                            <Eye className="w-6 h-6 text-white" />
+                                            <Eye className="w-6 h-6 text-primary-foreground" />
                                         </div>
                                         <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                                        <p className="text-[#FF6B47] font-semibold mb-1 flex items-center justify-center">
+                                        <p className="text-accent font-semibold mb-1 flex items-center justify-center">
                                             <MapPin className="w-4 h-4 mr-2" />
                                             {project.location}
                                         </p>
-                                        <p className="text-white/80 text-sm capitalize mb-4">
+                                        <p className="text-primary-foreground/80 text-sm capitalize mb-4">
                                             {project.category}
                                         </p>
-                                        <button className="bg-gradient-to-r from-[#FF6B47] to-[#FF5A36] text-white px-6 py-3 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                                        <button className="bg-gradient-to-r from-accent to-accent/80 text-accent-foreground px-6 py-3 rounded-3xl hover:shadow-lg transition-all duration-300 transform hover:scale-105">
                                             <ArrowRight className="w-4 h-4 mr-2 inline" />
                                             View Details
                                         </button>
                                     </div>
                                 </div>
                                 <div className="p-6">
-                                    <div className="inline-flex items-center px-3 py-1 bg-gradient-to-r from-[#FF6B47]/10 to-[#FF6B47]/20 text-[#FF6B47] text-sm font-medium rounded-full mb-3">
+                                    <div className="inline-flex items-center px-3 py-1 bg-gradient-to-r from-accent/10 to-accent/20 text-accent text-sm font-medium rounded-full mb-3 border border-accent/20">
                                         {project.category === 'residential' ? <Home className="w-4 h-4 mr-2" /> : <Building className="w-4 h-4 mr-2" />}
                                         {project.category}
                                     </div>
-                                    <h3 className="text-xl font-bold text-[#2C3E50] mb-2 group-hover:text-[#FF6B47] transition-colors">
+                                    <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-accent transition-colors">
                                         {project.title}
                                     </h3>
-                                    <p className="text-gray-600 text-sm mb-4 flex items-center">
-                                        <MapPin className="w-4 h-4 text-[#FF6B47] mr-2" />
+                                    <p className="text-muted-foreground text-sm mb-4 flex items-center">
+                                        <MapPin className="w-4 h-4 text-accent mr-2" />
                                         {project.location}
                                     </p>
-                                    <div className="flex items-center text-[#FF6B47] font-semibold group-hover:text-[#2C3E50] transition-colors">
+                                    <div className="flex items-center text-accent font-semibold group-hover:text-foreground transition-colors">
                                         <span>View Details</span>
-                                        <div className="ml-2 w-6 h-6 bg-[#FF6B47]/10 rounded-full flex items-center justify-center group-hover:bg-[#2C3E50]/10 transition-all duration-300">
+                                        <div className="ml-2 w-6 h-6 bg-accent/10 rounded-full flex items-center justify-center group-hover:bg-foreground/10 transition-all duration-300 border border-accent/20">
                                             <ArrowRight className="w-3 h-3 transform group-hover:translate-x-1 transition-transform" />
                                         </div>
                                     </div>
@@ -642,49 +663,49 @@ const InteriorPage = () => {
             </section>
 
             {/* Before/After Gallery */}
-            <section className="py-20 bg-[#2C3E50]">
+            <section className="py-20 bg-primary">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center mb-16">
-                        <div className="inline-block px-4 py-2 bg-[#FF6B47]/20 text-[#FF6B47] rounded-full text-sm font-medium mb-4">
+                        <div className="inline-block px-4 py-2 bg-accent/20 text-accent rounded-full text-sm font-medium mb-4 border border-accent/20">
                             Transformations
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                        <h2 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-6">
                             Transformation Gallery
                         </h2>
-                        <p className="text-xl text-white/80 max-w-3xl mx-auto">
+                        <p className="text-xl text-primary-foreground/80 max-w-3xl mx-auto">
                             Witness the dramatic transformations we create through thoughtful
                             design and expert execution
                         </p>
                     </div>
                     <div className="relative max-w-5xl mx-auto">
-                        <div className="bg-white p-8 rounded-3xl shadow-2xl">
+                        <div className="bg-card p-8 rounded-3xl shadow-2xl border border-border">
                             <div className="grid md:grid-cols-2 gap-8">
                                 <div className="relative group">
-                                    <div className="absolute -top-2 -left-2 bg-gradient-to-r from-red-500 to-red-600 text-white px-4 py-2 rounded-xl text-sm font-semibold z-10">
+                                    <div className="absolute -top-2 -left-2 bg-gradient-to-r from-red-500 to-red-600 text-white px-4 py-2 rounded-3xl text-sm font-semibold z-10">
                                         <X className="w-4 h-4 mr-2 inline" />Before
                                     </div>
                                     <img
                                         src={beforeAfterProjects[currentBeforeAfter].before}
                                         alt="Before"
-                                        className="w-full h-64 object-cover rounded-xl shadow-lg group-hover:shadow-xl transition-shadow duration-300"
+                                        className="w-full h-64 object-cover rounded-3xl shadow-lg group-hover:shadow-xl transition-shadow duration-300"
                                     />
                                 </div>
                                 <div className="relative group">
-                                    <div className="absolute -top-2 -right-2 bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-2 rounded-xl text-sm font-semibold z-10">
+                                    <div className="absolute -top-2 -right-2 bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-2 rounded-3xl text-sm font-semibold z-10">
                                         <Check className="w-4 h-4 mr-2 inline" />After
                                     </div>
                                     <img
                                         src={beforeAfterProjects[currentBeforeAfter].after}
                                         alt="After"
-                                        className="w-full h-64 object-cover rounded-xl shadow-lg group-hover:shadow-xl transition-shadow duration-300"
+                                        className="w-full h-64 object-cover rounded-3xl shadow-lg group-hover:shadow-xl transition-shadow duration-300"
                                     />
                                 </div>
                             </div>
                             <div className="text-center mt-8">
-                                <h3 className="text-2xl font-bold text-[#2C3E50] mb-2">
+                                <h3 className="text-2xl font-bold text-foreground mb-2">
                                     {beforeAfterProjects[currentBeforeAfter].title}
                                 </h3>
-                                <p className="text-[#FF6B47] font-semibold flex items-center justify-center">
+                                <p className="text-accent font-semibold flex items-center justify-center">
                                     <MapPin className="w-4 h-4 mr-2" />
                                     {beforeAfterProjects[currentBeforeAfter].location}
                                 </p>
@@ -697,7 +718,7 @@ const InteriorPage = () => {
                                         prev === 0 ? beforeAfterProjects.length - 1 : prev - 1,
                                     )
                                 }
-                                className="group bg-[#FF6B47] text-white p-4 rounded-xl hover:bg-[#FF5A36] transition-all duration-300 hover:scale-110"
+                                className="group bg-accent text-accent-foreground p-4 rounded-3xl hover:bg-accent/90 transition-all duration-300 hover:scale-110"
                             >
                                 <ChevronLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
                             </button>
@@ -707,7 +728,7 @@ const InteriorPage = () => {
                                         (prev) => (prev + 1) % beforeAfterProjects.length,
                                     )
                                 }
-                                className="group bg-[#FF6B47] text-white p-4 rounded-xl hover:bg-[#FF5A36] transition-all duration-300 hover:scale-110"
+                                className="group bg-accent text-accent-foreground p-4 rounded-3xl hover:bg-accent/90 transition-all duration-300 hover:scale-110"
                             >
                                 <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </button>
@@ -717,16 +738,16 @@ const InteriorPage = () => {
             </section>
 
             {/* Team Section */}
-            <section id="team" className="py-20 bg-white">
+            <section id="team" className="py-20 bg-background">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center mb-16">
-                        <div className="inline-block px-4 py-2 bg-[#FF6B47]/10 text-[#FF6B47] rounded-full text-sm font-medium mb-4">
+                        <div className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4 border border-accent/20">
                             Our Team
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-bold text-[#2C3E50] mb-6">
+                        <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
                             Our Design Team
                         </h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
                             Meet our talented team of interior designers who bring creativity,
                             expertise, and passion to every project
                         </p>
@@ -735,7 +756,7 @@ const InteriorPage = () => {
                         {teamMembers.map((member, index) => (
                             <div
                                 key={index}
-                                className="group relative bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden"
+                                className="group relative bg-card p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden"
                             >
                                 {/* Background pattern */}
                                 <div className="absolute inset-0 bg-gradient-to-br from-[#FF6B47]/5 via-transparent to-[#2C3E50]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -756,10 +777,10 @@ const InteriorPage = () => {
                                         </div>
                                     </div>
 
-                                    <h3 className="text-2xl font-bold text-[#2C3E50] mb-2 group-hover:text-[#FF6B47] transition-colors duration-300">
+                                    <h3 className="text-2xl font-bold text-foreground mb-2 group-hover:text-accent transition-colors duration-300">
                                         {member.name}
                                     </h3>
-                                    <p className="text-[#FF6B47] font-semibold mb-1">
+                                    <p className="text-accent font-semibold mb-1">
                                         {member.title}
                                     </p>
                                     <div className="inline-flex items-center px-3 py-1 bg-[#FF6B47]/10 text-[#FF6B47] text-sm font-medium rounded-full">
@@ -862,7 +883,7 @@ const InteriorPage = () => {
 
                                 <button
                                     // onClick={() => setSelectedPackage(pkg.name.toLowerCase())}
-                                    className={`relative w-full py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 ${pkg.popular
+                                    className={`relative w-full py-4 rounded-3xl font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 ${pkg.popular
                                         ? "bg-gradient-to-r from-[#FF6B47] to-[#FF5A36] text-white hover:shadow-lg"
                                         : "bg-white text-[#FF6B47] border-2 border-[#FF6B47] hover:bg-[#FF6B47] hover:text-white"
                                         }`}
@@ -961,120 +982,119 @@ const InteriorPage = () => {
             </section>
 
             {/* Contact Section */}
-            <section id="contact" className="py-20 bg-white">
+            <section id="contact" className="py-20 bg-background">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center mb-16">
-                        <div className="inline-block px-4 py-2 bg-[#FF6B47]/10 text-[#FF6B47] rounded-full text-sm font-medium mb-4">
+                        <div className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4 border border-accent/20">
                             Get In Touch
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-bold text-[#2C3E50] mb-6">
+                        <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
                             Start Your Design Journey
                         </h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
                             Ready to transform your space? Contact us for a personalized
                             consultation and let's bring your vision to life
                         </p>
                     </div>
                     <div className="grid md:grid-cols-2 gap-16">
-                        <div className="relative bg-gradient-to-br from-gray-50 to-white p-8 rounded-3xl shadow-lg overflow-hidden">
-                            {/* Background pattern */}
-                            <div className="absolute inset-0 bg-gradient-to-br from-[#FF6B47]/3 via-transparent to-[#2C3E50]/3"></div>
+                        <div className="relative bg-gradient-to-br from-muted to-background p-8 rounded-3xl shadow-lg overflow-hidden border border-border">
+                            <div className="absolute inset-0 bg-gradient-to-br from-accent/3 via-transparent to-primary/3"></div>
 
                             <form className="relative space-y-6">
                                 <div className="grid md:grid-cols-2 gap-4">
                                     <div className="group">
-                                        <label className="block text-[#2C3E50] font-semibold mb-2">
-                                            <User className="w-4 h-4 text-[#FF6B47] mr-2 inline" />
+                                        <label className="block text-foreground font-semibold mb-2">
+                                            <User className="w-4 h-4 text-accent mr-2 inline" />
                                             First Name
                                         </label>
                                         <input
                                             type="text"
-                                            className="w-full px-4 py-4 border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B47] focus:ring-2 focus:ring-[#FF6B47]/20 transition-all group-hover:border-gray-300"
+                                            className="w-full px-4 py-4 border border-border rounded-3xl focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all group-hover:border-muted-foreground bg-card"
                                             placeholder="Enter your first name"
                                         />
                                     </div>
                                     <div className="group">
-                                        <label className="block text-[#2C3E50] font-semibold mb-2">
-                                            <User className="w-4 h-4 text-[#FF6B47] mr-2 inline" />
+                                        <label className="block text-foreground font-semibold mb-2">
+                                            <User className="w-4 h-4 text-accent mr-2 inline" />
                                             Last Name
                                         </label>
                                         <input
                                             type="text"
-                                            className="w-full px-4 py-4 border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B47] focus:ring-2 focus:ring-[#FF6B47]/20 transition-all group-hover:border-gray-300"
+                                            className="w-full px-4 py-4 border border-border rounded-3xl focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all group-hover:border-muted-foreground bg-card"
                                             placeholder="Enter your last name"
                                         />
                                     </div>
                                 </div>
                                 <div className="group">
-                                    <label className="block text-[#2C3E50] font-semibold mb-2">
-                                        <Mail className="w-4 h-4 text-[#FF6B47] mr-2 inline" />
+                                    <label className="block text-foreground font-semibold mb-2">
+                                        <Mail className="w-4 h-4 text-accent mr-2 inline" />
                                         Email Address
                                     </label>
                                     <input
                                         type="email"
-                                        className="w-full px-4 py-4 border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B47] focus:ring-2 focus:ring-[#FF6B47]/20 transition-all group-hover:border-gray-300"
+                                        className="w-full px-4 py-4 border border-border rounded-3xl focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all group-hover:border-muted-foreground bg-card"
                                         placeholder="Enter your email address"
                                     />
                                 </div>
                                 <div className="group">
-                                    <label className="block text-[#2C3E50] font-semibold mb-2">
-                                        <Phone className="w-4 h-4 text-[#FF6B47] mr-2 inline" />
+                                    <label className="block text-foreground font-semibold mb-2">
+                                        <Phone className="w-4 h-4 text-accent mr-2 inline" />
                                         Phone Number
                                     </label>
                                     <input
                                         type="tel"
-                                        className="w-full px-4 py-4 border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B47] focus:ring-2 focus:ring-[#FF6B47]/20 transition-all group-hover:border-gray-300"
+                                        className="w-full px-4 py-4 border border-border rounded-3xl focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all group-hover:border-muted-foreground bg-card"
                                         placeholder="Enter your phone number"
                                     />
                                 </div>
                                 <div className="group">
-                                    <label className="block text-[#2C3E50] font-semibold mb-2">
-                                        <Home className="w-4 h-4 text-[#FF6B47] mr-2 inline" />
+                                    <label className="block text-foreground font-semibold mb-2">
+                                        <Home className="w-4 h-4 text-accent mr-2 inline" />
                                         Project Type
                                     </label>
                                     <div className="relative">
-                                        <button className="w-full px-4 py-4 border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B47] focus:ring-2 focus:ring-[#FF6B47]/20 transition-all text-left bg-white cursor-pointer group-hover:border-gray-300">
+                                        <button className="w-full px-4 py-4 border border-border rounded-3xl focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all text-left bg-card cursor-pointer group-hover:border-muted-foreground">
                                             Select project type
                                             <ChevronDown className="w-4 h-4 absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
                                         </button>
                                     </div>
                                 </div>
                                 <div className="group">
-                                    <label className="block text-[#2C3E50] font-semibold mb-2">
-                                        <DollarSign className="w-4 h-4 text-[#FF6B47] mr-2 inline" />
+                                    <label className="block text-foreground font-semibold mb-2">
+                                        <DollarSign className="w-4 h-4 text-accent mr-2 inline" />
                                         Budget Range
                                     </label>
                                     <div className="relative">
-                                        <button className="w-full px-4 py-4 border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B47] focus:ring-2 focus:ring-[#FF6B47]/20 transition-all text-left bg-white cursor-pointer group-hover:border-gray-300">
+                                        <button className="w-full px-4 py-4 border border-border rounded-3xl focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all text-left bg-card cursor-pointer group-hover:border-muted-foreground">
                                             Select budget range
                                             <ChevronDown className="w-4 h-4 absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
                                         </button>
                                     </div>
                                 </div>
                                 <div className="group">
-                                    <label className="block text-[#2C3E50] font-semibold mb-2">
-                                        <Calendar className="w-4 h-4 text-[#FF6B47] mr-2 inline" />
+                                    <label className="block text-foreground font-semibold mb-2">
+                                        <Calendar className="w-4 h-4 text-accent mr-2 inline" />
                                         Project Timeline
                                     </label>
                                     <div className="relative">
-                                        <button className="w-full px-4 py-4 border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B47] focus:ring-2 focus:ring-[#FF6B47]/20 transition-all text-left bg-white cursor-pointer group-hover:border-gray-300">
+                                        <button className="w-full px-4 py-4 border border-border rounded-3xl focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all text-left bg-card cursor-pointer group-hover:border-muted-foreground">
                                             Select timeline
                                             <ChevronDown className="w-4 h-4 absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
                                         </button>
                                     </div>
                                 </div>
                                 <div className="group">
-                                    <label className="block text-[#2C3E50] font-semibold mb-2">
-                                        <Edit className="w-4 h-4 text-[#FF6B47] mr-2 inline" />
+                                    <label className="block text-foreground font-semibold mb-2">
+                                        <Edit className="w-4 h-4 text-accent mr-2 inline" />
                                         Project Description
                                     </label>
                                     <textarea
                                         rows={4}
-                                        className="w-full px-4 py-4 border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B47] focus:ring-2 focus:ring-[#FF6B47]/20 transition-all resize-none group-hover:border-gray-300"
+                                        className="w-full px-4 py-4 border border-border rounded-3xl focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all resize-none group-hover:border-muted-foreground bg-card"
                                         placeholder="Tell us about your design vision and requirements"
                                     ></textarea>
                                 </div>
-                                <button className="w-full bg-gradient-to-r from-[#FF6B47] to-[#FF5A36] text-white py-4 rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105 font-semibold text-lg flex items-center justify-center space-x-2">
+                                <button className="w-full bg-gradient-to-r from-accent to-accent/80 text-accent-foreground py-4 rounded-3xl hover:shadow-lg transition-all duration-300 transform hover:scale-105 font-semibold text-lg flex items-center justify-center space-x-2">
                                     <CalendarCheck className="w-5 h-5" />
                                     <span>Schedule Consultation</span>
                                 </button>
