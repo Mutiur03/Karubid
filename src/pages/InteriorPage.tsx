@@ -1,6 +1,6 @@
 // The exported code uses Tailwind CSS. Install Tailwind CSS in your dev environment to ensure all styles work.
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
     Home,
     Building,
@@ -64,7 +64,7 @@ const InteriorPage = () => {
     const [currentTestimonial, setCurrentTestimonial] = useState(0);
     const [currentBeforeAfter, setCurrentBeforeAfter] = useState(0);
     const [selectedFilter, setSelectedFilter] = useState("all");
-    const [selectedPackage, setSelectedPackage] = useState("premium");
+    // const [selectedPackage, setSelectedPackage] = useState("premium");
 
     const testimonials = [
         {
@@ -861,7 +861,7 @@ const InteriorPage = () => {
                                 </ul>
 
                                 <button
-                                    onClick={() => setSelectedPackage(pkg.name.toLowerCase())}
+                                    // onClick={() => setSelectedPackage(pkg.name.toLowerCase())}
                                     className={`relative w-full py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 ${pkg.popular
                                         ? "bg-gradient-to-r from-[#FF6B47] to-[#FF5A36] text-white hover:shadow-lg"
                                         : "bg-white text-[#FF6B47] border-2 border-[#FF6B47] hover:bg-[#FF6B47] hover:text-white"
@@ -1210,7 +1210,7 @@ const InteriorPage = () => {
             </section>
 
             {/* Footer */}
-           
+
         </div>
     );
 };
