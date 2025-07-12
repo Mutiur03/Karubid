@@ -1,6 +1,5 @@
-// The exported code uses Tailwind CSS. Install Tailwind CSS in your dev environment to ensure all styles work.
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
     Home,
     Building,
@@ -17,62 +16,22 @@ import {
     ArrowRight,
     Star,
     Crown,
-    Quote,
     MapPin,
     Mail,
     Phone,
-    Clock,
-    Instagram,
-    Facebook,
-    Linkedin,
-    User,
-    Calendar,
-    DollarSign,
-    Edit,
-    CalendarCheck,
-    ChevronDown,
     ChevronLeft,
     ChevronRight,
     Eye,
     Medal,
-    Briefcase,
     Grid3X3,
     X,
-    Menu,
 } from "lucide-react";
 
 const InteriorPage = () => {
-    const [currentTestimonial, setCurrentTestimonial] = useState(0);
     const [currentBeforeAfter, setCurrentBeforeAfter] = useState(0);
     const [selectedFilter, setSelectedFilter] = useState("all");
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const testimonials = [
-        {
-            name: "Fatima Al-Zahra",
-            project: "Luxury Villa Renovation",
-            rating: 5,
-            text: "KARUBID transformed our villa into a masterpiece. Their attention to detail and understanding of our vision was exceptional. The team delivered beyond our expectations.",
-            image:
-                "https://readdy.ai/api/search-image?query=elegant%20middle%20eastern%20woman%20in%20professional%20attire%20smiling%20warmly%20against%20clean%20white%20background%20luxury%20interior%20design%20client%20portrait&width=80&height=80&seq=testimonial1&orientation=squarish",
-        },
-        {
-            name: "James Mitchell",
-            project: "Corporate Office Design",
-            rating: 5,
-            text: "Outstanding interior design services for our Dubai headquarters. The space planning and material selection created a perfect balance of functionality and elegance.",
-            image:
-                "https://readdy.ai/api/search-image?query=professional%20businessman%20in%20navy%20suit%20smiling%20confidently%20against%20clean%20white%20background%20corporate%20executive%20portrait&width=80&height=80&seq=testimonial2&orientation=squarish",
-        },
-        {
-            name: "Aisha Rahman",
-            project: "Boutique Hotel Interior",
-            rating: 5,
-            text: "The design team created stunning interiors that perfectly capture our brand identity. Every room tells a story of luxury and comfort. Highly recommended.",
-            image:
-                "https://readdy.ai/api/search-image?query=sophisticated%20businesswoman%20wearing%20elegant%20blazer%20smiling%20professionally%20against%20clean%20white%20background%20hospitality%20industry%20portrait&width=80&height=80&seq=testimonial3&orientation=squarish",
-        },
-    ];
+
 
     const beforeAfterProjects = [
         {
@@ -358,55 +317,11 @@ const InteriorPage = () => {
                 (project) => project.category === selectedFilter,
             );
 
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-        }, 5000);
-        return () => clearInterval(timer);
-    }, [testimonials.length]);
+
 
     return (
         <div className="min-h-screen bg-background">
-            {/* Navigation */}
-            <nav className="fixed top-0 w-full bg-card/95 backdrop-blur-sm shadow-sm z-50 border-b border-border">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="flex justify-between items-center h-16">
-                        <div className="flex items-center">
-                            <div className="text-2xl font-bold text-foreground">
-                                KARUBID
-                            </div>
-                        </div>
-                        <div className="hidden md:flex items-center space-x-8">
-                            <a href="/" className="text-foreground hover:text-accent transition-colors cursor-pointer">Back to Services</a>
-                            <a href="#services" className="text-foreground hover:text-accent transition-colors cursor-pointer">Our Services</a>
-                            <a href="#process" className="text-foreground hover:text-accent transition-colors cursor-pointer">Process</a>
-                            <a href="#portfolio" className="text-foreground hover:text-accent transition-colors cursor-pointer">Portfolio</a>
-                            <a href="#contact" className="text-foreground hover:text-accent transition-colors cursor-pointer">Contact</a>
-                            <button className="bg-accent text-accent-foreground px-6 py-2 rounded-3xl hover:bg-accent/90 transition-colors cursor-pointer whitespace-nowrap">
-                                Get Quote
-                            </button>
-                        </div>
-                        <button
-                            className="md:hidden cursor-pointer"
-                            onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        >
-                            <Menu className="w-6 h-6 text-foreground" />
-                        </button>
-                    </div>
-                    {/* Mobile Menu */}
-                    {isMenuOpen && (
-                        <div className="md:hidden bg-card border-t border-border">
-                            <div className="px-2 pt-2 pb-3 space-y-1">
-                                <a href="/" className="block px-3 py-2 text-foreground hover:text-accent cursor-pointer">Back to Services</a>
-                                <a href="#services" className="block px-3 py-2 text-foreground hover:text-accent cursor-pointer">Our Services</a>
-                                <a href="#process" className="block px-3 py-2 text-foreground hover:text-accent cursor-pointer">Process</a>
-                                <a href="#portfolio" className="block px-3 py-2 text-foreground hover:text-accent cursor-pointer">Portfolio</a>
-                                <a href="#contact" className="block px-3 py-2 text-foreground hover:text-accent cursor-pointer">Contact</a>
-                            </div>
-                        </div>
-                    )}
-                </div>
-            </nav>
+
 
             {/* Hero Section */}
             {/* <section className="relative h-screen flex items-center justify-center overflow-hidden">
@@ -900,336 +815,6 @@ const InteriorPage = () => {
                     </div>
                 </div>
             </section>
-
-            {/* Testimonials */}
-            <section className="py-20 bg-[#2C3E50]">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="text-center mb-16">
-                        <div className="inline-block px-4 py-2 bg-[#FF6B47]/20 text-[#FF6B47] rounded-full text-sm font-medium mb-4">
-                            Testimonials
-                        </div>
-                        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                            Client Testimonials
-                        </h2>
-                        <p className="text-xl text-white/80 max-w-3xl mx-auto">
-                            Hear from our satisfied clients about their interior design
-                            experience with KARUBID
-                        </p>
-                    </div>
-                    <div className="relative max-w-4xl mx-auto">
-                        <div className="relative bg-white p-8 md:p-12 rounded-3xl shadow-2xl overflow-hidden">
-                            {/* Background pattern */}
-                            <div className="absolute inset-0 bg-gradient-to-br from-[#FF6B47]/5 via-transparent to-[#2C3E50]/5"></div>
-
-                            {/* Quote icon with improved styling */}
-                            <div className="relative text-[#FF6B47] text-6xl mb-6 text-center">
-                                <div className="inline-block relative">
-                                    <Quote className="w-16 h-16" />
-                                    <div className="absolute -top-2 -right-2 w-4 h-4 bg-[#FF6B47]/20 rounded-full"></div>
-                                </div>
-                            </div>
-
-                            <div className="relative text-center">
-                                <div className="flex justify-center mb-6">
-                                    {[...Array(testimonials[currentTestimonial].rating)].map(
-                                        (_, i) => (
-                                            <div key={i} className="relative mx-1">
-                                                <Star className="w-5 h-5 text-[#FF6B47] fill-current" />
-                                            </div>
-                                        ),
-                                    )}
-                                </div>
-                                <p className="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed italic">
-                                    "{testimonials[currentTestimonial].text}"
-                                </p>
-                                <div className="flex items-center justify-center mb-4">
-                                    <div className="relative">
-                                        <img
-                                            src={testimonials[currentTestimonial].image}
-                                            alt={testimonials[currentTestimonial].name}
-                                            className="w-16 h-16 rounded-full object-cover mr-4 shadow-lg"
-                                        />
-                                        <div className="absolute -bottom-1 -right-3 w-6 h-6 bg-[#FF6B47] rounded-full flex items-center justify-center">
-                                            <Check className="w-3 h-3 text-white" />
-                                        </div>
-                                    </div>
-                                    <div className="text-left">
-                                        <div className="font-bold text-[#2C3E50] text-lg">
-                                            {testimonials[currentTestimonial].name}
-                                        </div>
-                                        <div className="text-gray-600 flex items-center">
-                                            <Briefcase className="w-4 h-4 text-[#FF6B47] mr-2" />
-                                            {testimonials[currentTestimonial].project}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="flex justify-center mt-8 space-x-2">
-                            {testimonials.map((_, index) => (
-                                <button
-                                    key={index}
-                                    onClick={() => setCurrentTestimonial(index)}
-                                    className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentTestimonial
-                                        ? "bg-[#FF6B47] w-8 shadow-lg"
-                                        : "bg-white/30 hover:bg-white/50"
-                                        }`}
-                                />
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Contact Section */}
-            <section id="contact" className="py-20 bg-background">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="text-center mb-16">
-                        <div className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4 border border-accent/20">
-                            Get In Touch
-                        </div>
-                        <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                            Start Your Design Journey
-                        </h2>
-                        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                            Ready to transform your space? Contact us for a personalized
-                            consultation and let's bring your vision to life
-                        </p>
-                    </div>
-                    <div className="grid md:grid-cols-2 gap-16">
-                        <div className="relative bg-gradient-to-br from-muted to-background p-8 rounded-3xl shadow-lg overflow-hidden border border-border">
-                            <div className="absolute inset-0 bg-gradient-to-br from-accent/3 via-transparent to-primary/3"></div>
-
-                            <form className="relative space-y-6">
-                                <div className="grid md:grid-cols-2 gap-4">
-                                    <div className="group">
-                                        <label className="block text-foreground font-semibold mb-2">
-                                            <User className="w-4 h-4 text-accent mr-2 inline" />
-                                            First Name
-                                        </label>
-                                        <input
-                                            type="text"
-                                            className="w-full px-4 py-4 border border-border rounded-3xl focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all group-hover:border-muted-foreground bg-card"
-                                            placeholder="Enter your first name"
-                                        />
-                                    </div>
-                                    <div className="group">
-                                        <label className="block text-foreground font-semibold mb-2">
-                                            <User className="w-4 h-4 text-accent mr-2 inline" />
-                                            Last Name
-                                        </label>
-                                        <input
-                                            type="text"
-                                            className="w-full px-4 py-4 border border-border rounded-3xl focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all group-hover:border-muted-foreground bg-card"
-                                            placeholder="Enter your last name"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="group">
-                                    <label className="block text-foreground font-semibold mb-2">
-                                        <Mail className="w-4 h-4 text-accent mr-2 inline" />
-                                        Email Address
-                                    </label>
-                                    <input
-                                        type="email"
-                                        className="w-full px-4 py-4 border border-border rounded-3xl focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all group-hover:border-muted-foreground bg-card"
-                                        placeholder="Enter your email address"
-                                    />
-                                </div>
-                                <div className="group">
-                                    <label className="block text-foreground font-semibold mb-2">
-                                        <Phone className="w-4 h-4 text-accent mr-2 inline" />
-                                        Phone Number
-                                    </label>
-                                    <input
-                                        type="tel"
-                                        className="w-full px-4 py-4 border border-border rounded-3xl focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all group-hover:border-muted-foreground bg-card"
-                                        placeholder="Enter your phone number"
-                                    />
-                                </div>
-                                <div className="group">
-                                    <label className="block text-foreground font-semibold mb-2">
-                                        <Home className="w-4 h-4 text-accent mr-2 inline" />
-                                        Project Type
-                                    </label>
-                                    <div className="relative">
-                                        <button className="w-full px-4 py-4 border border-border rounded-3xl focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all text-left bg-card cursor-pointer group-hover:border-muted-foreground">
-                                            Select project type
-                                            <ChevronDown className="w-4 h-4 absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                                        </button>
-                                    </div>
-                                </div>
-                                <div className="group">
-                                    <label className="block text-foreground font-semibold mb-2">
-                                        <DollarSign className="w-4 h-4 text-accent mr-2 inline" />
-                                        Budget Range
-                                    </label>
-                                    <div className="relative">
-                                        <button className="w-full px-4 py-4 border border-border rounded-3xl focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all text-left bg-card cursor-pointer group-hover:border-muted-foreground">
-                                            Select budget range
-                                            <ChevronDown className="w-4 h-4 absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                                        </button>
-                                    </div>
-                                </div>
-                                <div className="group">
-                                    <label className="block text-foreground font-semibold mb-2">
-                                        <Calendar className="w-4 h-4 text-accent mr-2 inline" />
-                                        Project Timeline
-                                    </label>
-                                    <div className="relative">
-                                        <button className="w-full px-4 py-4 border border-border rounded-3xl focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all text-left bg-card cursor-pointer group-hover:border-muted-foreground">
-                                            Select timeline
-                                            <ChevronDown className="w-4 h-4 absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                                        </button>
-                                    </div>
-                                </div>
-                                <div className="group">
-                                    <label className="block text-foreground font-semibold mb-2">
-                                        <Edit className="w-4 h-4 text-accent mr-2 inline" />
-                                        Project Description
-                                    </label>
-                                    <textarea
-                                        rows={4}
-                                        className="w-full px-4 py-4 border border-border rounded-3xl focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all resize-none group-hover:border-muted-foreground bg-card"
-                                        placeholder="Tell us about your design vision and requirements"
-                                    ></textarea>
-                                </div>
-                                <button className="w-full bg-gradient-to-r from-accent to-accent/80 text-accent-foreground py-4 rounded-3xl hover:shadow-lg transition-all duration-300 transform hover:scale-105 font-semibold text-lg flex items-center justify-center space-x-2">
-                                    <CalendarCheck className="w-5 h-5" />
-                                    <span>Schedule Consultation</span>
-                                </button>
-                            </form>
-                        </div>
-                        <div className="space-y-8">
-                            <div>
-                                <h3 className="text-2xl font-bold text-[#2C3E50] mb-8">
-                                    Get In Touch
-                                </h3>
-                                <div className="space-y-6">
-                                    <div className="group flex items-start space-x-4 p-4 rounded-2xl hover:bg-gray-50 transition-colors">
-                                        <div className="bg-gradient-to-br from-[#FF6B47]/10 to-[#FF6B47]/20 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300">
-                                            <MapPin className="w-5 h-5 text-[#FF6B47] transition-colors" />
-                                        </div>
-                                        <div>
-                                            <h4 className="font-semibold text-[#2C3E50] mb-1">
-                                                Design Studio
-                                            </h4>
-                                            <p className="text-gray-600">Business Bay, Dubai</p>
-                                            <p className="text-gray-600">
-                                                United Arab Emirates
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div className="group flex items-start space-x-4 p-4 rounded-2xl hover:bg-gray-50 transition-colors">
-                                        <div className="bg-gradient-to-br from-[#FF6B47]/10 to-[#FF6B47]/20 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300">
-                                            <Mail className="w-5 h-5 text-[#FF6B47] transition-colors" />
-                                        </div>
-                                        <div>
-                                            <h4 className="font-semibold text-[#2C3E50] mb-1">
-                                                Email
-                                            </h4>
-                                            <p className="text-gray-600">
-                                                design@karubidinteriors.com
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div className="group flex items-start space-x-4 p-4 rounded-2xl hover:bg-gray-50 transition-colors">
-                                        <div className="bg-gradient-to-br from-[#FF6B47]/10 to-[#FF6B47]/20 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300">
-                                            <Phone className="w-5 h-5 text-[#FF6B47] transition-colors" />
-                                        </div>
-                                        <div>
-                                            <h4 className="font-semibold text-[#2C3E50] mb-1">
-                                                Phone
-                                            </h4>
-                                            <p className="text-gray-600">+971 4 XXX XXXX</p>
-                                        </div>
-                                    </div>
-                                    <div className="group flex items-start space-x-4 p-4 rounded-2xl hover:bg-gray-50 transition-colors">
-                                        <div className="bg-gradient-to-br from-[#FF6B47]/10 to-[#FF6B47]/20 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300">
-                                            <Clock className="w-5 h-5 text-[#FF6B47] transition-colors" />
-                                        </div>
-                                        <div>
-                                            <h4 className="font-semibold text-[#2C3E50] mb-1">
-                                                Consultation Hours
-                                            </h4>
-                                            <p className="text-gray-600">
-                                                Sunday - Thursday: 9:00 AM - 7:00 PM
-                                            </p>
-                                            <p className="text-gray-600">
-                                                Friday - Saturday: 10:00 AM - 5:00 PM
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 className="font-semibold text-[#2C3E50] mb-4">
-                                    Follow Our Work
-                                </h4>
-                                <div className="flex space-x-4">
-                                    <a
-                                        href="#"
-                                        className="group w-12 h-12 bg-gradient-to-br from-[#FF6B47]/10 to-[#FF6B47]/20 rounded-xl flex items-center justify-center transition-all duration-300 transform hover:scale-110"
-                                    >
-                                        <Instagram className="w-5 h-5 text-[#FF6B47] transition-colors duration-300" />
-                                    </a>
-                                    <a
-                                        href="#"
-                                        className="group w-12 h-12 bg-gradient-to-br from-[#FF6B47]/10 to-[#FF6B47]/20 rounded-xl flex items-center justify-center transition-all duration-300 transform hover:scale-110"
-                                    >
-                                        <Facebook className="w-5 h-5 text-[#FF6B47] transition-colors duration-300" />
-                                    </a>
-                                    <a
-                                        href="#"
-                                        className="group w-12 h-12 bg-gradient-to-br from-[#FF6B47]/10 to-[#FF6B47]/20 rounded-xl flex items-center justify-center transition-all duration-300 transform hover:scale-110"
-                                    >
-                                        <Linkedin className="w-5 h-5 text-[#FF6B47] transition-colors duration-300" />
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="relative bg-gradient-to-br from-gray-50 to-white p-6 rounded-2xl shadow-lg overflow-hidden">
-                                {/* Background pattern */}
-                                <div className="absolute inset-0 bg-gradient-to-br from-[#FF6B47]/5 via-transparent to-[#2C3E50]/5"></div>
-
-                                <div className="relative">
-                                    <h4 className="font-semibold text-[#2C3E50] mb-4 flex items-center">
-                                        <Star className="w-4 h-4 text-[#FF6B47] mr-2" />
-                                        Why Choose Our Design Services?
-                                    </h4>
-                                    <ul className="space-y-3 text-gray-600">
-                                        <li className="flex items-center group">
-                                            <div className="w-6 h-6 bg-[#FF6B47]/10 rounded-full flex items-center justify-center mr-3 group-hover:bg-[#FF6B47]/20 transition-colors">
-                                                <Check className="w-4 h-4 text-[#FF6B47]" />
-                                            </div>
-                                            Award-winning design team
-                                        </li>
-                                        <li className="flex items-center group">
-                                            <div className="w-6 h-6 bg-[#FF6B47]/10 rounded-full flex items-center justify-center mr-3 group-hover:bg-[#FF6B47]/20 transition-colors">
-                                                <Check className="w-4 h-4 text-[#FF6B47]" />
-                                            </div>
-                                            Personalized design solutions
-                                        </li>
-                                        <li className="flex items-center group">
-                                            <div className="w-6 h-6 bg-[#FF6B47]/10 rounded-full flex items-center justify-center mr-3 group-hover:bg-[#FF6B47]/20 transition-colors">
-                                                <Check className="w-4 h-4 text-[#FF6B47]" />
-                                            </div>
-                                            Premium material sourcing
-                                        </li>
-                                        <li className="flex items-center group">
-                                            <div className="w-6 h-6 bg-[#FF6B47]/10 rounded-full flex items-center justify-center mr-3 group-hover:bg-[#FF6B47]/20 transition-colors">
-                                                <Check className="w-4 h-4 text-[#FF6B47]" />
-                                            </div>
-                                            Full project management
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Footer */}
 
         </div>
     );

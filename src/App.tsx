@@ -5,6 +5,7 @@ import InteriorPage from "./pages/InteriorPage"
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import CleaningPage from "./pages/CleaningPage"
 
 function App() {
   const location = useLocation();
@@ -21,6 +22,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/interior" element={<InteriorPage />} />
+        <Route path="/cleaning" element={<CleaningPage />} />
 
         {/* <Route path="/chat/:sessionId" element={<Chat />} />
       <Route path="/settings" element={<Settings />} />
