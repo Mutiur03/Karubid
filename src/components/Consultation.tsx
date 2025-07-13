@@ -9,7 +9,8 @@ import {
     Sparkles,
     CheckCircle,
     User,
-    MessageSquare
+    MessageSquare,
+    Wrench
 } from 'lucide-react';
 import useConsultationStore from '@/store/Consultation';
 
@@ -33,13 +34,13 @@ const Consultation = () => {
     const services = [
         { id: 'interior', name: 'Interior Design', icon: Home, description: 'Custom interior design and fit-out services' },
         { id: 'cleaning', name: 'Cleaning Services', icon: Sparkles, description: 'Professional cleaning and maintenance' },
-        { id: 'technical', name: 'Technical Services', icon: Building, description: 'HVAC, MEP, and building systems' }
+        { id: 'technical', name: 'Technical Services', icon: Wrench, description: 'Plumbing, electrical, masonry, and carpentry services' }
     ];
 
     const projectTypes = {
         interior: ['Residential Villa', 'Apartment', 'Office Space', 'Retail Store', 'Restaurant', 'Hotel'],
         cleaning: ['One-time Deep Clean', 'Regular Maintenance', 'Post-Construction', 'Commercial Space'],
-        technical: ['HVAC Installation', 'MEP Services', 'Building Automation', 'Maintenance Contract']
+        technical: ['Plumbing Services', 'Electrical Work', 'Masonry & Tiling', 'Carpentry Services', 'HVAC Installation', 'Maintenance Contract']
     };
 
     const budgetRanges = {
@@ -58,11 +59,11 @@ const Consultation = () => {
             'Above ৳ 50,000'
         ],
         technical: [
-            'Under ৳ 1,00,000',
-            '৳ 1,00,000 - 3,00,000',
+            'Under ৳ 50,000',
+            '৳ 50,000 - 1,50,000',
+            '৳ 1,50,000 - 3,00,000',
             '৳ 3,00,000 - 8,00,000',
-            '৳ 8,00,000 - 15,00,000',
-            'Above ৳ 15,00,000'
+            'Above ৳ 8,00,000'
         ]
     };
 
@@ -83,9 +84,9 @@ const Consultation = () => {
         ],
         technical: [
             'ASAP',
+            'Within 1 week',
             'Within 1 month',
             '2-3 months',
-            '3-6 months',
             'Planning phase'
         ]
     };

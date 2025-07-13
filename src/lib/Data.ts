@@ -147,13 +147,13 @@ export const contactInfo = [
   {
     icon: Mail,
     title: "Email Address",
-    content: "info@karubidtechnical.com",
+    content: "ashfaqulalamkhan@gmail.com",
     color: "accent",
   },
   {
     icon: Phone,
     title: "Phone Number",
-    content: "+880 1712 XXX XXX",
+    content: "+971 56 635 1440\n +971 55 914 0204",
     color: "accent",
   },
   {
@@ -168,7 +168,7 @@ export const cleaningServices = [
   {
     title: "Residential Cleaning",
     description:
-      "Deep cleaning, post-construction cleaning, and routine maintenance",
+      "Comprehensive cleaning solutions for homes including deep cleaning, post-construction cleanup, and routine maintenance",
     features: [
       "Deep cleaning services",
       "Post-construction cleanup",
@@ -176,19 +176,19 @@ export const cleaningServices = [
       "Kitchen & bathroom sanitization",
     ],
     keyFacts: {
-      experience: "1 year in business",
-      projects: "Over 50 completed projects",
+      experience: "1+ year in business",
+      projects: "50+ completed projects",
       satisfaction: "150+ satisfied clients",
       team: "25 experienced professionals",
       commitment: "Eco-friendly products",
-      duration: "4-6 hours for residential",
+      duration: "4-6 hours for residential cleaning",
       rate: "95% satisfaction rate",
     },
   },
   {
     title: "Commercial Cleaning",
     description:
-      "Office cleaning, retail store maintenance, and industrial space cleaning",
+      "Professional cleaning services for offices, retail stores, and industrial spaces with specialized maintenance solutions",
     features: [
       "Office cleaning services",
       "Retail store maintenance",
@@ -198,11 +198,12 @@ export const cleaningServices = [
   },
   {
     title: "Specialized Services",
-    description: "Window cleaning, carpet cleaning, and sanitation",
+    description:
+      "Expert window cleaning, carpet deep cleaning, and specialized sanitation services for unique requirements",
     features: [
-      "Window cleaning services",
-      "Carpet cleaning solutions",
-      "Specialized sanitation",
+      "Professional window cleaning",
+      "Deep carpet cleaning services",
+      "Specialized sanitation solutions",
       "Custom cleaning packages",
     ],
   },

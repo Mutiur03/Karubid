@@ -198,7 +198,7 @@ function Services() {
                                         Technical Services
                                     </h3>
                                     <p className="text-muted-foreground mb-6 leading-relaxed group-hover:text-foreground/80 transition-colors duration-300 flex-grow">
-                                        Complete technical solutions including plumbing, electrical work, masonry, and custom carpentry services.
+                                        Expert technical solutions including plumbing, electrical work, masonry, carpentry, and building maintenance services.
                                     </p>
                                     <motion.div
                                         className="flex items-center text-accent font-semibold group-hover:text-foreground transition-colors duration-300"
