@@ -61,42 +61,42 @@ const InteriorPage = () => {
     const portfolioProjects = [
         {
             title: "Luxury Apartment",
-            category: "residential",
+            category: "Residential",
             location: "Uttara, Dhaka",
             image:
-                "https://readdy.ai/api/search-image?query=stunning%20luxury%20apartment%20interior%20with%20floor%20to%20ceiling%20windows%20modern%20furniture%20navy%20blue%20and%20gold%20accents%20sophisticated%20living%20space&width=400&height=300&seq=portfolio1&orientation=landscape",
+                "https://readdy.ai/api/search-image?query=stunning%20luxury%20penthouse%20interior%20with%20floor%20to%20ceiling%20windows%20modern%20furniture%20navy%20blue%20and%20gold%20accents%20sophisticated%20living%20space&width=400&height=300&seq=portfolio1&orientation=landscape",
         },
         {
             title: "Corporate Headquarters",
-            category: "commercial",
+            category: "Commercial",
             location: "Motijheel, Dhaka",
             image:
                 "https://readdy.ai/api/search-image?query=modern%20corporate%20office%20interior%20with%20open%20plan%20design%20professional%20furniture%20navy%20blue%20and%20gold%20color%20scheme%20contemporary%20workspace&width=400&height=300&seq=portfolio2&orientation=landscape",
         },
         {
             title: "Boutique Hotel Lobby",
-            category: "commercial",
+            category: "Commercial",
             location: "Chittagong",
             image:
                 "https://readdy.ai/api/search-image?query=elegant%20hotel%20lobby%20with%20luxury%20seating%20marble%20floors%20sophisticated%20lighting%20navy%20blue%20and%20gold%20interior%20design%20hospitality%20space&width=400&height=300&seq=portfolio3&orientation=landscape",
         },
         {
             title: "Family Villa",
-            category: "residential",
+            category: "Residential",
             location: "Bashundhara, Dhaka",
             image:
                 "https://readdy.ai/api/search-image?query=beautiful%20family%20villa%20interior%20with%20comfortable%20seating%20warm%20lighting%20navy%20blue%20and%20gold%20accents%20elegant%20residential%20design&width=400&height=300&seq=portfolio4&orientation=landscape",
         },
         {
             title: "Restaurant Interior",
-            category: "commercial",
+            category: "Commercial",
             location: "Sylhet",
             image:
                 "https://readdy.ai/api/search-image?query=upscale%20restaurant%20interior%20with%20elegant%20dining%20tables%20sophisticated%20lighting%20navy%20blue%20and%20gold%20color%20scheme%20luxury%20dining%20space&width=400&height=300&seq=portfolio5&orientation=landscape",
         },
         {
             title: "Modern Apartment",
-            category: "residential",
+            category: "Residential",
             location: "Mirpur, Dhaka",
             image:
                 "https://readdy.ai/api/search-image?query=contemporary%20apartment%20interior%20with%20modern%20furniture%20clean%20lines%20navy%20blue%20and%20gold%20accents%20sophisticated%20residential%20design&width=400&height=300&seq=portfolio6&orientation=landscape",
@@ -394,51 +394,64 @@ const InteriorPage = () => {
             </section>
 
             {/* Design Process */}
-            <section id="process" className="py-20 bg-gradient-to-br from-muted/50 to-background">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="text-center mb-16">
+            <section id="process" className="py-12 md:py-20 bg-gradient-to-br from-muted/50 to-background">
+                <div className="max-w-7xl mx-auto px-4 md:px-6">
+                    <div className="text-center mb-12 md:mb-16">
                         <div className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4 border border-accent/20">
                             Our Process
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 md:mb-6">
                             Our Design Process
                         </h2>
-                        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                        <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
                             A systematic approach to creating exceptional interiors from
                             initial concept to final installation
                         </p>
                     </div>
                     <div className="relative">
+                        {/* Desktop timeline */}
                         <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-accent via-accent/50 to-accent hidden lg:block"></div>
-                        <div className="space-y-12">
+
+                        {/* Mobile timeline */}
+                        <div className="absolute left-8 top-0 h-full w-0.5 bg-gradient-to-b from-accent via-accent/50 to-accent lg:hidden"></div>
+
+                        <div className="space-y-8 md:space-y-12">
                             {designProcess.map((step, index) => (
                                 <div
                                     key={index}
-                                    className={`flex items-center ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"}`}
+                                    className={`flex items-start lg:items-center ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"}`}
                                 >
-                                    <div className="flex-1 lg:pr-8">
+                                    {/* Mobile step number */}
+                                    <div className="flex lg:hidden w-16 h-16 bg-gradient-to-br from-accent to-accent/80 rounded-full items-center justify-center text-accent-foreground font-bold text-lg relative z-10 shadow-lg flex-shrink-0 mr-4">
+                                        <span>{step.step}</span>
+                                        <div className="absolute inset-0 bg-accent rounded-full animate-ping opacity-20"></div>
+                                    </div>
+
+                                    <div className="md:flex-1 lg:pr-8">
                                         <div
-                                            className={`relative bg-card border border-border p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${index % 2 === 0 ? "lg:text-right" : "lg:text-left"} group overflow-hidden`}
+                                            className={`relative bg-card border border-border p-6 md:p-8 rounded-2xl md:rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${index % 2 === 0 ? "lg:text-right" : "lg:text-left"} group overflow-hidden w-full`}
                                         >
                                             <div className="absolute inset-0 bg-gradient-to-br from-accent/3 via-transparent to-primary/3 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                                            <div className="relative flex items-center mb-6">
+                                            <div className="relative flex flex-col md:flex-row items-start md:items-center mb-4 md:mb-6">
                                                 <div
-                                                    className={`bg-gradient-to-br from-accent/10 to-accent/20 w-16 h-16 rounded-2xl flex items-center justify-center mr-4 transition-all duration-500 border border-accent/20 ${index % 2 === 0 ? "lg:order-2 lg:ml-4 lg:mr-0" : ""}`}
+                                                    className={`bg-gradient-to-br from-accent/10 to-accent/20 w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl flex items-center justify-center mb-3 md:mb-0 md:mr-4 transition-all duration-500 border border-accent/20 ${index % 2 === 0 ? "lg:order-2 lg:ml-4 lg:mr-0" : ""}`}
                                                 >
-                                                    <step.icon className="w-6 h-6 text-accent transition-colors duration-500" />
+                                                    <step.icon className="w-5 h-5 md:w-6 md:h-6 text-accent transition-colors duration-500" />
                                                 </div>
-                                                <h3 className="text-2xl font-bold text-foreground group-hover:text-accent transition-colors duration-300">
+                                                <h3 className="text-xl md:text-2xl font-bold text-foreground group-hover:text-accent transition-colors duration-300">
                                                     {step.title}
                                                 </h3>
                                             </div>
-                                            <p className="text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors">
+                                            <p className="text-sm md:text-base text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors">
                                                 {step.description}
                                             </p>
 
-                                            <div className="absolute top-4 right-4 w-8 h-8 bg-accent/10 rounded-full group-hover:bg-accent/20 transition-colors duration-500 border border-accent/20"></div>
+                                            <div className="absolute top-3 right-3 md:top-4 md:right-4 w-6 h-6 md:w-8 md:h-8 bg-accent/10 rounded-full group-hover:bg-accent/20 transition-colors duration-500 border border-accent/20"></div>
                                         </div>
                                     </div>
+
+                                    {/* Desktop step number */}
                                     <div className="hidden lg:flex w-16 h-16 bg-gradient-to-br from-accent to-accent/80 rounded-full items-center justify-center text-accent-foreground font-bold text-xl relative z-10 shadow-lg">
                                         <span>{step.step}</span>
                                         <div className="absolute inset-0 bg-accent rounded-full animate-ping opacity-20"></div>
@@ -458,43 +471,43 @@ const InteriorPage = () => {
                         <div className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4 border border-accent/20">
                             Our Work
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 md:mb-6">
                             Design Portfolio
                         </h2>
-                        <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+                        <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-6 md:mb-8 px-4">
                             Explore our collection of stunning interior design projects across
                             residential and commercial spaces
                         </p>
-                        <div className="flex justify-center space-x-4">
+                        <div className="flex flex-wrap justify-center gap-2 md:gap-4 px-4">
                             <button
                                 onClick={() => setSelectedFilter("all")}
-                                className={`group px-6 py-3 rounded-3xl font-semibold transition-all duration-300 flex items-center space-x-2 border ${selectedFilter === "all"
+                                className={`group px-4 md:px-6 py-2 md:py-3 rounded-2xl md:rounded-3xl font-semibold transition-all duration-300 flex items-center space-x-1 md:space-x-2 border text-sm md:text-base ${selectedFilter === "all"
                                     ? "bg-accent text-accent-foreground shadow-lg border-accent"
                                     : "bg-card text-foreground border-accent hover:bg-accent hover:text-accent-foreground"
                                     }`}
                             >
-                                <Grid3X3 className="w-4 h-4" />
-                                <span>All Projects</span>
+                                <Grid3X3 className="w-3 h-3 md:w-4 md:h-4" />
+                                <span className="whitespace-nowrap">All Projects</span>
                             </button>
                             <button
                                 onClick={() => setSelectedFilter("residential")}
-                                className={`group px-6 py-3 rounded-3xl font-semibold transition-all duration-300 flex items-center space-x-2 border ${selectedFilter === "residential"
+                                className={`group px-4 md:px-6 py-2 md:py-3 rounded-2xl md:rounded-3xl font-semibold transition-all duration-300 flex items-center space-x-1 md:space-x-2 border text-sm md:text-base ${selectedFilter === "residential"
                                     ? "bg-accent text-accent-foreground shadow-lg border-accent"
                                     : "bg-card text-foreground border-accent hover:bg-accent hover:text-accent-foreground"
                                     }`}
                             >
-                                <Home className="w-4 h-4" />
-                                <span>Residential</span>
+                                <Home className="w-3 h-3 md:w-4 md:h-4" />
+                                <span className="whitespace-nowrap">Residential</span>
                             </button>
                             <button
                                 onClick={() => setSelectedFilter("commercial")}
-                                className={`group px-6 py-3 rounded-3xl font-semibold transition-all duration-300 flex items-center space-x-2 border ${selectedFilter === "commercial"
+                                className={`group px-4 md:px-6 py-2 md:py-3 rounded-2xl md:rounded-3xl font-semibold transition-all duration-300 flex items-center space-x-1 md:space-x-2 border text-sm md:text-base ${selectedFilter === "commercial"
                                     ? "bg-accent text-accent-foreground shadow-lg border-accent"
                                     : "bg-card text-foreground border-accent hover:bg-accent hover:text-accent-foreground"
                                     }`}
                             >
-                                <Building className="w-4 h-4" />
-                                <span>Commercial</span>
+                                <Building className="w-3 h-3 md:w-4 md:h-4" />
+                                <span className="whitespace-nowrap">Commercial</span>
                             </button>
                         </div>
                     </div>

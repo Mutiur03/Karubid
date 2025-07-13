@@ -176,7 +176,7 @@ const TechnicalPage: React.FC = () => {
     return (
         <div className="min-h-screen bg-background overflow-x-hidden">
             {/* Services Overview */}
-            <section id="services" className="py-12 sm:py-16 lg:py-20 bg-background">
+            <section id="services" className="py-20 bg-background">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}

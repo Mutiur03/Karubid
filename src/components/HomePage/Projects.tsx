@@ -1,6 +1,10 @@
 import { motion } from 'framer-motion'
+import { useState } from 'react'
 import { projects } from '@/lib/Data'
+
 function Projects() {
+    const [activeProject, setActiveProject] = useState<number | null>(null)
+
     return (
         <motion.section
             id="projects"
@@ -59,34 +63,40 @@ function Projects() {
                                 boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
                             }}
                             transition={{ duration: 0.3 }}
+                            onClick={() => setActiveProject(activeProject === index ? null : index)}
                         >
                             <div className="relative overflow-hidden">
                                 <motion.img
                                     src={project.image}
                                     alt={project.title}
-                                    className="w-full h-48 sm:h-56 md:h-64 object-cover object-top"
-                                    whileHover={{ scale: 1.1 }}
-                                    transition={{ duration: 0.6 }}
+                                    className="w-full h-48 sm:h-56 md:h-64 object-cover object-top transition-transform duration-600"
                                 />
                                 <motion.div
-                                    className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/60 to-transparent"
-                                    initial={{ opacity: 0 }}
-                                    whileHover={{ opacity: 1 }}
-                                    transition={{ duration: 0.3 }}
+                                    className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                                 />
                             </div>
 
-                            <motion.div
-                                className="absolute inset-0 flex items-center justify-center bg-primary/55 backdrop-blur-sm"
-                                initial={{ opacity: 0 }}
-                                whileHover={{ opacity: 1 }}
-                                transition={{ duration: 0.2 }}
-                            >
+                            {/* Mobile: Always visible details at bottom */}
+                            <div className="block md:hidden p-4 bg-card">
+                                <h3 className="text-lg font-bold mb-2 text-foreground">{project.title}</h3>
+                                <p className="text-accent font-semibold mb-1 text-sm">
+                                    {project.category}
+                                </p>
+                                <p className="text-xs text-muted-foreground mb-3">
+                                    {project.client}
+                                </p>
+                                <motion.button
+                                    className="w-full bg-accent text-accent-foreground px-4 py-2 rounded-xl font-semibold shadow-lg text-sm"
+                                    whileTap={{ scale: 0.95 }}
+                                >
+                                    View Details
+                                </motion.button>
+                            </div>
+
+                            {/* Desktop: Hover overlay */}
+                            <div className="hidden md:flex absolute inset-0 items-center justify-center bg-primary/55 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-200">
                                 <motion.div
-                                    className="text-center text-primary-foreground p-4 sm:p-6"
-                                    initial={{ y: 20, opacity: 0 }}
-                                    whileHover={{ y: 0, opacity: 1 }}
-                                    transition={{ duration: 0.2 }}
+                                    className="text-center text-primary-foreground p-4 sm:p-6 transform translate-y-5 group-hover:translate-y-0 transition-transform duration-200"
                                 >
                                     <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2">{project.title}</h3>
                                     <p className="text-accent font-semibold mb-2 text-sm sm:text-base">
@@ -96,14 +106,14 @@ function Projects() {
                                         {project.client}
                                     </p>
                                     <motion.button
-                                        className="mt-2 bg-accent text-accent-foreground px-4 sm:px-6 py-2 sm:py-3 rounded-xl sm:rounded-2xl font-semibold shadow-lg text-sm sm:text-base touch-manipulation"
+                                        className="mt-2 bg-accent text-accent-foreground px-4 sm:px-6 py-2 sm:py-3 rounded-xl sm:rounded-2xl font-semibold shadow-lg text-sm sm:text-base"
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.95 }}
                                     >
                                         View Details
                                     </motion.button>
                                 </motion.div>
-                            </motion.div>
+                            </div>
                         </motion.div>
                     ))}
                 </motion.div>

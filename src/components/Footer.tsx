@@ -115,7 +115,7 @@ const Footer = () => {
                 </div>
                 <div className="border-t border-white/20 pt-8 text-center">
                     <p className="text-white/60">
-                        © 2024 KARUBID Interior Design. All rights reserved.
+                        © 2025 KARUBID Tech. All rights reserved.
                     </p>
                 </div>
             </div>

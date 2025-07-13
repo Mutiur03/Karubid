@@ -130,9 +130,13 @@ function Navbar() {
                     <div className="flex items-center">
                         <button
                             onClick={handleHomeClick}
-                            className="text-xl sm:text-2xl lg:text-3xl font-bold text-primary hover:text-accent transition-colors duration-300"
+                            className="flex items-center hover:opacity-80 transition-opacity duration-300"
                         >
-                            KARUBID
+                            <img
+                                src="/Logo.png"
+                                alt="Company Logo"
+                                className="h-8 sm:h-10 lg:h-12 w-auto object-contain"
+                            />
                         </button>
                     </div>
 
