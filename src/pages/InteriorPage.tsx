@@ -345,7 +345,7 @@ const InteriorPage = () => {
             </section>
 
             {/* Key Facts and Figures Section */}
-            <section className="py-20 bg-gray-800 mt-16">
+            <section className="py-20 bg-gray-800 min-h-screen">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center mb-16">
                         <div className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4 border border-accent/20">
@@ -490,8 +490,8 @@ const InteriorPage = () => {
                                 <span className="whitespace-nowrap">All Projects</span>
                             </button>
                             <button
-                                onClick={() => setSelectedFilter("residential")}
-                                className={`group px-4 md:px-6 py-2 md:py-3 rounded-2xl md:rounded-3xl font-semibold transition-all duration-300 flex items-center space-x-1 md:space-x-2 border text-sm md:text-base ${selectedFilter === "residential"
+                                onClick={() => setSelectedFilter("Residential")}
+                                className={`group px-4 md:px-6 py-2 md:py-3 rounded-2xl md:rounded-3xl font-semibold transition-all duration-300 flex items-center space-x-1 md:space-x-2 border text-sm md:text-base ${selectedFilter === "Residential"
                                     ? "bg-accent text-accent-foreground shadow-lg border-accent"
                                     : "bg-card text-foreground border-accent hover:bg-accent hover:text-accent-foreground"
                                     }`}
@@ -500,8 +500,8 @@ const InteriorPage = () => {
                                 <span className="whitespace-nowrap">Residential</span>
                             </button>
                             <button
-                                onClick={() => setSelectedFilter("commercial")}
-                                className={`group px-4 md:px-6 py-2 md:py-3 rounded-2xl md:rounded-3xl font-semibold transition-all duration-300 flex items-center space-x-1 md:space-x-2 border text-sm md:text-base ${selectedFilter === "commercial"
+                                onClick={() => setSelectedFilter("Commercial")}
+                                className={`group px-4 md:px-6 py-2 md:py-3 rounded-2xl md:rounded-3xl font-semibold transition-all duration-300 flex items-center space-x-1 md:space-x-2 border text-sm md:text-base ${selectedFilter === "Commercial"
                                     ? "bg-accent text-accent-foreground shadow-lg border-accent"
                                     : "bg-card text-foreground border-accent hover:bg-accent hover:text-accent-foreground"
                                     }`}

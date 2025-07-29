@@ -4,7 +4,10 @@ import { quickStats } from '@/lib/Data';
 
 function Hero() {
     return (
-        <section id="home" className="relative min-h-[65vh] sm:min-h-[70vh] flex items-center overflow-hidden mt-12 sm:mt-14 lg:mt-16">
+        <section
+            id="home"
+            className="relative min-h-screen flex items-center overflow-hidden pt-[4rem] pb-6 sm:pb-0" // pt matches navbar height, add bottom padding for mobile
+        >
             {/* Background with parallax effect */}
             <motion.div
                 className="absolute inset-0"
@@ -54,17 +57,17 @@ function Hero() {
 
             {/* Main Content - Better centered and aligned for mobile */}
             <div className="relative z-10 w-full">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex flex-col justify-center items-center lg:items-start text-center lg:text-left py-6 sm:py-8 min-h-[calc(60vh-3rem)] sm:min-h-[calc(65vh-3.5rem)]">
+                <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8"> {/* Reduce horizontal padding for mobile */}
+                    <div className="flex flex-col justify-center items-center lg:items-start text-center lg:text-left py-6 sm:py-8 min-h-[calc(60vh-4rem)] sm:min-h-[calc(65vh-4rem)]">
                         <motion.div
-                            className="max-w-5xl lg:max-w-none w-full space-y-3 sm:space-y-4"
+                            className="max-w-5xl lg:max-w-none w-full space-y-4 sm:space-y-6" // More vertical space for mobile
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.6, staggerChildren: 0.1 }}
                         >
                             {/* Badge - Mobile optimized */}
                             <motion.div
-                                className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-accent/20 backdrop-blur-md text-accent rounded-full text-xs sm:text-sm font-medium border border-accent/30 shadow-lg"
+                                className="inline-flex items-center px-4 py-2 bg-accent/20 backdrop-blur-md text-accent rounded-full text-sm font-medium border border-accent/30 shadow-lg"
                                 initial={{ opacity: 0, scale: 0.8 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 0.4, delay: 0.2 }}
@@ -82,7 +85,7 @@ function Hero() {
 
                             {/* Main Heading - Better mobile typography */}
                             <motion.div
-                                className="space-y-1"
+                                className="space-y-2" // More space between heading lines for mobile
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ duration: 0.6, staggerChildren: 0.15, delayChildren: 0.3 }}
@@ -122,7 +125,7 @@ function Hero() {
 
                             {/* Subtitle - Mobile optimized */}
                             <motion.p
-                                className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl text-white/95 max-w-3xl lg:max-w-2xl leading-relaxed font-light px-4 lg:px-0"
+                                className="text-base sm:text-lg md:text-xl lg:text-lg xl:text-xl text-white/95 max-w-md sm:max-w-2xl leading-relaxed font-light px-2 sm:px-4 lg:px-0"
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.8 }}
@@ -132,7 +135,7 @@ function Hero() {
 
                             {/* CTA Buttons - Mobile responsive */}
                             <motion.div
-                                className="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center lg:justify-start items-center lg:items-start pt-3 sm:pt-4 px-4 lg:px-0"
+                                className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start items-center lg:items-start pt-4 px-2 sm:px-4 lg:px-0"
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.9 }}
@@ -201,7 +204,7 @@ function Hero() {
 
                             {/* Enhanced Quick Stats - Mobile responsive */}
                             <motion.div
-                                className="grid grid-cols-3 gap-2 sm:gap-3 lg:gap-4 max-w-xs sm:max-w-sm lg:max-w-md mx-auto lg:mx-0 pt-4 sm:pt-6 px-4 lg:px-0"
+                                className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 max-w-xs sm:max-w-sm lg:max-w-md mx-auto lg:mx-0 pt-6 px-2 sm:px-4 lg:px-0"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ duration: 0.6, staggerChildren: 0.1, delayChildren: 1.0 }}
@@ -291,38 +294,7 @@ function Hero() {
                 </div>
             </motion.div>
 
-            {/* Scroll Indicator - Mobile responsive */}
-            {/* <motion.div
-                    className="absolute bottom-1 sm:bottom-2 lg:bottom-4 left-1/2 transform -translate-x-1/2 z-20"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 2, duration: 0.8 }}
-                >
-                    <motion.div
-                        className="flex flex-col items-center cursor-pointer group touch-manipulation"
-                        onClick={() => {
-                            const element = document.getElementById('services');
-                            if (element) element.scrollIntoView({ behavior: 'smooth' });
-                        }}
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                    >
-                        <span className="text-white/80 text-xs sm:text-sm font-medium mb-1 sm:mb-2 group-hover:text-accent transition-colors duration-300">
-                            Scroll to explore
-                        </span>
-                        <motion.div
-                            className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-white/50 rounded-full flex justify-center group-hover:border-accent transition-colors duration-300"
-                            animate={{ y: [0, 6, 0] }}
-                            transition={{ duration: 1.5, repeat: Infinity }}
-                        >
-                            <motion.div
-                                className="w-0.5 h-2 sm:w-1 sm:h-3 bg-white/70 rounded-full mt-1.5 sm:mt-2 group-hover:bg-accent transition-colors duration-300"
-                                animate={{ opacity: [1, 0.3, 1] }}
-                                transition={{ duration: 1.5, repeat: Infinity }}
-                            />
-                        </motion.div>
-                    </motion.div>
-                </motion.div> */}
+
         </section>
     )
 }

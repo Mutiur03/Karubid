@@ -59,7 +59,7 @@ const WhyChooseUs = () => {
     ];
 
     return (
-        <section id="why-choose-us" className="py-12 sm:py-16 md:py-20 bg-gray-800 text-white relative overflow-hidden">
+        <section id="why-choose-us" className="py-12 sm:py-16 md:py-20 bg-gray-800 text-white relative overflow-hidden min-h-[calc(100vh-4rem)]">
             {/* Geometric Pattern Background */}
             {/* <div className="absolute inset-0 opacity-5">
                 <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">

@@ -395,7 +395,7 @@ const CleaningPage: React.FC = () => {
             {/* Key Facts Section */}
             <motion.section
                 id='portfolio'
-                className="py-20 bg-primary"
+                className=" bg-primary min-h-screen py-20 "
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: false, amount: 0.05 }}
@@ -470,7 +470,7 @@ const CleaningPage: React.FC = () => {
             {/* Service Packages */}
             <motion.section
                 id='pricing'
-                className="py-20 bg-background"
+                className="py-20 bg-background min-h-screen"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: false, amount: 0.05 }}

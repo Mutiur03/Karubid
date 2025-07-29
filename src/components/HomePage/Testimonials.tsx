@@ -12,7 +12,7 @@ function Testimonials() {
     }, []);
     return (
         <motion.section
-            className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-secondary/20 via-background to-accent/5"
+            className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-secondary/20 via-background to-accent/5 min-h-[calc(100vh-4rem)]"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}

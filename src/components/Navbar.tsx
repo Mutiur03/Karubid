@@ -30,7 +30,7 @@ function Navbar() {
     const scrollToSection = (sectionId: string) => {
         const element = document.getElementById(sectionId);
         if (element) {
-            const navHeight = 60; // Increased to account for actual navbar height
+            const navHeight = 64; // 4rem = 64px
             const elementPosition = element.offsetTop - navHeight;
             window.scrollTo({
                 top: elementPosition,
@@ -120,12 +120,12 @@ function Navbar() {
     const navItems = getNavItems();
 
     return (
-        <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled
+        <nav className={`fixed top-0 left-0 h-[4rem] w-full z-50 transition-all duration-300 ${isScrolled
             ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-border/10'
             : 'bg-white/90 backdrop-blur-sm'
             }`}>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6">
-                <div className="flex justify-between items-center h-15  lg:h-16">
+            <div className="max-w-[1800px] mx-auto px-2 sm:px-4"> {/* Reduce horizontal padding for mobile */}
+                <div className="flex justify-between items-center h-[4rem]">
                     {/* Logo */}
                     <div className="flex items-center">
                         <button
@@ -135,7 +135,7 @@ function Navbar() {
                             <img
                                 src="/Logo.png"
                                 alt="Company Logo"
-                                className="h-8 sm:h-10 lg:h-12 w-auto object-contain"
+                                className="h-9 w-auto object-contain sm:h-10 lg:h-12" // Slightly larger logo for mobile
                             />
                         </button>
                     </div>
@@ -171,14 +171,14 @@ function Navbar() {
 
                     {/* Mobile menu button */}
                     <button
-                        className="lg:hidden p-2 rounded-lg hover:bg-secondary/10 transition-colors duration-300 touch-manipulation"
+                        className="lg:hidden p-3 rounded-lg hover:bg-secondary/10 transition-colors duration-300 touch-manipulation"
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                         aria-label="Toggle mobile menu"
                     >
                         {isMenuOpen ? (
-                            <X className="w-6 h-6 text-foreground" />
+                            <X className="w-7 h-7 text-foreground" /> // Larger icon for easier tap
                         ) : (
-                            <Menu className="w-6 h-6 text-foreground" />
+                            <Menu className="w-7 h-7 text-foreground" />
                         )}
                     </button>
                 </div>
@@ -188,10 +188,10 @@ function Navbar() {
                     ? 'max-h-[500px] opacity-100 border-t border-border/20'
                     : 'max-h-0 opacity-0'
                     }`}>
-                    <div className="px-2 py-4 space-y-2 bg-white/95 backdrop-blur-md">
+                    <div className="px-2 py-4 space-y-2 bg-white/95 backdrop-blur-md rounded-b-xl shadow-md">
                         <button
                             onClick={handleHomeClick}
-                            className="block w-full text-left px-4 py-3 text-base text-foreground hover:text-accent hover:bg-accent/5 rounded-lg transition-all duration-300 font-medium touch-manipulation"
+                            className="block w-full text-left px-4 py-4 text-base text-foreground hover:text-accent hover:bg-accent/5 rounded-lg transition-all duration-300 font-medium touch-manipulation"
                         >
                             Home
                         </button>
@@ -200,7 +200,7 @@ function Navbar() {
                             <button
                                 key={index}
                                 onClick={() => handleSectionClick(item.id)}
-                                className="block w-full text-left px-4 py-3 text-base text-foreground hover:text-accent hover:bg-accent/5 rounded-lg transition-all duration-300 font-medium touch-manipulation"
+                                className="block w-full text-left px-4 py-4 text-base text-foreground hover:text-accent hover:bg-accent/5 rounded-lg transition-all duration-300 font-medium touch-manipulation"
                             >
                                 {item.label}
                             </button>
@@ -208,7 +208,7 @@ function Navbar() {
 
                         <button
                             onClick={handleConsultationClick}
-                            className="w-full text-center px-4 py-3 mt-4 bg-accent text-accent-foreground rounded-lg font-semibold hover:bg-accent/90 transition-all duration-300 shadow-lg text-base touch-manipulation"
+                            className="w-full text-center px-4 py-4 mt-2 bg-accent text-accent-foreground rounded-lg font-semibold hover:bg-accent/90 transition-all duration-300 shadow-lg text-base touch-manipulation"
                         >
                             Free Consultation
                         </button>

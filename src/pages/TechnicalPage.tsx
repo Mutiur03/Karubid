@@ -174,16 +174,15 @@ const TechnicalPage: React.FC = () => {
     // ];
 
     return (
-        <div className="min-h-screen bg-background overflow-x-hidden">
-            {/* Services Overview */}
-            <section id="services" className="py-20 bg-background">
+        <div className="min-h-screen bg-background ">
+            <section id="services" className="py-20 bg-background min-h-screen">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
-                        className="text-center mb-12 sm:mb-16"
+                        className="text-center mb-8 sm:mb-12"
                     >
                         <div className="inline-block px-3 sm:px-4 py-2 bg-accent/10 text-accent rounded-full text-xs sm:text-sm font-medium mb-4 border border-accent/20">
                             Our Expertise
@@ -192,12 +191,12 @@ const TechnicalPage: React.FC = () => {
                             Technical Solutions
                         </h2>
                         <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
-                            We provide a range of technical solutions to ensure the seamless operation of your property
+                            Fast, reliable technical services for your property.
                         </p>
                     </motion.div>
 
                     {/* Service Categories */}
-                    <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12 px-4">
+                    <div className="flex flex-wrap justify-center gap-1 sm:gap-4 mb-6 sm:mb-8 px-4">
                         {technicalServices.map((service) => (
                             <motion.button
                                 key={service.type}
@@ -290,7 +289,7 @@ const TechnicalPage: React.FC = () => {
                             How We Work
                         </h2>
                         <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
-                            Our systematic approach ensures quality results and customer satisfaction
+                            Simple steps for quality results.
                         </p>
                     </motion.div>
                     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
@@ -334,7 +333,7 @@ const TechnicalPage: React.FC = () => {
                             Key Facts and Figures
                         </h2>
                         <p className="text-base sm:text-lg lg:text-xl text-primary-foreground/80 max-w-3xl mx-auto px-4">
-                            Our commitment to excellence reflected in numbers
+                            Our results in numbers.
                         </p>
                     </motion.div>
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -374,11 +373,10 @@ const TechnicalPage: React.FC = () => {
                                 Sustainability
                             </div>
                             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6">
-                                Committed to Using Eco-Friendly Products
+                                Eco-Friendly Commitment
                             </h2>
                             <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
-                                We prioritize environmental responsibility in all our technical services,
-                                using sustainable materials and eco-friendly products wherever possible.
+                                We use sustainable, eco-friendly products and materials.
                             </p>
                             <div className="space-y-3 sm:space-y-4">
                                 {[
@@ -387,18 +385,18 @@ const TechnicalPage: React.FC = () => {
                                     'Sustainable materials sourcing',
                                     'Waste reduction practices'
                                 ].map((item, index) => (
-                                        <motion.div
-                                            key={index}
-                                            initial={{ opacity: 0, x: -20 }}
-                                            whileInView={{ opacity: 1, x: 0 }}
-                                            viewport={{ once: true }}
-                                            transition={{ duration: 0.4, delay: index * 0.1 }}
-                                            className="flex items-center"
-                                        >
-                                            <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-accent mr-2 sm:mr-3 flex-shrink-0" />
-                                            <span className="text-foreground text-sm sm:text-base">{item}</span>
-                                        </motion.div>
-                                    ))}
+                                    <motion.div
+                                        key={index}
+                                        initial={{ opacity: 0, x: -20 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.4, delay: index * 0.1 }}
+                                        className="flex items-center"
+                                    >
+                                        <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-accent mr-2 sm:mr-3 flex-shrink-0" />
+                                        <span className="text-foreground text-sm sm:text-base">{item}</span>
+                                    </motion.div>
+                                ))}
                             </div>
                         </motion.div>
                         <motion.div

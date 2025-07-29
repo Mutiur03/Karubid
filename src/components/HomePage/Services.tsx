@@ -6,7 +6,7 @@ function Services() {
     return (
         <motion.section
             id="services"
-            className="py-16 sm:py-20 bg-primary/10"
+            className="py-16 sm:py-20 bg-primary/10 min-h-[calc(100vh-4rem)]"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}

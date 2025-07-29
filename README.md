@@ -1,69 +1,44 @@
-# React + TypeScript + Vite
+# Karubid Interior Design Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Karubid is a modern interior design and fit-out solutions platform for Bangladesh, built with React, TypeScript, and Vite. This frontend showcases services, portfolio, team, transformation gallery, and pricing packages.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Services Overview:** Detailed sections for design, fit-out, and space optimization.
+- **Portfolio Gallery:** Filterable showcase of residential and commercial projects.
+- **Transformation Gallery:** Before/after comparisons of real projects.
+- **Team Profiles:** Meet the expert designers and consultants.
+- **Design Process:** Step-by-step explanation of the workflow.
+- **Pricing Packages:** Selectable packages with feature breakdowns.
+- **Consultation Modal:** Easy contact for project inquiries.
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React** + **TypeScript**
+- **Vite** (fast dev/build)
+- **Tailwind CSS** (utility-first styling)
+- **Lucide Icons** (modern SVG icons)
+- **Framer Motion** (animations)
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Getting Started
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+2. **Start development server:**
+   ```bash
+   npm run dev
+   ```
+3. **Build for production:**
+   ```bash
+   npm run build
+   ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Folder Structure
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- `src/pages/InteriorPage.tsx` – Main interior design page
+- `src/components/` – Reusable UI components
+- `src/index.css` – Tailwind and custom styles
+- `index.html` – App entry point
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```

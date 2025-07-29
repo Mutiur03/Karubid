@@ -8,7 +8,7 @@ function Projects() {
     return (
         <motion.section
             id="projects"
-            className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-secondary/5 via-background to-accent/5"
+            className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-secondary/5 via-background to-accent/5 min-h-[calc(100vh-4rem)]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
