@@ -1082,8 +1082,7 @@ const CleaningPage: React.FC = () => {
                                     </h3>
                                     <ul className="text-muted-foreground text-sm sm:text-base space-y-1">
                                         <li>info@karubidtech.com</li>
-                                        <li>ashfaq@karubidtech.com</li>
-                                        <li>mohiuddin@karubidtech.com</li>
+                                        
                                     </ul>
                                 </div>
                                 <div>

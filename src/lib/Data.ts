@@ -149,7 +149,7 @@ export const contactInfo = [
     icon: Mail,
     title: "Email Address",
     content:
-      "info@karubidtech.com\nashfaq@karubidtech.com\nmohiuddin@karubidtech.com",
+      "info@karubidtech.com",
     color: "accent",
   },
   {
@@ -178,7 +178,7 @@ export const cleaningServices = [
       "Kitchen & bathroom sanitization",
     ],
     keyFacts: {
-      experience: "1+ year in business (Dubai & Dhaka)",
+      experience: "10+ year in business (Dubai & Dhaka)",
       projects: "50+ completed projects",
       satisfaction: "150+ satisfied clients",
       team: "25 experienced professionals",
