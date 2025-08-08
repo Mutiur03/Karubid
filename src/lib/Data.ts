@@ -11,25 +11,25 @@ import {
 export const testimonials = [
   {
     name: "Rahman Ahmed",
-    company: "Dhaka Properties Ltd",
+    company: "Dubai Properties Ltd",
     rating: 5,
-    text: "KARUBID delivered exceptional interior design services for our luxury properties. Their attention to detail and professional approach exceeded our expectations.",
+    text: "KARUBID delivered exceptional interior design services for our luxury properties in Dubai and Dhaka. Their attention to detail and professional approach exceeded our expectations.",
     image:
       "https://readdy.ai/api/search-image?query=professional%20middle%20eastern%20businessman%20in%20elegant%20suit%20smiling%20confidently%20against%20clean%20white%20background%20modern%20corporate%20portrait&width=80&height=80&seq=testimonial1&orientation=squarish",
   },
   {
     name: "Fatima Khan",
-    company: "Chittagong Business Hotel",
+    company: "Dubai Business Hotel",
     rating: 5,
-    text: "Outstanding technical services and maintenance support. KARUBID team is reliable, efficient, and always delivers on time with highest quality standards.",
+    text: "Outstanding technical services and maintenance support. KARUBID team is reliable, efficient, and always delivers on time with highest quality standards in Dubai and Dhaka.",
     image:
       "https://readdy.ai/api/search-image?query=professional%20businesswoman%20with%20blonde%20hair%20wearing%20navy%20blue%20blazer%20smiling%20warmly%20against%20clean%20white%20background%20corporate%20headshot&width=80&height=80&seq=testimonial2&orientation=squarish",
   },
   {
     name: "Shakil Hassan",
-    company: "Bangladesh Construction Group",
+    company: "Karubid Construction Group",
     rating: 5,
-    text: "Their cleaning services transformed our commercial spaces. Professional team, eco-friendly approach, and consistent quality make them our preferred partner.",
+    text: "Their cleaning services transformed our commercial spaces in Dubai and Dhaka. Professional team, eco-friendly approach, and consistent quality make them our preferred partner.",
     image:
       "https://readdy.ai/api/search-image?query=confident%20middle%20eastern%20business%20executive%20in%20dark%20suit%20with%20professional%20smile%20against%20clean%20white%20background%20corporate%20portrait%20photography&width=80&height=80&seq=testimonial3&orientation=squarish",
   },
@@ -92,11 +92,11 @@ export const projects = [
 export const quickStats = [
   {
     value: "100+",
-    label: "Projects",
+    label: "Projects (Dubai & Dhaka)",
   },
   {
     value: "50+",
-    label: "Clients",
+    label: "Clients (Dubai & Dhaka)",
   },
   {
     value: "10+",
@@ -141,19 +141,21 @@ export const contactInfo = [
   {
     icon: MapPin,
     title: "Office Location",
-    content: "Dhaka, Bangladesh",
+    content:
+      "Karubid Technical Services L.L.C\nOffice - 6-071, M Floor, Abdulla Kamber Business Centre - Office-6, Hor Al Anz, Dubai, UAE.\nLand Mark: Beside Abu Baker Al Siddique Metro Station\nAlso serving Dhaka, Bangladesh.",
     color: "accent",
   },
   {
     icon: Mail,
     title: "Email Address",
-    content: "ashfaqulalamkhan@gmail.com",
+    content:
+      "info@karubidtech.com\nashfaq@karubidtech.com\nmohiuddin@karubidtech.com",
     color: "accent",
   },
   {
     icon: Phone,
-    title: "Phone Number",
-    content: "+971 56 635 1440\n +971 55 914 0204",
+    title: "Landline",
+    content: "+971 4 528 4067",
     color: "accent",
   },
   {
@@ -168,7 +170,7 @@ export const cleaningServices = [
   {
     title: "Residential Cleaning",
     description:
-      "Comprehensive cleaning solutions for homes including deep cleaning, post-construction cleanup, and routine maintenance",
+      "Comprehensive cleaning solutions for homes in Dubai and Dhaka including deep cleaning, post-construction cleanup, and routine maintenance",
     features: [
       "Deep cleaning services",
       "Post-construction cleanup",
@@ -176,7 +178,7 @@ export const cleaningServices = [
       "Kitchen & bathroom sanitization",
     ],
     keyFacts: {
-      experience: "1+ year in business",
+      experience: "1+ year in business (Dubai & Dhaka)",
       projects: "50+ completed projects",
       satisfaction: "150+ satisfied clients",
       team: "25 experienced professionals",
@@ -188,7 +190,7 @@ export const cleaningServices = [
   {
     title: "Commercial Cleaning",
     description:
-      "Professional cleaning services for offices, retail stores, and industrial spaces with specialized maintenance solutions",
+      "Professional cleaning services for offices, retail stores, and industrial spaces in Dubai and Dhaka with specialized maintenance solutions",
     features: [
       "Office cleaning services",
       "Retail store maintenance",
@@ -199,7 +201,7 @@ export const cleaningServices = [
   {
     title: "Specialized Services",
     description:
-      "Expert window cleaning, carpet deep cleaning, and specialized sanitation services for unique requirements",
+      "Expert window cleaning, carpet deep cleaning, and specialized sanitation services for unique requirements in Dubai and Dhaka",
     features: [
       "Professional window cleaning",
       "Deep carpet cleaning services",

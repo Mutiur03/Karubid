@@ -11,7 +11,6 @@ import {
     X,
     Sparkles,
     Shield,
-    Leaf,
     Award,
     Users,
     Star
@@ -21,7 +20,7 @@ import Consultation from '@/components/Consultation';
 const beforeAfterProjects = [
     {
         title: "Corporate Office Deep Clean",
-        location: "Gulshan Business District, Dhaka",
+        location: "Business District, Dubai & Dhaka",
         before: "https://readdy.ai/api/search-image?query=messy%20corporate%20office%20space%20with%20dusty%20surfaces%20cluttered%20desks%20stained%20carpets%20and%20dirty%20windows%20before%20professional%20cleaning%20service&width=400&height=300&seq=before1&orientation=landscape",
         after: "https://readdy.ai/api/search-image?query=pristine%20modern%20corporate%20office%20space%20with%20gleaming%20floors%20spotless%20glass%20surfaces%20professional%20cleaning%20results%20bright%20contemporary%20workspace&width=400&height=300&seq=after1&orientation=landscape"
     },
@@ -31,7 +30,7 @@ const beforeAfterProjects = [
         after:
             "https://readdy.ai/api/search-image?query=immaculate%20luxury%20hotel%20lobby%20with%20polished%20marble%20floors%20crystal%20clear%20glass%20pristine%20furniture%20elegant%20hospitality%20cleaning%20results&width=400&height=300&seq=after2&orientation=landscape",
         title: "Luxury Hotel Lobby",
-        location: "Chittagong",
+        location: "Dubai & Dhaka",
     },
     {
         before:
@@ -39,7 +38,7 @@ const beforeAfterProjects = [
         after:
             "https://readdy.ai/api/search-image?query=spotless%20modern%20residential%20living%20room%20with%20pristine%20furniture%20gleaming%20surfaces%20fresh%20clean%20home%20environment%20professional%20results&width=400&height=300&seq=after3&orientation=landscape",
         title: "Residential Deep Clean",
-        location: "Dhanmondi, Dhaka",
+        location: "Dubai & Dhaka",
     },
 ];
 const CleaningPage: React.FC = () => {
@@ -101,23 +100,23 @@ const CleaningPage: React.FC = () => {
     const keyFacts = [
         {
             title: "Years in Business",
-            value: "1 year",
-            description: "Established cleaning service provider in Bangladesh"
+            value: "10+ year",
+            description: "Established cleaning service provider in Dubai & Dhaka"
         },
         {
             title: "Completed Projects",
             value: "Over 50",
-            description: "Successfully completed cleaning projects"
+            description: "Successfully completed cleaning projects in Dubai & Dhaka"
         },
         {
             title: "Client Satisfaction",
             value: "150+ satisfied clients",
-            description: "Happy customers across Bangladesh"
+            description: "Happy customers across Dubai & Dhaka"
         },
         {
             title: "Team Experience",
             value: "25 professionals",
-            description: "Experienced and trained cleaning staff"
+            description: "Experienced and trained cleaning staff in Dubai & Dhaka"
         },
         {
             title: "Service Commitment",
@@ -1048,7 +1047,7 @@ const CleaningPage: React.FC = () => {
                                 className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4 border border-accent/20"
                                 whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
                             >
-                                Eco-Friendly
+                                Contact & Location
                             </motion.div>
                             <motion.h2
                                 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6"
@@ -1057,53 +1056,46 @@ const CleaningPage: React.FC = () => {
                                 viewport={{ once: true, amount: 0.1 }}
                                 transition={{ duration: 0.4, delay: 0.1 }}
                             >
-                                Sustainable Cleaning Solutions
+                                Karubid Technical Services L.L.C
                             </motion.h2>
                             <div className="space-y-4 sm:space-y-6">
-                                {[{
-                                    icon: Leaf,
-                                    title: "Green Certified Products",
-                                    desc: "We use only environmentally certified cleaning products that are safe for your family, pets, and the planet."
-                                },
-                                {
-                                    icon: Shield,
-                                    title: "Health-Safe Practices",
-                                    desc: "Our cleaning methods prioritize indoor air quality and eliminate harmful chemicals from your environment."
-                                },
-                                {
-                                    icon: Award,
-                                    title: "Environmental Certifications",
-                                    desc: "Certified by leading environmental organizations for our commitment to sustainable cleaning practices."
-                                }].map((feature, index) => (
-                                    <motion.div
-                                        key={index}
-                                        className="flex items-start"
-                                        initial={{ opacity: 0, y: 15 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        viewport={{ once: true, amount: 0.1 }}
-                                        transition={{ duration: 0.4, delay: index * 0.05 + 0.15 }}
-                                        whileHover={{ x: 8, transition: { duration: 0.2 } }}
-                                    >
-                                        <motion.div
-                                            className="bg-gradient-to-br from-accent/10 to-accent/20 w-10 sm:w-12 h-10 sm:h-12 rounded-2xl flex items-center justify-center mr-4 border border-accent/20"
-                                            whileHover={{
-                                                scale: 1.1,
-                                                rotate: 5,
-                                                transition: { duration: 0.2 }
-                                            }}
-                                        >
-                                            <feature.icon className="w-10 sm:w-12 h-5 sm:h-6 text-accent" />
-                                        </motion.div>
-                                        <div>
-                                            <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-2">
-                                                {feature.title}
-                                            </h3>
-                                            <p className="text-muted-foreground text-sm sm:text-base">
-                                                {feature.desc}
-                                            </p>
-                                        </div>
-                                    </motion.div>
-                                ))}
+                                <div>
+                                    <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-2">
+                                        Office Address
+                                    </h3>
+                                    <p className="text-muted-foreground text-sm sm:text-base">
+                                        Office - 6-071, M Floor, Abdulla Kamber Business Centre - Office-6, Hor Al Anz, Dubai, UAE.
+                                    </p>
+                                    <p className="text-muted-foreground text-sm sm:text-base">
+                                        Land Mark: Beside Abu Baker Al Siddique Metro Station
+                                    </p>
+                                    <p className="text-muted-foreground text-sm sm:text-base">
+                                        Landline: +971 4 528 4067
+                                    </p>
+                                    <p className="text-muted-foreground text-sm sm:text-base">
+                                        Locations: Dubai, UAE & Dhaka, Bangladesh
+                                    </p>
+                                </div>
+                                <div>
+                                    <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-2">
+                                        Email Contacts
+                                    </h3>
+                                    <ul className="text-muted-foreground text-sm sm:text-base space-y-1">
+                                        <li>info@karubidtech.com</li>
+                                        <li>ashfaq@karubidtech.com</li>
+                                        <li>mohiuddin@karubidtech.com</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-2">
+                                        Eco-Friendly Features
+                                    </h3>
+                                    <ul className="text-muted-foreground text-sm sm:text-base space-y-1">
+                                        <li>Green Certified Products</li>
+                                        <li>Health-Safe Practices</li>
+                                        <li>Environmental Certifications</li>
+                                    </ul>
+                                </div>
                             </div>
                         </motion.div>
                         <motion.div

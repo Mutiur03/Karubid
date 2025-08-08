@@ -15,12 +15,9 @@ import {
     Star,
     Crown,
     MapPin,
-    Mail,
-    Phone,
     ChevronLeft,
     ChevronRight,
     Eye,
-    Medal,
     Grid3X3,
     X,
 } from "lucide-react";
@@ -31,10 +28,11 @@ const InteriorPage = () => {
     const [selectedFilter, setSelectedFilter] = useState("all");
     const [selectedPackage, setSelectedPackage] = useState<string | null>(null);
 
+    // Update before/after projects to Dubai and Dhaka
     const beforeAfterProjects = [
         {
             title: "Modern Living Room Transformation",
-            location: "Dhanmondi, Dhaka",
+            location: "Dubai, UAE",
             before:
                 "https://readdy.ai/api/search-image?query=outdated%20living%20room%20with%20old%20furniture%20beige%20walls%20traditional%20decor%20before%20renovation%20simple%20interior%20space%20needing%20modern%20update&width=600&height=400&seq=before1&orientation=landscape",
             after:
@@ -42,7 +40,7 @@ const InteriorPage = () => {
         },
         {
             title: "Executive Office Redesign",
-            location: "Gulshan, Dhaka",
+            location: "Dhaka, Bangladesh",
             before:
                 "https://readdy.ai/api/search-image?query=traditional%20office%20space%20with%20basic%20furniture%20plain%20walls%20outdated%20corporate%20interior%20before%20professional%20renovation%20simple%20workspace&width=600&height=400&seq=before2&orientation=landscape",
             after:
@@ -50,7 +48,7 @@ const InteriorPage = () => {
         },
         {
             title: "Master Bedroom Suite",
-            location: "Banani, Dhaka",
+            location: "Dubai, UAE",
             before:
                 "https://readdy.ai/api/search-image?query=basic%20bedroom%20with%20simple%20furniture%20plain%20white%20walls%20minimal%20decor%20before%20luxury%20renovation%20standard%20residential%20interior&width=600&height=400&seq=before3&orientation=landscape",
             after:
@@ -58,83 +56,85 @@ const InteriorPage = () => {
         },
     ];
 
+    // Update portfolio projects to Dubai and Dhaka
     const portfolioProjects = [
         {
             title: "Luxury Apartment",
             category: "Residential",
-            location: "Uttara, Dhaka",
+            location: "Dubai, UAE",
             image:
                 "https://readdy.ai/api/search-image?query=stunning%20luxury%20penthouse%20interior%20with%20floor%20to%20ceiling%20windows%20modern%20furniture%20navy%20blue%20and%20gold%20accents%20sophisticated%20living%20space&width=400&height=300&seq=portfolio1&orientation=landscape",
         },
         {
             title: "Corporate Headquarters",
             category: "Commercial",
-            location: "Motijheel, Dhaka",
+            location: "Dhaka, Bangladesh",
             image:
                 "https://readdy.ai/api/search-image?query=modern%20corporate%20office%20interior%20with%20open%20plan%20design%20professional%20furniture%20navy%20blue%20and%20gold%20color%20scheme%20contemporary%20workspace&width=400&height=300&seq=portfolio2&orientation=landscape",
         },
         {
             title: "Boutique Hotel Lobby",
             category: "Commercial",
-            location: "Chittagong",
+            location: "Dubai, UAE",
             image:
                 "https://readdy.ai/api/search-image?query=elegant%20hotel%20lobby%20with%20luxury%20seating%20marble%20floors%20sophisticated%20lighting%20navy%20blue%20and%20gold%20interior%20design%20hospitality%20space&width=400&height=300&seq=portfolio3&orientation=landscape",
         },
         {
             title: "Family Villa",
             category: "Residential",
-            location: "Bashundhara, Dhaka",
+            location: "Dhaka, Bangladesh",
             image:
                 "https://readdy.ai/api/search-image?query=beautiful%20family%20villa%20interior%20with%20comfortable%20seating%20warm%20lighting%20navy%20blue%20and%20gold%20accents%20elegant%20residential%20design&width=400&height=300&seq=portfolio4&orientation=landscape",
         },
         {
             title: "Restaurant Interior",
             category: "Commercial",
-            location: "Sylhet",
+            location: "Dubai, UAE",
             image:
                 "https://readdy.ai/api/search-image?query=upscale%20restaurant%20interior%20with%20elegant%20dining%20tables%20sophisticated%20lighting%20navy%20blue%20and%20gold%20color%20scheme%20luxury%20dining%20space&width=400&height=300&seq=portfolio5&orientation=landscape",
         },
         {
             title: "Modern Apartment",
             category: "Residential",
-            location: "Mirpur, Dhaka",
+            location: "Dhaka, Bangladesh",
             image:
                 "https://readdy.ai/api/search-image?query=contemporary%20apartment%20interior%20with%20modern%20furniture%20clean%20lines%20navy%20blue%20and%20gold%20accents%20sophisticated%20residential%20design&width=400&height=300&seq=portfolio6&orientation=landscape",
         },
     ];
 
-    const teamMembers = [
-        {
-            name: "Fatima Rahman",
-            title: "Lead Interior Designer",
-            specialization: "Luxury Residential Design",
-            bio: "With over 12 years of experience in high-end residential projects, Fatima brings a unique blend of traditional Bangladeshi aesthetics and contemporary design principles.",
-            image:
-                "https://readdy.ai/api/search-image?query=professional%20female%20interior%20designer%20in%20elegant%20business%20attire%20smiling%20confidently%20against%20clean%20white%20background%20creative%20professional%20portrait&width=300&height=400&seq=team1&orientation=portrait",
-            email: "fatima@karubiddesign.com",
-            phone: "+880 1712 345 678",
-        },
-        {
-            name: "Ahmed Hassan",
-            title: "Commercial Design Director",
-            specialization: "Corporate & Hospitality",
-            bio: "Ahmed specializes in creating functional yet luxurious commercial spaces. His portfolio includes prestigious hotels, offices, and retail environments across Bangladesh.",
-            image:
-                "https://readdy.ai/api/search-image?query=professional%20male%20interior%20designer%20in%20navy%20blazer%20smiling%20warmly%20against%20clean%20white%20background%20creative%20director%20portrait&width=300&height=400&seq=team2&orientation=portrait",
-            email: "ahmed@karubiddesign.com",
-            phone: "+880 1812 234 567",
-        },
-        {
-            name: "Nusrat Jahan",
-            title: "Senior Design Consultant",
-            specialization: "Space Planning & Color Theory",
-            bio: "Nusrat's expertise in space optimization and color psychology helps create harmonious environments that enhance both functionality and aesthetic appeal.",
-            image:
-                "https://readdy.ai/api/search-image?query=elegant%20female%20design%20consultant%20wearing%20professional%20attire%20smiling%20professionally%20against%20clean%20white%20background%20interior%20design%20expert&width=300&height=400&seq=team3&orientation=portrait",
-            email: "nusrat@karubiddesign.com",
-            phone: "+880 1912 345 678",
-        },
-    ];
+    // Update team members and emails
+    // const teamMembers = [
+    //     {
+    //         name: "Ashfaq Ahmed",
+    //         title: "Managing Director",
+    //         specialization: "Dubai & Dhaka Project Management",
+    //         bio: "Ashfaq leads Karubid Technical Services with expertise in managing high-end projects across Dubai and Dhaka, ensuring seamless execution and client satisfaction.",
+    //         image:
+    //             "https://readdy.ai/api/search-image?query=professional%20male%20managing%20director%20dubai%20business%20attire%20smiling%20confidently%20against%20clean%20white%20background%20creative%20professional%20portrait&width=300&height=400&seq=team1&orientation=portrait",
+    //         email: "ashfaq@karubidtech.com",
+    //         phone: "+971 4 528 4067",
+    //     },
+    //     {
+    //         name: "Mohiuddin Chowdhury",
+    //         title: "Technical Director",
+    //         specialization: "Interior Fit-Out Dubai & Dhaka",
+    //         bio: "Mohiuddin specializes in technical solutions and fit-out services for Dubai and Dhaka, bringing innovation and precision to every project.",
+    //         image:
+    //             "https://readdy.ai/api/search-image?query=professional%20male%20technical%20director%20dubai%20navy%20blazer%20smiling%20warmly%20against%20clean%20white%20background%20creative%20director%20portrait&width=300&height=400&seq=team2&orientation=portrait",
+    //         email: "mohiuddin@karubidtech.com",
+    //         phone: "+971 4 528 4067",
+    //     },
+    //     {
+    //         name: "Fatima Rahman",
+    //         title: "Lead Interior Designer",
+    //         specialization: "Luxury Residential & Commercial Design",
+    //         bio: "Fatima brings a unique blend of Dubai and Dhaka aesthetics to luxury residential and commercial projects, with over 12 years of international experience.",
+    //         image:
+    //             "https://readdy.ai/api/search-image?query=professional%20female%20interior%20designer%20dubai%20elegant%20business%20attire%20smiling%20confidently%20against%20clean%20white%20background%20creative%20professional%20portrait&width=300&height=400&seq=team3&orientation=portrait",
+    //         email: "info@karubidtech.com",
+    //         phone: "+971 4 528 4067",
+    //     },
+    // ];
 
     const designProcess = [
         {
@@ -355,39 +355,50 @@ const InteriorPage = () => {
                             Key Facts and Figures
                         </h2>
                         <p className="text-xl text-background/70 max-w-3xl mx-auto mb-8">
-                            Transforming spaces into aesthetically pleasing and functional environments with our expertise and experience
+                            Transforming spaces in Dubai and Dhaka into aesthetically pleasing and functional environments with our expertise and experience
                         </p>
                     </div>
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                         <div className="text-center bg-background/10 backdrop-blur-sm rounded-3xl p-8 border border-background/20 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                             <div className="text-4xl font-bold text-accent mb-2">10+</div>
-                            <div className="text-background/80">Years in Business across Bangladesh</div>
+                            <div className="text-background/80">Years in Business across Dubai & Dhaka</div>
                         </div>
                         <div className="text-center bg-background/10 backdrop-blur-sm rounded-3xl p-8 border border-background/20 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                             <div className="text-4xl font-bold text-accent mb-2">500+</div>
-                            <div className="text-background/80">Projects completed nationwide</div>
+                            <div className="text-background/80">Projects completed in Dubai & Dhaka</div>
                         </div>
                         <div className="text-center bg-background/10 backdrop-blur-sm rounded-3xl p-8 border border-background/20 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                             <div className="text-4xl font-bold text-accent mb-2">100+</div>
-                            <div className="text-background/80">Satisfied Clients in Bangladesh</div>
+                            <div className="text-background/80">Satisfied Clients in Dubai & Dhaka</div>
                         </div>
                         <div className="text-center bg-background/10 backdrop-blur-sm rounded-3xl p-8 border border-background/20 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                             <div className="text-4xl font-bold text-accent mb-2">25+</div>
-                            <div className="text-background/80">Team of experienced professionals</div>
+                            <div className="text-background/80">Team of experienced professionals in Dubai & Dhaka</div>
                         </div>
                     </div>
                     <div className="grid md:grid-cols-3 gap-8 mt-8">
                         <div className="text-center bg-background/10 backdrop-blur-sm rounded-3xl p-8 border border-background/20 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                             <div className="text-3xl font-bold text-accent mb-2">Sustainability</div>
-                            <div className="text-background/80">Committed to using eco-friendly materials and practices in all projects</div>
+                            <div className="text-background/80">Committed to using eco-friendly materials and practices in all Dubai & Dhaka projects</div>
                         </div>
                         <div className="text-center bg-background/10 backdrop-blur-sm rounded-3xl p-8 border border-background/20 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                             <div className="text-3xl font-bold text-accent mb-2">Quality</div>
-                            <div className="text-background/80">Rigorous quality control measures ensure excellence in every project</div>
+                            <div className="text-background/80">Rigorous quality control measures ensure excellence in every Dubai & Dhaka project</div>
                         </div>
                         <div className="text-center bg-background/10 backdrop-blur-sm rounded-3xl p-8 border border-background/20 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                             <div className="text-3xl font-bold text-accent mb-2">98%</div>
-                            <div className="text-background/80">Client Satisfaction Rate</div>
+                            <div className="text-background/80">Client Satisfaction Rate in Dubai & Dhaka</div>
+                        </div>
+                    </div>
+                    {/* Company Address and Contact */}
+                    <div className="mt-12 text-center">
+                        <div className="inline-block bg-background/10 rounded-3xl p-6 border border-background/20">
+                            <div className="text-lg font-bold text-accent mb-2">Karubid Technical Services L.L.C</div>
+                            <div className="text-background/80 mb-1">Office - 6-071, M Floor, Abdulla Kamber Business Centre - Office-6, Hor Al Anz, Dubai, UAE.</div>
+                            <div className="text-background/80 mb-1">Land Mark: Beside Abu Baker Al Siddique Metro Station</div>
+                            <div className="text-background/80 mb-1">Landline: +971 4 528 4067</div>
+                            <div className="text-background/80 mb-1">Email: <a href="mailto:info@karubidtech.com" className="text-accent underline">info@karubidtech.com</a></div>
+                            <div className="text-background/80">Locations: Dubai, UAE & Dhaka, Bangladesh</div>
                         </div>
                     </div>
                 </div>
@@ -644,7 +655,8 @@ const InteriorPage = () => {
                 </div>
             </section>
 
-            {/* Team Section */}
+            {/* Design Team Section - COMMENTED OUT */}
+            {/*
             <section id="team" className="py-20 bg-background">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center mb-16">
@@ -665,7 +677,7 @@ const InteriorPage = () => {
                                 key={index}
                                 className="group relative bg-card p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden border border-border"
                             >
-                                {/* Background pattern */}
+                                {/* Background pattern *}
                                 <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                                 <div className="relative text-center mb-6">
@@ -675,10 +687,10 @@ const InteriorPage = () => {
                                             alt={member.name}
                                             className="w-32 h-40 object-cover rounded-2xl mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-500 transform group-hover:scale-105"
                                         />
-                                        {/* Image overlay */}
+                                        {/* Image overlay *}
                                         <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                                        {/* Decorative elements */}
+                                        {/* Decorative elements *}
                                         <div className="absolute -top-2 -right-2 w-6 h-6 bg-accent rounded-full flex items-center justify-center">
                                             <Star className="w-3 h-3 text-accent-foreground" />
                                         </div>
@@ -715,13 +727,14 @@ const InteriorPage = () => {
                                     </div>
                                 </div>
 
-                                {/* Decorative corner element */}
+                                {/* Decorative corner element *}
                                 <div className="absolute top-4 right-4 w-8 h-8 bg-accent/5 rounded-full group-hover:bg-accent/10 transition-colors duration-500 border border-accent/20"></div>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
+            */}
 
             {/* Pricing Packages */}
             <section className="py-20 bg-gradient-to-br from-muted/50 to-background">

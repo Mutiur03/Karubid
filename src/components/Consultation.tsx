@@ -248,20 +248,22 @@ const Consultation = () => {
                                                         value={formData.phone}
                                                         onChange={(e) => handleInputChange('phone', e.target.value)}
                                                         className="w-full px-3 sm:px-4 py-2 sm:py-2.5 border border-border rounded-lg sm:rounded-xl focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all text-sm sm:text-base"
-                                                        placeholder="+880 1712 XXX XXX"
+                                                        placeholder="+971 50 XXX XXXX or +880 1XXX XXX XXX"
                                                     />
                                                 </div>
                                                 <div>
                                                     <label className="block text-foreground font-medium mb-1.5 text-sm sm:text-base">
                                                         Location
                                                     </label>
-                                                    <input
-                                                        type="text"
+                                                    <select
                                                         value={formData.location}
                                                         onChange={(e) => handleInputChange('location', e.target.value)}
                                                         className="w-full px-3 sm:px-4 py-2 sm:py-2.5 border border-border rounded-lg sm:rounded-xl focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all text-sm sm:text-base"
-                                                        placeholder="Dhaka, Bangladesh"
-                                                    />
+                                                    >
+                                                        <option value="">Select your location</option>
+                                                        <option value="Dubai, UAE">Dubai, UAE</option>
+                                                        <option value="Dhaka, Bangladesh">Dhaka, Bangladesh</option>
+                                                    </select>
                                                 </div>
                                             </div>
 

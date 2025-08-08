@@ -80,7 +80,7 @@ function Hero() {
                                 >
                                     <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
                                 </motion.div>
-                                Premium Services in Dhaka
+                                Premium Services in Dhaka & Dubai
                             </motion.div>
 
                             {/* Main Heading - Better mobile typography */}

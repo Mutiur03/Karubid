@@ -108,7 +108,7 @@ const TechnicalPage: React.FC = () => {
         {
             icon: Calendar,
             label: 'Years in Business',
-            value: '1+',
+            value: '10+',
             description: 'Year of dedicated service'
         },
         {
