@@ -148,8 +148,7 @@ export const contactInfo = [
   {
     icon: Mail,
     title: "Email Address",
-    content:
-      "info@karubidtech.com",
+    content: "info@karubidtech.com",
     color: "accent",
   },
   {
@@ -161,7 +160,7 @@ export const contactInfo = [
   {
     icon: ClockIcon,
     title: "Business Hours",
-    content: "Saturday - Thursday: 9AM - 6PM\nFriday: Closed",
+    content: "Monday- Saturday: 9AM - 6PM\nSunday: Closed",
     color: "accent",
   },
 ];
