@@ -35,10 +35,4 @@ Karubid is a modern interior design and fit-out solutions platform for Banglades
    npm run build
    ```
 
-## Folder Structure
-
-- `src/pages/InteriorPage.tsx` – Main interior design page
-- `src/components/` – Reusable UI components
-- `src/index.css` – Tailwind and custom styles
-- `index.html` – App entry point
 
